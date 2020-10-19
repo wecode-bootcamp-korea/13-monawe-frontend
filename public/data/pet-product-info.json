@@ -1,0 +1,30 @@
+{ 
+    "myPetInfo":{
+      "breed": "골든리트리버",
+      "age": "5세1개월"
+    },
+  ​
+    "petProductInfo": 
+    {
+      "productName": "NOW 나우 그레인프리 스몰 브리드 어덜트 2.72kg / 5.4kg / 11.25kg",
+      "information": ["크기무관", "어덜트", "보통알갱이(~13mm)", "2.72kg", "11.25kg"], 
+      "mainIngredients":  ["채소", "생선류", "칠면조", "계란"],
+      "ingredients":  "100% 신선한 생고기(칠면조, 오리, 연어),코코넛오일, 프리바이오틱스" ,
+      "price": 18000 ,
+      "stock": 153,
+      "subscription": true
+    }, 
+  ​
+    "averageRating" : 4.5,
+  ​
+    "petProductReview": [
+      { 
+        "account": "leejyart",
+        "title":  "믿고 구입..",
+        "imageUrl":  "http://example.com/target",
+        "content" : "오리젠사료 항상 믿고 구입합니다. 유통기한이 내년 10월로 아주 넉넉하네요. 전에는 사은품도 주셔서 좋았는데 없어져서 좀 아쉽네요.",
+        "date":"2020-09-26",
+        "rating": 4
+      } 
+    ] 
+  }
