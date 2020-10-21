@@ -266,7 +266,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -281,7 +287,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -296,7 +308,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -311,7 +329,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -326,7 +350,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -341,7 +371,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -356,7 +392,13 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
               <div className="item">
                 <strong class="itemTitle">
@@ -371,10 +413,26 @@ class DetailPage extends Component {
                   <span>Npay</span>
                   <span>2020.10.21</span>
                 </div>
-                <div className="smallStarGrade"></div>
+                <div className="smallStarGrade">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
               </div>
             </div>
-            <div className="listPaging"></div>
+            <div className="listPaging">
+              <div></div>
+              <div></div>
+              <div>
+                <span>1</span>
+              </div>
+              <div>2</div>
+              <div>3</div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>

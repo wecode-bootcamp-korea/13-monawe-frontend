@@ -565,11 +565,46 @@
             justify-content: space-between;
             border-bottom: 1px solid #ececec;
           }
+
+          .smallStarGrade {
+            display: flex;
+
+            i {
+              width: 18px;
+              padding-top: 10px;
+              color: grey;
+            }
+          }
         }
       }
 
       .listPaging {
-        margin-top: 500px;
+        margin-top: 250px;
+        margin-bottom: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        :nth-child(3) {
+          background: #666666;
+        }
+
+        div {
+          padding-left: 20px;
+          display: flex;
+          text-align: center;
+          align-items: center;
+          span {
+            color: white;
+          }
+
+          text-align: center;
+          text-align: bottom;
+          width: 50px;
+          height: 50px;
+          border-color: black;
+        }
       }
     }
   }
