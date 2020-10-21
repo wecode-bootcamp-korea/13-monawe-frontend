@@ -1,0 +1,74 @@
+{
+  "productList":[
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    },
+    {
+      "productName":  "153 블랙&화이트",
+      "group": "153프리미엄",
+      "price": 17000,
+      "imageUrl": "sampleurl.com",
+      "addDate" : "2020-01-01"
+    }
+  ]
+}

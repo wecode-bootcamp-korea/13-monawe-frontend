@@ -1,11 +1,14 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
+*{
   text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html {
+  font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕",
+    Dotum, "돋움";
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
   outline: none;
-  padding: 0;
-  margin: 0;
-  border: 0;
 }
 @mixin flex-center {
   display: flex;
@@ -23,5 +26,4 @@
   justify-content: space-between;
   align-items: center;
 }
-
 $theme-color: rgb(196, 15, 57);
