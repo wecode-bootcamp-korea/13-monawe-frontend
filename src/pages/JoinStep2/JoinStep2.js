@@ -24,26 +24,11 @@ class JoinStep2 extends Component {
     };
   }
 
-  /*const APIforIdCheck = "http://localhost:3000/data/account.json";
-    const {
-      account,
-    } = this.state;
-    fetch(APIforIdCheck, {
-      method: "POST",
-      body: JSON.stringify({
-        account: account
-      })
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log("백엔드에서 오는 응답 메세지:", result);
-      }); */
-
   handleInput = e => {
     e.preventDefault();
     const { value, name } = e.target;
     this.setState({
-      [name]: value
+      [name]: String(value)
     });
     console.log(this.state);
   };
@@ -62,6 +47,75 @@ class JoinStep2 extends Component {
       [name]: !this.state.emailAgreement
     });
     console.log(this.state);
+  };
+
+  checkId = () => {
+    const APIforIdCheck = "http://localhost:3000/data/account.json";
+    const { account } = this.state;
+    fetch(APIforIdCheck, {
+      method: "POST",
+      body: JSON.stringify({
+        account: account
+      })
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log("백엔드에서 오는 응답 메세지:", result);
+      });
+  };
+
+  checkEmail = () => {
+    const APIforEmailCheck = "http://localhost:3000/data/email.json";
+    const { email } = this.state;
+    fetch(APIforEmailCheck, {
+      method: "POST",
+      body: JSON.stringify({
+        email: email
+      })
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log("백엔드에서 오는 응답 메세지:", result);
+      });
+  };
+
+  isPwInfoValid = password => {
+    let number = /[0-9]/g;
+    let character = /[a-zA-z]/g;
+    let specialCharacter = /\W|_/g;
+    const isNumIncluded = password.match(number) ? true : false;
+    const isCharIncluded = password.match(character) ? true : false;
+    const isSpecialCharIncluded = password.match(specialCharacter)
+      ? true
+      : false;
+    const isPwLong = password.length >= 6 && password.length <= 16;
+    if (
+      ((isNumIncluded && isSpecialCharIncluded) ||
+        (isNumIncluded && isCharIncluded) ||
+        (isCharIncluded && isSpecialCharIncluded)) &&
+      isPwLong
+    ) {
+      return true;
+    } else return false;
+  };
+
+  isInputNull = () => {
+    const { name, account, password, email, phoneNumber } = this.state;
+    name === ""
+      ? this.setState({ isNameNull: false })
+      : this.setState({ isNameNull: true });
+    account === ""
+      ? this.setState({ isAccountNull: false })
+      : this.setState({ isAccountNull: true });
+    password === ""
+      ? this.setState({ isPasswordNull: false })
+      : this.setState({ isPasswordNull: true });
+    email === ""
+      ? this.setState({ isEmailNull: false })
+      : this.setState({ isEmailNull: true });
+    phoneNumber === ""
+      ? this.setState({ isPhoneNumberNull: false })
+      : this.setState({ isPhoneNumberNull: true });
   };
 
   checkValidation = e => {
@@ -86,83 +140,17 @@ class JoinStep2 extends Component {
     console.log("필수정보 모두 기입?", isEssentialInfoValid);
     const isPasswordSame = password === confirmPw;
     console.log("비밀번호가 같은가요?", isPasswordSame);
-
-    const isPwInfoValid = password => {
-      let number = /[0-9]/g;
-      let character = /[a-zA-z]/g;
-      let specialCharacter = /\W|_/g;
-      const isNumIncluded = password.match(number) ? true : false;
-      const isCharIncluded = password.match(character) ? true : false;
-      const isSpecialCharIncluded = password.match(specialCharacter)
-        ? true
-        : false;
-      const isPwLong = password.length >= 6 && password.length <= 16;
-      if (
-        ((isNumIncluded && isSpecialCharIncluded) ||
-          (isNumIncluded && isCharIncluded) ||
-          (isCharIncluded && isSpecialCharIncluded)) &&
-        isPwLong
-      ) {
-        return true;
-      } else return false;
-    };
-    console.log("비밀번호 valid?", isPwInfoValid(password));
-
+    console.log("비밀번호 valid?", this.isPwInfoValid(password));
     const isIdValid = account.length >= 5 && account.length <= 16;
     console.log("아이디 valid?", isIdValid);
-
-    if (name === "") {
-      this.setState({
-        isNameNull: false
-      });
-    } else {
-      this.setState({
-        isNameNull: true
-      });
-    }
-    if (account === "") {
-      this.setState({
-        isAccountNull: false
-      });
-    } else {
-      this.setState({
-        isAccountNull: true
-      });
-    }
-    if (password === "") {
-      this.setState({
-        isPasswordNull: false
-      });
-    } else {
-      this.setState({
-        isPasswordNull: true
-      });
-    }
-    if (email === "") {
-      this.setState({
-        isEmailNull: false
-      });
-    } else {
-      this.setState({
-        isEmailNull: true
-      });
-    }
-    if (phoneNumber === "") {
-      this.setState({
-        isPhoneNumberNull: false
-      });
-    } else {
-      this.setState({
-        isPhoneNumberNull: true
-      });
-    }
+    this.isInputNull();
     if (
       isEssentialInfoValid &&
       isPasswordSame &&
-      isPwInfoValid(password) &&
+      this.isPwInfoValid(password) &&
       isIdValid
     ) {
-      const APIforRegister = "http://localhost:3000/data/register.json";
+      const APIforRegister = "http://10.58.0.159:8000/user/signup";
       fetch(APIforRegister, {
         method: "POST",
         body: JSON.stringify({
@@ -178,14 +166,12 @@ class JoinStep2 extends Component {
       })
         .then(response => response.json())
         .then(result => {
-          //console.log("백엔드에서 오는 응답 메세지:", result);
-          if (this.checkValidation && result.success) {
+          console.log("result >>> ", result);
+          if (result.message === "SIGNUP_SUCCESS") {
             alert("회원가입 완료");
             this.props.history.push("/");
           }
         });
-    } else {
-      alert("회원가입 양식을 확인하세요.");
     }
   };
 
@@ -294,7 +280,7 @@ class JoinStep2 extends Component {
                         ⓘ 이메일을 입력해주세요.
                       </span>
                     </div>
-                    <button>중복확인</button>
+                    <button onClick={this.checkId}>중복확인</button>
                   </div>
                 </li>
                 <li>
@@ -318,6 +304,7 @@ class JoinStep2 extends Component {
                     <input
                       name="dateOfBirth"
                       type="text"
+                      pattern="[~ s/[-\s]//g]"
                       placeholder="숫자만 입력(8자리)"
                       maxLength="8"
                       onChange={this.handleInput}
