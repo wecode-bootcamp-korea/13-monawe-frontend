@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import Nav from "../components/Nav/Nav";
 import "./MainPage.scss";
 
-class Main extends Component {
+class MainPage extends Component {
   render() {
     return (
       <div>
-        <h1>h1</h1>  
+        <header>
+          <Nav />
+        </header>
       </div>
     );
   }
 }
 
-export default Main;
+export default MainPage;

@@ -1,39 +1,99 @@
 {
-    "stationery":{
-      "category" : [
+  "menus" : [
+    {
+      "koreanName" : "문구",
+      "englishName" : "Stationery",
+      "categories" : [
         {
           "title": "프리미엄 펜",
-          "group":["153프리미엄", "데스크펜/스마트펜","파카"]
+          "subcategories":["153프리미엄", "데스크펜/스마트펜","파카"]
         },
         {
           "title": "펜/펜슬",
-          "group":["볼펜", "수성펜/사인펜"]
+          "subcategories":["볼펜", "수성펜/사인펜"]
         }
       ]
     },
-  ​
-    "monamiPet":{
-      "category": [
-        { 
-          "for" : "dog",
-          "title": "사료",
-          "group":["건식사료", "습식사료", "퍼피"]
+    {
+      "koreanName" : "모나미펫",
+      "englishName": "MonawePet",
+      "dog":{
+        "categories": [
+          {
+            "title": "사료",
+            "subcategories" : ["건식사료", "습식사료", "퍼피", "어덜트", "시니어"]
+          },
+          {
+            "title" : "간식",
+            "subcategories" : ["동결건조간식", "껌", "저키/트릿", "비스킷/소시지", "캔/파우치", "수제간식영양제"]
+          },
+          {
+            "title":"용품",
+            "subcategories":["홈리빙", "배변", "그루밍", "외출", "놀이/훈련", "패션"]
+          },
+          {
+            "title": "프리미엄식품관",
+            "subcategories":["K9", "맥아담스", "카나간", "헤일로", "오리젠", "윔지스"]
+          }
+        ]
+      },
+      "cat":{
+        "categories": [
+          {
+            "title": "사료",
+            "subcategories" : ["건식사료", "습식사료", "키튼", "어덜트", "시니어"]
+          },
+          {
+            "title" : "간식",
+            "subcategories" : ["동결건조간식", "저키/트릿", "비스킷/소시지", "캔/파우치", "수제간식영양제", "캣닢/캣그라스"]
+          },
+          {
+            "title":"용품",
+            "subcategories":["홈리빙", "배변", "그루밍", "외출", "놀이/훈련", "패션"]
+          },
+          {
+            "title": "프리미엄식품관",
+            "subcategories":["K9(필라인)", "RAWZ", "아카나", "헤일로", "오리젠", "게더"]
+          }
+        ] 
+      }
+    },
+    {
+      "koreanName" : "취미DIY",
+      "englishName": "Craft&hobby",
+      "subcategories" : ["DY/KIT", "아트/북", "잉크랩", "클래스"]
+    },
+    {
+      "koreanName" : "모나르떼",
+      "englishName": "monarte",
+      "subcategories" : ["모나르떼"]
+    },
+    {
+      "koreanName" : "스토리픽",
+      "englishName": "StoryPick",
+      "categories": [
+        {
+          "title": "stationery",
+          "subcategories" : ["필기", "취미"]
         },
-        { 
-          "for" : "dog",
-          "title": "간식",
-          "group":["동결건조간식", "껌", "저키/트릿"]
+        {
+          "title": "monamipet",
+          "subcategories" : ["puppy's diary", "훈련", "노하우", "일상", "푸드"]
         },
-        { 
-          "for" : "cat",
-          "title": "사료",
-          "group":["건식사료", "습식사료", "키튼"]
+        {
+          "title": "craft&hobby",
+          "subcategories" : ["diy", "gift", "인테리어"]
         },
-        { 
-          "for" : "cat",
-          "title": "간식",
-          "group":["동결건조간식", "껌", "저키/트릿"]
+        {
+          "title": "monarte",
+          "subcategories" : ["교육", "미술"]
         }
       ]
+    },
+    {
+      "koreanName" : "이벤트",
+      "englishName": "Event",
+      "subcategories" : ["이벤트", "기획전", "아울렛"]
     }
-  }
+  ]  
+}
