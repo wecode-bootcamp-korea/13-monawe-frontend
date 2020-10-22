@@ -6,16 +6,28 @@
       "categories" : [
         {
           "title": "프리미엄 펜",
-          "subcategories":["153프리미엄", "데스크펜/스마트펜","파카"]
+          "subcategories":["153프리미엄", "데스크펜/스마트펜","파카","카렌다쉬","카웨코","메뉴스크립트"]
         },
         {
           "title": "펜/펜슬",
-          "subcategories":["볼펜", "수성펜/사인펜"]
+          "subcategories":["볼펜", "수성펜/사인펜","연필/샤프","형광펜"]
+        },
+        {
+          "title": "마카",
+          "subcategories":["네임펜/유성매직", "생활/보드마카","패브릭/세라믹마카"]
+        },
+        {
+          "title": "컬러링/브러쉬",
+          "subcategories":["컬러링펜","브러쉬펜","미술용품"]
+        },
+        {
+          "title": "디자인문구",
+          "subcategories":["다이어리/노트", "카드/봉투","파우치","풀/스티커/테이프","스탬프","데스크용품","모나위 MD상품"]
         }
       ]
     },
     {
-      "koreanName" : "모나미펫",
+      "koreanName" : "모나위펫",
       "englishName": "MonawePet",
       "dog":{
         "categories": [
@@ -60,7 +72,7 @@
     },
     {
       "koreanName" : "취미DIY",
-      "englishName": "Craft&hobby",
+      "englishName": "Craft&Hobby",
       "subcategories" : ["DY/KIT", "아트/북", "잉크랩", "클래스"]
     },
     {
@@ -73,19 +85,19 @@
       "englishName": "StoryPick",
       "categories": [
         {
-          "title": "stationery",
+          "title": "Stationery",
           "subcategories" : ["필기", "취미"]
         },
         {
-          "title": "monamipet",
-          "subcategories" : ["puppy's diary", "훈련", "노하우", "일상", "푸드"]
+          "title": "Monawepet",
+          "subcategories" : ["Puppy's Diary", "훈련", "노하우", "일상", "푸드"]
         },
         {
-          "title": "craft&hobby",
-          "subcategories" : ["diy", "gift", "인테리어"]
+          "title": "Craft&Hobby",
+          "subcategories" : ["Diy", "Gift", "인테리어"]
         },
         {
-          "title": "monarte",
+          "title": "Monarte",
           "subcategories" : ["교육", "미술"]
         }
       ]

@@ -1,5 +1,4 @@
 @import "../../../Styles/common.scss";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap");
 
 .Nav {
   height: 100px;
@@ -7,7 +6,6 @@
   @include flex-spaceBetween-center;
   font-size: 18px;
   font-weight: 700;
-  // border-bottom: 1px solid black;
   cursor: pointer;
 
   .menuTab {
@@ -38,9 +36,8 @@
 
     ul {
       @include flex-center;
-      flex-direction: row;
 
-      .inactiveMenu {
+      .menu {
         height: 100px;
         margin-right: 30px;
         @include flex-center;
@@ -51,24 +48,20 @@
           display: block;
           font-size: 12px;
           text-align: right;
+        }
+      }
+
+      .inactive {
+        small {
           color: #ffffff;
           visibility: hidden;
         }
       }
 
-      .activeMenu {
-        height: 100px;
-        margin-right: 30px;
-        @include flex-center;
-        flex-direction: column;
+      .active {
         border-bottom: 3px solid #ff3c00;
 
         small {
-          width: 100%;
-          display: block;
-          font-size: 12px;
-          font-weight: 450;
-          text-align: right;
           color: #ff3c00;
           visibility: visible;
           transition-property: color;
@@ -101,11 +94,14 @@
           font-weight: 400;
         }
       }
+
+      i {
+        font-size: 16px;
+      }
     }
 
     .icons {
       @include flex-center;
-      flex-direction: row;
 
       i {
         width: 50px;

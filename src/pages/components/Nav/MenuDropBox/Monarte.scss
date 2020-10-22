@@ -1,0 +1,14 @@
+@import "../../../../Styles//common.scss";
+
+.Monarte {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  li {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+    list-style: none;
+    border-top: 2px solid #f2f2f2;
+  }
+}

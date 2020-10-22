@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import MenuDropBox from "./MenuDropBox/MenuDropBox";
+import Stationery from "./MenuDropBox/Stationery";
+import MonawePet from "./MenuDropBox/MonawePet";
+import CraftHobby from "./MenuDropBox/Craft&Hobby";
+import Monarte from "./MenuDropBox/Monarte";
+import StoryPick from "./MenuDropBox/StoryPick";
+import Event from "./MenuDropBox/Event";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -12,13 +17,9 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/nav.json", { method: "GET" })
+    fetch("/data/nav.json")
       .then(nav => nav.json())
-      .then(nav => {
-        this.setState({
-          menus: nav.menus
-        });
-      });
+      .then(({ menus }) => this.setState({ menus }));
   }
 
   //MouseOver style 변화
@@ -33,7 +34,7 @@ class Nav extends Component {
         <div className="Nav">
           <div className="menuTab">
             <div>
-              <i className="fas fa-bars"></i>
+              <i className="fas fa-bars" />
               <span>
                 monawe<span>mall</span>
               </span>
@@ -42,7 +43,9 @@ class Nav extends Component {
               {menus.map((menu, idx) => (
                 <div
                   key={idx}
-                  className={hoveredIdx === idx ? "activeMenu" : "inactiveMenu"}
+                  className={
+                    hoveredIdx === idx ? "menu active" : "menu inactive"
+                  }
                 >
                   <small>{menu.koreanName}</small>
                   <span onMouseOver={() => this.handleMenuStyle(idx)}>
@@ -57,19 +60,21 @@ class Nav extends Component {
               <span>
                 모나위<span>님&nbsp;&nbsp;</span>
               </span>
-              <i className="fas fa-plus-circle"></i>
+              <i className="fas fa-plus-circle" />
             </div>
             <div className="icons">
-              <i className="fas fa-shopping-bag"></i>
-              <i className="fas fa-user"></i>
-              <i className="fas fa-search"></i>
+              <i className="fas fa-shopping-bag" />
+              <i className="fas fa-user" />
+              <i className="fas fa-search" />
             </div>
           </div>
         </div>
-        <MenuDropBox
-          hoveredIdx={hoveredIdx}
-          categories={menus[hoveredIdx]?.categories}
-        />
+        <Stationery />
+        <MonawePet />
+        <CraftHobby />
+        <Monarte />
+        <StoryPick />
+        <Event />
       </div>
     );
   }

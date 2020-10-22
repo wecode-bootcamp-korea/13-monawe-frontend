@@ -6,9 +6,7 @@ class MainPage extends Component {
   render() {
     return (
       <div>
-        <header>
-          <Nav />
-        </header>
+        <Nav />
       </div>
     );
   }
