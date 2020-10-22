@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MainPage.scss";
 
-class Main extends Component {
+class MainPage extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default MainPage;
