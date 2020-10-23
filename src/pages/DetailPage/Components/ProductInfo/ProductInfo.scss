@@ -3,31 +3,6 @@
   padding-top: 100px;
   margin: 0 auto;
 
-  .location {
-    margin-top: -7px;
-    height: 22px;
-
-    ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      color: #999;
-      font-size: 12px;
-
-      li {
-        padding-left: 13px;
-      }
-
-      // div {
-      //   text-indent: -9999px;
-      //   width: 10px;
-      //   height: 30px;
-      //   // background: url("https://www.monamimall.com/w/images/w/sub/goods.png")
-      //     no-repeat 0 0;
-      // }
-    }
-  }
-
   .productDetail {
     display: flex;
     height: 1000px;
@@ -44,6 +19,11 @@
       .smallPicture {
         padding: 10px 31px 0;
         width: 480px;
+
+        // div:first-child {
+        //   background: url("https://www.monamimall.com/w/images/w/sub/goods.png")
+        //     no-repeat -13px 0;
+        // }
 
         .pictureSwiper {
           img {
@@ -116,6 +96,11 @@
 
               li {
                 padding-left: 30px;
+
+                div {
+                  border-radius: 70%;
+                }
+
                 span {
                   padding-left: 7px;
                   font-size: 13px;
@@ -129,42 +114,63 @@
           }
 
           .inkColor {
-            span:first-child {
-              padding: 0px;
-              width: 120px;
-              color: #000;
-            }
-
             display: flex;
 
-            span:last-child {
+            ul {
+              display: flex;
+              color: #000;
               font-weight: 300;
-              padding-left: 7px;
-              font-size: 13px;
-              color: #555;
+              height: 56px;
+              :first-child {
+                padding: 0px;
+              }
+
+              li {
+                padding-left: 30px;
+
+                div {
+                  border-radius: 70%;
+                }
+                span {
+                  padding-left: 7px;
+                  font-size: 13px;
+                }
+              }
+            }
+
+            span:first-child {
+              width: 120px;
             }
           }
 
           .thickness {
             display: flex;
 
-            img {
-              width: 40px;
-              height: 20px;
+            ul {
+              display: flex;
+              color: #000;
+              font-weight: 300;
+              height: 56px;
+
+              :first-child {
+                padding: 0px;
+              }
+
+              li {
+                padding-left: 30px;
+
+                div {
+                  background: black;
+                }
+                span {
+                  padding-left: 7px;
+                  font-size: 13px;
+                }
+              }
             }
 
             span:first-child {
               width: 120px;
-            }
-
-            ul {
-              display: flex;
-
-              span:last-child {
-                font-weight: 300;
-                padding-left: 7px;
-                font-size: 13px;
-              }
             }
           }
 
@@ -322,29 +328,75 @@
 
         .productPayment {
           .option {
-            height: 70px;
-            li {
-              padding-top: 20px;
-              display: flex;
-              align-items: center;
+            display: flex;
+            padding-top: 20px;
 
-              :first-child {
-                width: 120px;
+            div {
+              padding-right: -30px;
+              width: 120px;
+            }
+
+            .dropDown {
+              display: block;
+
+              &:hover .dropDownContents {
+                display: block;
               }
 
-              div:last-child {
-                width: 450px;
-                height: 40px;
-                font-size: 13px;
-                border: 0.1px solid #555;
-                text-align: center;
-                display: flex;
-                align-items: center;
+              .dropDownBtn {
+                padding-right: 330px;
+                background-color: white;
+                font-size: 14px;
+                width: 440px;
+                height: 50px;
+
+                border: solid 1px #ccc;
+
+                &:hover {
+                  background-color: rgb(243, 240, 240);
+                }
+
+                &:hover .dropdownContents {
+                  display: block;
+                }
               }
+
+              .dropDownContents {
+                position: relative;
+                z-index: 3;
+                display: none;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+                div {
+                  font-size: 14px;
+                  background-color: white;
+                  width: 440px;
+                  color: black;
+                  padding: 15px 10px 15px 20px;
+                  text-decoration: none;
+                  display: block;
+
+                  &:hover {
+                    background-color: rgb(243, 240, 240);
+                  }
+                }
+              }
+
+              // div:last-child {
+              //   width: 450px;
+              //   height: 40px;
+              //   font-size: 13px;
+              //   border: 0.1px solid #555;
+              //   text-align: center;
+              //   display: flex;
+              //   align-items: center;
+              // }
             }
           }
 
           .totalPrice {
+            position: relative;
+            z-index: 1;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -412,211 +464,6 @@
             box-sizing: border-box;
             text-align: center;
           }
-        }
-      }
-    }
-  }
-
-  .productCategories {
-    ul {
-      li:first-child {
-        color: black;
-        border-bottom-color: black;
-      }
-
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 600;
-      color: #ddd;
-      text-align: center;
-      background-color: #fff;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 20px;
-    }
-  }
-
-  .reviewContainer {
-    margin-top: 100px;
-
-    .reviewSummary {
-      padding: 20px 12px 20px 37px;
-      height: 185px;
-      background-color: #fcfbf9;
-      display: flex;
-
-      .starReview {
-        span {
-          top: 15px;
-          color: #000;
-          font-size: 22px;
-          font-weight: 400;
-        }
-
-        div.grade {
-          padding-top: 20px;
-          padding-left: 10px;
-
-          .gradeTxt {
-            :first-child {
-              color: #010101;
-              font-size: 35px;
-              font-weight: 700;
-            }
-
-            :nth-child(2) {
-              color: #999;
-              font-size: 40px;
-            }
-
-            :last-child {
-              color: #999;
-              font-size: 20px;
-            }
-          }
-
-          .gradeStarBig {
-            margin-top: 15px;
-          }
-        }
-      }
-
-      .photoReview {
-        h4 {
-          padding-left: 90px;
-          padding-bottom: 10px;
-          font-size: 13px;
-        }
-        .photoReviewSlider {
-          padding: 0px 32px 0px 80px;
-
-          img {
-            margin-left: 10px;
-            width: 118px;
-            height: 118px;
-          }
-        }
-      }
-    }
-    .reviewList {
-      margin-top: 50px;
-
-      .listTop {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        font-size: 16px;
-
-        .allReview {
-          color: #666;
-          font-size: 18px;
-        }
-
-        span {
-          font-size: 12px;
-        }
-
-        .btnArea {
-          span {
-            margin-right: 10px;
-          }
-          button {
-            height: 40px;
-            line-height: 38px;
-            font-size: 16px;
-            background-color: #fff;
-            border: 1px solid #000;
-            box-sizing: border-box;
-            text-align: center;
-            color: #000;
-            border-radius: 3px;
-
-            margin-left: 10px;
-            padding: 0 32px;
-            border-color: #555;
-          }
-        }
-      }
-
-      .listItems {
-        margin-left: -20px;
-
-        height: 500px;
-        display: flex;
-        flex-wrap: wrap;
-
-        .item {
-          margin-left: 20px;
-          margin-top: 20px;
-          padding: 18px 20px 20px 20px;
-          width: 285px;
-          height: 337px;
-          border: 1px solid #ececec;
-
-          strong {
-            display: block;
-            line-height: 20px;
-            color: #555;
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 15px;
-          }
-
-          span {
-            font-weight: 200;
-            line-height: 20px;
-            color: #555;
-            font-size: 13px;
-          }
-
-          .itemPayInfo {
-            margin-top: 130px;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #ececec;
-          }
-
-          .smallStarGrade {
-            display: flex;
-
-            i {
-              width: 18px;
-              padding-top: 10px;
-              color: grey;
-            }
-          }
-        }
-      }
-
-      .listPaging {
-        margin-top: 250px;
-        margin-bottom: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-
-        :nth-child(3) {
-          background: #666666;
-        }
-
-        div {
-          padding-left: 20px;
-          display: flex;
-          text-align: center;
-          align-items: center;
-          span {
-            color: white;
-          }
-
-          text-align: center;
-          text-align: bottom;
-          width: 50px;
-          height: 50px;
-          border-color: black;
         }
       }
     }
