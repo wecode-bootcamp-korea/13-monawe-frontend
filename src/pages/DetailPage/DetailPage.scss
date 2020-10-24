@@ -419,9 +419,14 @@
 
   .productCategories {
     ul {
-      li:first-child {
+      li {
+        width: 300px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid #ddd;
+      }
+      li:hover {
         color: black;
-        border-bottom-color: black;
+        border-bottom: 3px solid black;
       }
 
       display: flex;
@@ -432,8 +437,6 @@
       color: #ddd;
       text-align: center;
       background-color: #fff;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 20px;
     }
   }
 

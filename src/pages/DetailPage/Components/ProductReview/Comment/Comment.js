@@ -2,18 +2,16 @@ import React, { Component } from "react";
 import "./Comment.scss";
 
 class Comment extends Component {
-  function = star => {
-    let result = null;
-    const test = <i class="fas fa-star" />;
-    for (let i = 0; i < star; i++) {
-      result = result + test;
-    }
-    return result;
-  };
-
   render() {
     const { account, title, content, date, rating } = this.props.comment;
     console.log(rating);
+    const starDiv = [];
+    const star = <i className="fas fa-star" />;
+
+    for (let i = 0; i < rating; i++) {
+      starDiv.push(star);
+    }
+
     console.log();
     return (
       <div className="itemContainer">
@@ -24,7 +22,7 @@ class Comment extends Component {
             <span>{account}</span>
             <span>{date}</span>
           </div>
-          <div className="smallStarGrade">{this.function(rating)}</div>
+          <div className="smallStarGrade">{starDiv}</div>
         </div>
       </div>
     );

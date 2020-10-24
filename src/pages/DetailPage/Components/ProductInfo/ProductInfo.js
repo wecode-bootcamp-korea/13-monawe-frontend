@@ -11,7 +11,8 @@ class ProductInfo extends Component {
       description,
       tag,
       price,
-      options
+      options,
+      imageUrl
     } = this.props.productInfo;
 
     console.log("바디컬러: ", bodyColor);
@@ -19,25 +20,13 @@ class ProductInfo extends Component {
       <div className="productDetail">
         <div className="productPicture">
           <div className="bigPicture">
-            <img
-              src={
-                "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_540X540_20191206103812.blob"
-              }
-            />
+            <img src={imageUrl && imageUrl[0]} />
           </div>
           <div className="smallPicture">
             <div></div>
             <div className="pictureSwiper">
-              <img
-                src={
-                  "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_540X540_20191206103812.blob"
-                }
-              />
-              <img
-                src={
-                  "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_DET_THUMB_1_540X540_20191206103814.blob"
-                }
-              />
+              <img src={imageUrl && imageUrl[0]} />
+              <img src={imageUrl && imageUrl[1]} />
             </div>
           </div>
         </div>

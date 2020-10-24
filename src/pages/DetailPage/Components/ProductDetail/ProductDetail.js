@@ -8,7 +8,7 @@ class ProductDetail extends Component {
     return (
       <div className="productDetailContainer">
         <div className="productDetailPicture">
-          <img src={imageUrl} />
+          <img src={imageUrl && imageUrl[0]} />
         </div>
         <div className="productDetailDescription">
           <img src="./images/상품설명img.png" />
