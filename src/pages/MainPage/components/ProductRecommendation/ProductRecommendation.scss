@@ -1,0 +1,34 @@
+.Container {
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding: 75px 0 90px;
+
+  .title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+    font-family: "Montserrat", sans-serif;
+
+    .redLine {
+      display: block;
+      width: 26px;
+      height: 4px;
+      margin: 10px 0 0;
+      background: #c40f39;
+    }
+  }
+
+  .topArea {
+    display: flex;
+    margin: 13px 0 22px;
+
+    .boxNew1 {
+      margin: 155px 22px 0 0;
+    }
+  }
+
+  .bottomArea {
+    display: flex;
+  }
+}

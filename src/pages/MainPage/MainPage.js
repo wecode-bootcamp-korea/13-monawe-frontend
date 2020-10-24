@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import "./MainPage.scss";
+import ProductRecommendation from "./components/ProductRecommendation/ProductRecommendation";
 
-class Main extends Component {
+class MainPage extends Component {
   render() {
     return (
       <div>
-        <h1>h1</h1>  
+        <ProductRecommendation />
       </div>
     );
   }
 }
 
-export default Main;
+export default MainPage;
