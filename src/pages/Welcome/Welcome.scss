@@ -16,7 +16,6 @@
         height: 533.800px;
         margin: 44px 305px 0px;     
         .engDescription {
-            //height: 40px;
             font-size: 16px;
             color: #666;
             line-height: 40px;
@@ -24,19 +23,16 @@
             @include flex-center;
         }
         .korDescription {
-            //height: 50.4px;
             font-size: 30px;
             font-weight: 400;
             display: block;
             @include flex-center;
         }
         .joinBox {
-            //height: 392.4px;
             border-top: solid 1px black;
             margin-top: 50px;
             @include flex-center; 
             .joinTotal {
-             //height: 100%;
              padding-top: 60px;
              margin: auto 122.500px;
                 .joinBtn {

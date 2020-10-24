@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./JoinStep2.scss";
+import "./JoinStepTwo.scss";
 
 class JoinStep2 extends Component {
   constructor() {
@@ -14,13 +13,14 @@ class JoinStep2 extends Component {
       dateOfBirth: 19951116,
       emailAgreement: false,
       smsAgreement: false,
-      //여기서부터 백에 전달 안함
       confirmPw: "",
-      isNameNull: true,
-      isAccountNull: true,
-      isPasswordNull: true,
-      isEmailNull: true,
-      isPhoneNumberNull: true
+      isPwInfoValid: true,
+      isPasswordSame: true,
+      isNameNull: false,
+      isAccountNull: false,
+      isPasswordNull: false,
+      isEmailNull: false,
+      isPhoneNumberNull: false
     };
   }
 
@@ -49,8 +49,9 @@ class JoinStep2 extends Component {
     console.log(this.state);
   };
 
-  checkId = () => {
-    const APIforIdCheck = "http://localhost:3000/data/account.json";
+  checkId = e => {
+    e.preventDefault();
+    const APIforIdCheck = "http://10.58.1.8:8000/user/checkaccount";
     const { account } = this.state;
     fetch(APIforIdCheck, {
       method: "POST",
@@ -60,12 +61,15 @@ class JoinStep2 extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log("백엔드에서 오는 응답 메세지:", result);
+        result.message === "USER_ID_TAKEN"
+          ? alert("이미 사용중인 아이디입니다.")
+          : alert("사용 가능한 아이디입니다.");
       });
   };
 
-  checkEmail = () => {
-    const APIforEmailCheck = "http://localhost:3000/data/email.json";
+  checkEmail = e => {
+    e.preventDefault();
+    const APIforEmailCheck = "http://10.58.1.8:8000/user/checkemail";
     const { email } = this.state;
     fetch(APIforEmailCheck, {
       method: "POST",
@@ -75,14 +79,16 @@ class JoinStep2 extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log("백엔드에서 오는 응답 메세지:", result);
+        result.message === "USER_EMAIL_TAKEN"
+          ? alert("이미 사용중인 이메일입니다.")
+          : alert("사용 가능한 이메일입니다.");
       });
   };
 
   isPwInfoValid = password => {
-    let number = /[0-9]/g;
-    let character = /[a-zA-z]/g;
-    let specialCharacter = /\W|_/g;
+    const number = /[0-9]/g;
+    const character = /[a-zA-z]/g;
+    const specialCharacter = /\W|_/g;
     const isNumIncluded = password.match(number) ? true : false;
     const isCharIncluded = password.match(character) ? true : false;
     const isSpecialCharIncluded = password.match(specialCharacter)
@@ -90,32 +96,37 @@ class JoinStep2 extends Component {
       : false;
     const isPwLong = password.length >= 6 && password.length <= 16;
     if (
-      ((isNumIncluded && isSpecialCharIncluded) ||
+      (((isNumIncluded && isSpecialCharIncluded) ||
         (isNumIncluded && isCharIncluded) ||
         (isCharIncluded && isSpecialCharIncluded)) &&
-      isPwLong
+        isPwLong) ||
+      this.state.password === ""
     ) {
       return true;
-    } else return false;
+    } else {
+      this.setState({ isPwInfoValid: false });
+      return false;
+    }
+  };
+
+  isPasswordSame = () => {
+    const { password, confirmPw } = this.state;
+    password !== confirmPw && this.setState({ isPasswordSame: false });
   };
 
   isInputNull = () => {
     const { name, account, password, email, phoneNumber } = this.state;
-    name === ""
-      ? this.setState({ isNameNull: false })
-      : this.setState({ isNameNull: true });
-    account === ""
-      ? this.setState({ isAccountNull: false })
-      : this.setState({ isAccountNull: true });
+    name === "" && this.setState({ isNameNull: true });
+    account === "" && this.setState({ isAccountNull: true });
     password === ""
-      ? this.setState({ isPasswordNull: false })
-      : this.setState({ isPasswordNull: true });
-    email === ""
-      ? this.setState({ isEmailNull: false })
-      : this.setState({ isEmailNull: true });
-    phoneNumber === ""
-      ? this.setState({ isPhoneNumberNull: false })
-      : this.setState({ isPhoneNumberNull: true });
+      ? this.setState({ isPasswordNull: true })
+      : this.setState({ isPasswordNull: false });
+    email === "" && this.setState({ isEmailNull: true });
+    phoneNumber === "" && this.setState({ isPhoneNumberNull: true });
+  };
+
+  gotoPreviousStep = () => {
+    this.props.history.push("/JoinStepOne");
   };
 
   checkValidation = e => {
@@ -144,6 +155,7 @@ class JoinStep2 extends Component {
     const isIdValid = account.length >= 5 && account.length <= 16;
     console.log("아이디 valid?", isIdValid);
     this.isInputNull();
+    this.isPasswordSame();
     if (
       isEssentialInfoValid &&
       isPasswordSame &&
@@ -169,30 +181,34 @@ class JoinStep2 extends Component {
           console.log("result >>> ", result);
           if (result.message === "SIGNUP_SUCCESS") {
             alert("회원가입 완료");
-            this.props.history.push("/");
+            this.props.history.push("/JoinStepThree");
           }
         });
     }
   };
 
   render() {
+    console.log("패스워드", this.state.password);
+    console.log("패스워드isnull?", this.state.isPasswordNull);
     const {
       isNameNull,
       isAccountNull,
       isPasswordNull,
       isEmailNull,
-      isPhoneNumberNull
+      isPhoneNumberNull,
+      isPasswordSame,
+      isPwInfoValid
     } = this.state;
     return (
-      <main className="JoinStep2">
+      <main className="JoinStepTwo">
         <h2>회원가입</h2>
-        <div className="step2Wrapper">
+        <div className="stepWrapper">
           <div className="step">
             <span>
               STEP1. 약관동의
               <i className="fas fa-chevron-right"></i>
             </span>
-            <span>
+            <span className="currentStep">
               STEP2. 회원가입
               <i className="fas fa-chevron-right"></i>
             </span>
@@ -206,8 +222,8 @@ class JoinStep2 extends Component {
             <form>
               <ul>
                 <li>
-                  <strong>이름 *</strong>
-                  <div className="inputWrapper">
+                  <label>
+                    <strong>이름 *</strong>
                     <input
                       name="name"
                       type="text"
@@ -215,14 +231,14 @@ class JoinStep2 extends Component {
                       maxLength="10"
                       onChange={this.handleInput}
                     ></input>
-                    <span className={isNameNull ? "idValid" : "idError"}>
-                      ⓘ 이름을 입력해주세요.
-                    </span>
+                  </label>
+                  <div className={isNameNull ? "infoError" : "infoValid"}>
+                    ⓘ 이름을 입력해주세요.
                   </div>
                 </li>
                 <li>
-                  <strong>아이디 *</strong>
-                  <div className="idInputWrapper">
+                  <label>
+                    <strong>아이디 *</strong>
                     <div className="inputWrapper">
                       <input
                         name="account"
@@ -231,16 +247,16 @@ class JoinStep2 extends Component {
                         maxLength="16"
                         onChange={this.handleInput}
                       ></input>
-                      <span className={isAccountNull ? "idValid" : "idError"}>
-                        ⓘ 아이디를 입력해주세요.
-                      </span>
+                      <button onClick={e => this.checkId(e)}>중복확인</button>
                     </div>
-                    <button>중복확인</button>
+                  </label>
+                  <div className={isAccountNull ? "infoError" : "infoValid"}>
+                    ⓘ 아이디를 입력해주세요.
                   </div>
                 </li>
                 <li>
-                  <strong>비밀번호 *</strong>
-                  <div className="inputWrapper">
+                  <label>
+                    <strong>비밀번호 *</strong>
                     <input
                       name="password"
                       type="password"
@@ -248,14 +264,30 @@ class JoinStep2 extends Component {
                       maxLength="10"
                       onChange={this.handleInput}
                     ></input>
-                    <span className={isPasswordNull ? "idValid" : "idError"}>
-                      ⓘ 비밀번호를 입력해주세요.
-                    </span>
+                  </label>
+                  <div className={isPasswordNull ? "infoError" : "infoValid"}>
+                    ⓘ 비밀번호를 입력해주세요.
+                  </div>
+                  <div
+                    className={
+                      this.state.password !== null && !isPwInfoValid
+                        ? "infoError"
+                        : "infoValid"
+                    }
+                  >
+                    ⓘ 입력한 비밀번호를 확인해 주세요.
+                  </div>
+                  <div className="pwGuideline">
+                    * 6~16자 이내, 영문 대/소문자, 숫자, 특수문자 중 2가지
+                    조합으로 사용해주세요.
+                  </div>
+                  <div className="pwGuideline">
+                    * 아이디와 동일한 비밀번호는 사용할 수 없습니다.
                   </div>
                 </li>
                 <li>
-                  <strong>비밀번호확인 *</strong>
-                  <div className="inputWrapper">
+                  <label>
+                    <strong>비밀번호확인 *</strong>
                     <input
                       name="confirmPw"
                       type="password"
@@ -263,11 +295,14 @@ class JoinStep2 extends Component {
                       maxLength="10"
                       onChange={this.handleInput}
                     ></input>
+                  </label>
+                  <div className={isPasswordSame ? "infoValid" : "infoError"}>
+                    ⓘ 입력한 비밀번호가 서로 일치하지 않습니다.
                   </div>
                 </li>
                 <li>
-                  <strong>이메일 *</strong>
-                  <div className="emailInputWrapper">
+                  <label>
+                    <strong>이메일 *</strong>
                     <div className="inputWrapper">
                       <input
                         name="email"
@@ -276,16 +311,19 @@ class JoinStep2 extends Component {
                         maxLength="50"
                         onChange={this.handleInput}
                       ></input>
-                      <span className={isEmailNull ? "idValid" : "idError"}>
-                        ⓘ 이메일을 입력해주세요.
-                      </span>
+                      <button onClick={e => this.checkEmail(e)}>
+                        중복확인
+                      </button>
                     </div>
-                    <button onClick={this.checkId}>중복확인</button>
+                  </label>
+
+                  <div className={isEmailNull ? "infoError" : "infoValid"}>
+                    ⓘ 이메일을 입력해주세요.
                   </div>
                 </li>
                 <li>
-                  <strong>휴대폰번호 *</strong>
-                  <div className="inputWrapper">
+                  <label>
+                    <strong>휴대폰번호 *</strong>
                     <input
                       name="phoneNumber"
                       type="number"
@@ -293,60 +331,68 @@ class JoinStep2 extends Component {
                       maxLength="11"
                       onChange={this.handleInput}
                     ></input>
-                    <span className={isPhoneNumberNull ? "idValid" : "idError"}>
-                      ⓘ 휴대폰번호를 입력해주세요.
-                    </span>
+                  </label>
+                  <div
+                    className={isPhoneNumberNull ? "infoError" : "infoValid"}
+                  >
+                    ⓘ 휴대폰번호를 입력해주세요.
                   </div>
                 </li>
-                <li>
-                  <strong>생년월일</strong>
-                  <div className="inputWrapper">
-                    <input
-                      name="dateOfBirth"
-                      type="text"
-                      pattern="[~ s/[-\s]//g]"
-                      placeholder="숫자만 입력(8자리)"
-                      maxLength="8"
-                      onChange={this.handleInput}
-                    ></input>
-                  </div>
-                </li>
-                <li>
-                  <strong>수신동의</strong>
-                  <div className="txtAgreement">
-                    <span>
+                <div className="optionalInfo">
+                  <li>
+                    <label>
+                      <strong>생년월일</strong>
                       <input
-                        name="smsAgreement"
-                        type="checkbox"
-                        value="smsAgreement"
-                        onChange={this.handleSMSCheckbox}
+                        name="dateOfBirth"
+                        type="number"
+                        placeholder="숫자만 입력(8자리)"
+                        maxLength="8"
+                        onChange={this.handleInput}
                       ></input>
-                      <label htmlFor="smsAgreement">
-                        SMS를 통한 상품 및 이벤트 정보 수신에 동의 합니다.[선택]
-                      </label>
-                    </span>
-                    <span>
-                      <input
-                        name="emailAgreement"
-                        type="checkbox"
-                        value="emailAgreement"
-                        onChange={this.handleEmailCheckbox}
-                      ></input>
-                      <label htmlFor="emailAgreement">
-                        이메일을 통한 상품 및 이벤트 정보 수신에 동의
-                        합니다.[선택]
-                      </label>
-                    </span>
-                    <p>
-                      * SMS 및 이메일 수신동의와 무관하게 주문결제/회원 관련
-                      안내 메일/문자는 발송되며 수신미동의 시 쇼핑몰 이용에
-                      제약은 없습니다.
-                    </p>
-                  </div>
-                </li>
+                    </label>
+                  </li>
+                  <li>
+                    <div className="AgreementWrapper">
+                      <strong>수신동의</strong>
+                      <div className="txtAgreement">
+                        <span>
+                          <input
+                            name="smsAgreement"
+                            type="checkbox"
+                            value="smsAgreement"
+                            onChange={this.handleSMSCheckbox}
+                          ></input>
+                          <label htmlFor="smsAgreement">
+                            SMS를 통한 상품 및 이벤트 정보 수신에 동의
+                            합니다.[선택]
+                          </label>
+                        </span>
+                        <span>
+                          <input
+                            name="emailAgreement"
+                            type="checkbox"
+                            value="emailAgreement"
+                            onChange={this.handleEmailCheckbox}
+                          ></input>
+                          <label htmlFor="emailAgreement">
+                            이메일을 통한 상품 및 이벤트 정보 수신에 동의
+                            합니다.[선택]
+                          </label>
+                        </span>
+                        <p>
+                          * SMS 및 이메일 수신동의와 무관하게 주문결제/회원 관련
+                          안내 메일/문자는 발송되며 수신미동의 시 쇼핑몰 이용에
+                          제약은 없습니다.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </div>
               </ul>
               <div className="buttonArea">
-                <button className="cancleBtn">취소</button>
+                <button className="cancleBtn" onClick={this.gotoPreviousStep}>
+                  취소
+                </button>
                 <button
                   className="confirmBtn"
                   onClick={e => this.checkValidation(e)}

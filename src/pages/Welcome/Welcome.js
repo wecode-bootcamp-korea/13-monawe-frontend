@@ -12,7 +12,7 @@ class Welcome extends Component {
           <span className="korDescription">모나위몰에 오신 걸 환영합니다.</span>
           <div className="joinBox">
             <div className="joinTotal">
-              <Link to="/JoinStep2">
+              <Link to="/JoinStepOne">
                 <button className="joinBtn">회원가입하기</button>
               </Link>
               <div className="snsJoin">
