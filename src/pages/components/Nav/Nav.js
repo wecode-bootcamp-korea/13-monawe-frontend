@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Stationery from "./MenuDropBox/Stationery";
+import MENUS from "./Navdata";
+import ContentType from "./MenuDropBox/ContentType";
 import MonawePet from "./MenuDropBox/MonawePet";
-import CraftHobby from "./MenuDropBox/Craft&Hobby";
-import Monarte from "./MenuDropBox/Monarte";
-import StoryPick from "./MenuDropBox/StoryPick";
-import Event from "./MenuDropBox/Event";
+import ListType from "./MenuDropBox/ListType";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -17,14 +15,30 @@ class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/nav.json")
-      .then(nav => nav.json())
-      .then(({ menus }) => this.setState({ menus }));
+    this.setState({
+      menus: MENUS
+    });
   }
 
   //MouseOver style 변화
   handleMenuStyle = idx => {
     this.setState({ menus: this.state.menus, hoveredIdx: idx });
+  };
+
+  // handleHiddenMenuStyle = idx => {
+  //   this.setState({
+  //     menus: this.state.menus,
+  //     hoveredIdx: this.state.hoveredIdx === idx && ""
+  //   });
+  // };
+  // mouseleave...추가 event 확인 필요
+
+  handleMyCurator = e => {
+    this.props.onMyCurator(e);
+  };
+
+  handleSearchBox = e => {
+    this.props.onSearchBox(e);
   };
 
   render() {
@@ -34,23 +48,23 @@ class Nav extends Component {
         <div className="Nav">
           <div className="menuTab">
             <div>
-              <i className="fas fa-bars" />
+              <button className="fas fa-bars" />
               <span>
                 monawe<span>mall</span>
               </span>
             </div>
-            <ul>
+            <ul className="menuLists">
               {menus.map((menu, idx) => (
                 <div
                   key={idx}
                   className={
                     hoveredIdx === idx ? "menu active" : "menu inactive"
                   }
+                  onMouseOver={() => this.handleMenuStyle(idx)}
+                  // onMouseOut={() => this.handleHiddenMenuStyle(idx)}
                 >
                   <small>{menu.koreanName}</small>
-                  <span onMouseOver={() => this.handleMenuStyle(idx)}>
-                    {menu.englishName}
-                  </span>
+                  <span>{menu.englishName}</span>
                 </div>
               ))}
             </ul>
@@ -60,21 +74,45 @@ class Nav extends Component {
               <span>
                 모나위<span>님&nbsp;&nbsp;</span>
               </span>
-              <i className="fas fa-plus-circle" />
+              <button
+                onClick={this.handleMyCurator}
+                className="fas fa-plus-circle"
+              />
             </div>
             <div className="icons">
-              <i className="fas fa-shopping-bag" />
-              <i className="fas fa-user" />
-              <i className="fas fa-search" />
+              <button className="fas fa-shopping-bag" />
+              <button className="fas fa-user" />
+              <button
+                className="fas fa-search"
+                onClick={this.handleSearchBox}
+              />
             </div>
           </div>
         </div>
-        <Stationery />
-        <MonawePet />
-        <CraftHobby />
-        <Monarte />
-        <StoryPick />
-        <Event />
+        <ContentType
+          categories={menus[0]?.categories}
+          class={hoveredIdx === 0 ? "ContentType shown" : "ContentType"}
+        />
+        <MonawePet
+          class={hoveredIdx === 1 ? "MonawePet shown" : "MonawePet "}
+        />
+        <ListType
+          subcategories={menus[2]?.subcategories}
+          class={hoveredIdx === 2 ? "ListType shown" : "ListType"}
+        />
+        <ListType
+          subcategories={menus[3]?.subcategories}
+          class={hoveredIdx === 3 ? "ListType shown" : "ListType"}
+        />
+        <ContentType
+          categories={menus[4]?.categories}
+          class={hoveredIdx === 4 ? "ContentType shown" : "ContentType"}
+        />
+
+        <ListType
+          subcategories={menus[5]?.subcategories}
+          class={hoveredIdx === 5 ? "ListType shown" : "ListType"}
+        />
       </div>
     );
   }
