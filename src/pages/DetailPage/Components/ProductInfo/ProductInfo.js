@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
+import Options from "./Option/Options";
+import ProductRecommendation from "../../../MainPage/components/ProductRecommendation/ProductRecommendation";
 
 class ProductInfo extends Component {
+  state = {
+    chosenProduct: [
+      { option: "비올라(Viola) (재고36개)", num: 1, price: "20000원" }
+    ]
+  };
+
+  handleAdd = item => {
+    console.log(item);
+    this.setState({
+      chosenProduct: {
+        option: item,
+        num: 1,
+        price: 20000
+      }
+    });
+  };
+
   render() {
+    console.log("state", this.state.chosenProduct);
+    const { chosenProduct } = this.state;
     const {
       name,
       bodyColor,
@@ -137,11 +158,21 @@ class ProductInfo extends Component {
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
                   <div className="dropDownContents">
-                    {options?.map(el => (
-                      <div>{el}</div>
-                    ))}
+                    <Options
+                      productInfo={this.props.productInfo}
+                      handleAdd={this.handleAdd}
+                    />
                   </div>
                 </div>
+              </div>
+              <div chosenProductContainer>
+                {chosenProduct?.map(el => (
+                  <div className="chosenProduct">
+                    <div>{el.option}</div>
+                    <div>{el.num}</div>
+                    <div>{el.price}</div>
+                  </div>
+                ))}
               </div>
               <div className="totalPrice">
                 <strong>총 상품금액</strong>

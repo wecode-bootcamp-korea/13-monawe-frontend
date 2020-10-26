@@ -11,12 +11,13 @@ class DetailPage extends Component {
     this.state = {
       productInfo: {},
       averageRating: "",
-      productReview: []
+      productReview: [],
+      chosenProduct: []
     };
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/product-info.json", {
+    fetch("/data/product-info.json", {
       method: "GET"
     })
       .then(res => res.json())
@@ -26,6 +27,10 @@ class DetailPage extends Component {
         this.setState({ productReview: res.REVIEWS });
       });
   }
+
+  // onAdd = () => {
+  //   this.setState({chosenProduct: });
+  // };
 
   render() {
     const { productInfo, averageRating, productReview } = this.state;
