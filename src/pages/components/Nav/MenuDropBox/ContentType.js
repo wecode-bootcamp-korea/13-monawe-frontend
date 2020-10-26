@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import MENUS from "../Navdata";
 import "./ContentType.scss";
 
 class ContentType extends Component {
+  handleDropBox = e => {
+    console.log(e);
+  };
+
   render() {
-    const { categories } = this.props;
+    const { categories, className, onDropBox } = this.props;
 
     return (
-      <div className={this.props.class}>
+      <div className={className} onMouseLeave={onDropBox}>
         <div>
           {categories?.map((category, idx) => (
             <ul key={idx}>

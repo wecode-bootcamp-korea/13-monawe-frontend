@@ -21,9 +21,10 @@ class MonawePet extends Component {
 
   render() {
     const { dogCategories, catCategories } = this.state;
+    const { className, onDropBox } = this.props;
 
     return (
-      <div className={this.props.class}>
+      <div className={className} onMouseLeave={onDropBox}>
         <div>
           <h3>DOG</h3>
           <div className="categories">

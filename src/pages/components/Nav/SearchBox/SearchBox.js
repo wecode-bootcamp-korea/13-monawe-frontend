@@ -71,6 +71,10 @@ class SearchBox extends Component {
     this.setState({ thumbnailData: data });
   };
 
+  getNumberTransferToPrice = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   render() {
     const {
       filteredProductDatas,
@@ -141,7 +145,10 @@ class SearchBox extends Component {
               />
               <span>{thumbnailData?.name}</span>
               <span>
-                <em>{thumbnailData?.price}</em>원
+                <em>
+                  {this.getNumberTransferToPrice(Number(thumbnailData?.price))}
+                </em>
+                원
               </span>
             </div>
           ) : (

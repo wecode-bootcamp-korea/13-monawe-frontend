@@ -25,6 +25,10 @@ function NextArrow(props) {
 }
 
 class MyCuratorSlider extends Component {
+  getNumberTransferToPrice = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   render() {
     const settings = {
       infinite: true,
@@ -34,60 +38,22 @@ class MyCuratorSlider extends Component {
       prevArrow: <PrevArrow />
     };
 
+    const { recentelyViewedProducts } = this.props;
+
     return (
       <div className="MyCuratorSlider">
         <Slider {...settings}>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>
-                모나미 x 하비풀 리제의 모나미 데코마카 캘리그라피 클래스
-              </span>
-              <small>20,000원</small>
+          {recentelyViewedProducts?.map(product => (
+            <div key={product?.id}>
+              <img src={product?.imageUrl} alt={product?.name} />
+              <div>
+                <span>{product?.name}</span>
+                <small>
+                  {this.getNumberTransferToPrice(Number(product?.price)) + "원"}
+                </small>
+              </div>
             </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
-          <div>
-            <img src="http://placehold.it/160X160" alt="item" />
-            <div>
-              <span>153 블라썸</span>
-              <small>20,000원</small>
-            </div>
-          </div>
+          ))}
         </Slider>
       </div>
     );

@@ -10,7 +10,8 @@ class Nav extends Component {
     super();
     this.state = {
       menus: [],
-      hoveredIdx: ""
+      hoveredIdx: "",
+      activePage: ""
     };
   }
 
@@ -20,18 +21,13 @@ class Nav extends Component {
     });
   }
 
-  //MouseOver style 변화
   handleMenuStyle = idx => {
-    this.setState({ menus: this.state.menus, hoveredIdx: idx });
+    this.setState({ hoveredIdx: idx });
   };
 
-  // handleHiddenMenuStyle = idx => {
-  //   this.setState({
-  //     menus: this.state.menus,
-  //     hoveredIdx: this.state.hoveredIdx === idx && ""
-  //   });
-  // };
-  // mouseleave...추가 event 확인 필요
+  handleDropBox = () => {
+    this.setState({ hoveredIdx: "" });
+  };
 
   handleMyCurator = e => {
     this.props.onMyCurator(e);
@@ -41,11 +37,15 @@ class Nav extends Component {
     this.props.onSearchBox(e);
   };
 
+  handleGoToPage = idx => {
+    this.setState({ activePage: idx });
+  };
+
   render() {
     const { menus, hoveredIdx } = this.state;
     return (
-      <div>
-        <div className="Nav">
+      <div className="Nav">
+        <div className={"navMenu"}>
           <div className="menuTab">
             <div>
               <button className="fas fa-bars" />
@@ -57,11 +57,9 @@ class Nav extends Component {
               {menus.map((menu, idx) => (
                 <div
                   key={idx}
-                  className={
-                    hoveredIdx === idx ? "menu active" : "menu inactive"
-                  }
+                  className="menu"
                   onMouseOver={() => this.handleMenuStyle(idx)}
-                  // onMouseOut={() => this.handleHiddenMenuStyle(idx)}
+                  // onClick={() => this.goToPage(idx)}
                 >
                   <small>{menu.koreanName}</small>
                   <span>{menu.englishName}</span>
@@ -91,27 +89,37 @@ class Nav extends Component {
         </div>
         <ContentType
           categories={menus[0]?.categories}
-          class={hoveredIdx === 0 ? "ContentType shown" : "ContentType"}
+          className={
+            hoveredIdx === 0 ? "ContentType stationeryShown" : "ContentType"
+          }
+          onDropBox={this.handleDropBox}
         />
         <MonawePet
-          class={hoveredIdx === 1 ? "MonawePet shown" : "MonawePet "}
+          className={hoveredIdx === 1 ? "MonawePet shown" : "MonawePet"}
+          onDropBox={this.handleDropBox}
         />
         <ListType
           subcategories={menus[2]?.subcategories}
-          class={hoveredIdx === 2 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 2 ? "ListType shown" : "ListType"}
+          onDropBox={this.handleDropBox}
         />
         <ListType
           subcategories={menus[3]?.subcategories}
-          class={hoveredIdx === 3 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 3 ? "ListType shown" : "ListType"}
+          onDropBox={this.handleDropBox}
         />
         <ContentType
           categories={menus[4]?.categories}
-          class={hoveredIdx === 4 ? "ContentType shown" : "ContentType"}
+          className={
+            hoveredIdx === 4 ? "ContentType storypickShown" : "ContentType"
+          }
+          onDropBox={this.handleDropBox}
         />
 
         <ListType
           subcategories={menus[5]?.subcategories}
-          class={hoveredIdx === 5 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 5 ? "ListType shown" : "ListType"}
+          onDropBox={this.handleDropBox}
         />
       </div>
     );

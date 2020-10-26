@@ -3,12 +3,28 @@ import "./MyCurator.scss";
 import MyCuratorSlider from "./components/MyCuratorSlider";
 
 class MyCurator extends Component {
+  constructor() {
+    super();
+    this.state = {
+      recentelyViewedProducts: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("/data/list.json")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ recentelyViewedProducts: res.data });
+      });
+  }
+
   handleMyCurator = e => {
     this.props.onMyCurator(e);
   };
 
   render() {
     const { isMyCurator } = this.props;
+    const { recentelyViewedProducts } = this.state;
     return (
       <div className={isMyCurator ? "MyCurator" : "MyCurator hidden"}>
         <div>
@@ -37,7 +53,9 @@ class MyCurator extends Component {
               <span>지금이 바로 기회!</span>
             </div>
             <div className="productLists">
-              <MyCuratorSlider />
+              <MyCuratorSlider
+                recentelyViewedProducts={recentelyViewedProducts}
+              />
               {/* <i className="fas fa-exclamation-circle" />
               <strong>최근 본 상품이 없습니다.</strong> */}
             </div>

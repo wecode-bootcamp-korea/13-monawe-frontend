@@ -3,10 +3,10 @@ import "./ListType.scss";
 
 class ListType extends Component {
   render() {
-    const { subcategories } = this.props;
+    const { subcategories, className, onDropBox } = this.props;
 
     return (
-      <div className={this.props.class}>
+      <div className={className} onMouseLeave={onDropBox}>
         <div>
           {subcategories?.map((subcategory, idx) => (
             <li key={idx}>{subcategory}</li>

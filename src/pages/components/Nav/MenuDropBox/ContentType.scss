@@ -12,10 +12,10 @@
 .ContentType {
   width: 100%;
   height: 0;
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: -100px;
   overflow: hidden;
-  transition: height 0.2s ease;
+  transition: height 0.3s ease;
 
   div {
     @include flex-center;
@@ -50,9 +50,13 @@
     }
   }
 
-  &.shown {
-    height: 232px;
-    border-top: 2px solid #f2f2f2;
-    transition-delay: 0.1s;
+  &.stationeryShown {
+    height: 237px;
+    transition-delay: 0.32s;
+  }
+
+  &.storypickShown {
+    height: 189px;
+    transition-delay: 0.32s;
   }
 }
