@@ -4,66 +4,87 @@
     width: 100%;
     height: 1048px;
     padding: 100px 0;
+    
     h2 {
         height: 190px;
+        display: flex;
         background-color: #faf9f7;
         font-size: 48px;
         font-weight: 300;
         letter-spacing: -0.04em;
-        @include flex-center;
+        justify-content: center;
+        align-items: center;
     }
     .contentWrapper {
         height: 533.800px;
         margin: 44px 305px 0px;     
+
         .engDescription {
+            display: flex;
             font-size: 16px;
             color: #666;
             line-height: 40px;
             font-weight: 400;
-            @include flex-center;
+            justify-content: center;
+            align-items: center;
         }
+
         .korDescription {
+            display: block;
+            display: flex;
             font-size: 30px;
             font-weight: 400;
-            display: block;
-            @include flex-center;
+            justify-content: center;
+            align-items: center;
         }
+
         .joinBox {
+            display: flex;
             border-top: solid 1px black;
             margin-top: 50px;
-            @include flex-center; 
+            justify-content: center;
+            align-items: center; 
+
             .joinTotal {
              padding-top: 60px;
              margin: auto 122.500px;
+
                 .joinBtn {
                     width: 323px;
                     height: 62px;
+                    display: flex;
                     padding: 0px 40px;
                     border: solid 1px black;
                     background-color: black;
                     color: white;
                     border-radius: 3px;
-                    @include flex-center;
+                    justify-content: center;
+                    align-items: center;
                     &:hover {
                         cursor:pointer;
                     }
                 }
+
                 .snsJoin {
                     margin-top: 70px;
                     h3 {
-                    @include flex-center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     }
                     ul {
-                    @include flex-spaceBetween-center;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     margin-top: 20px;
                         button {
+                          width: 90px;
+                          height: 90px;
                           color: #555555;
                           font-size: 14px;
                           font-weight: 600px;
                           background-color: white;
                           border: none;
-                          width: 90px;
-                          height: 90px;
                           img {
                               width: 55px;
                               height: 55px;
