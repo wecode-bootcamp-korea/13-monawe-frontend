@@ -43,7 +43,7 @@ class Login extends Component {
 
   render() {
     return (
-      <main className="Login">
+      <div className="Login">
         <h2>로그인</h2>
         <div className="LoginArea">
           <div className="LoginMenu">
@@ -109,7 +109,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 }

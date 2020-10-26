@@ -10,7 +10,9 @@
         font-size: 48px;
         font-weight: 300;
         letter-spacing: -0.04em;
-        @include flex-center;
+        display: flex;
+  justify-content: center;
+  align-items: center;;
     }
 
     .LoginArea {
@@ -18,10 +20,14 @@
             margin: 43px auto 0;
             width: 650px;
             .LoginTap {
-                @include flex-spaceBetween-center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 margin: 0px 40px 0px;;
                 .memberTap {
-                    @include flex-center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 50%;
                     font-size: 20px;
                     color: #000;
@@ -30,7 +36,9 @@
                     font-weight: 500;
                 }
                 .nonmemberTap {
-                    @include flex-center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     width: 50%;
                     font-size: 20px;
                     color: #999;
@@ -39,11 +47,12 @@
                     font-weight: 500;
                 }
             }
-
             .inputArea {
                 margin: 60px 122.500px 0px;
                 .inputWrapper {
-                    @include flex-spaceBetween-center;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     margin-bottom: 10px;
                     strong {
                         letter-spacing: -0.025em;
@@ -80,12 +89,13 @@
                 }
 
             }
-
             .findInfo {
                 padding: 0 40px;
                 ul {
                     margin: 30px 122.5px 0px;
-                    @include flex-spaceBetween-center;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     li {
                         text-decoration: none;
                         font-size: 14px;
@@ -98,17 +108,20 @@
                     }
                 }
             }
-            
             .snsJoin {
                 margin-top: 30px;
                 padding-top: 30px;
                 border-top: solid 1px #DDDDDD;
                 h3 {
-                @include flex-center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 }
                 ul {
-                @include flex-spaceBetween-center;
-                margin: 20px 122.5px 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 20px 122.5px 0px;
                     button {
                       color: #555555;
                       font-size: 14px;
@@ -126,9 +139,5 @@
                 }
             }
         }
-
     }
-    
-                
-   
-}
+} 
