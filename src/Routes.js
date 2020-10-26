@@ -6,7 +6,6 @@ import ProductListNav from "./pages/components/ProductListNav/ProductListNav";
 import navdata from "./pages/components/ProductListNav/navdata";
 import Product from "./pages/components/ProductList/Product";
 import Paging from "./pages/components/ProductList/Paging/Paging";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class Routes extends Component {
