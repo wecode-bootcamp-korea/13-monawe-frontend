@@ -36,7 +36,7 @@ class DetailPage extends Component {
         <div className="mainContainer">
           <div className="location">
             <ul>
-              <li>Home</li>
+              <li>Home </li>
               <li>
                 <div></div>
               </li>
