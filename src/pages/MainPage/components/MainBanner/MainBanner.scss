@@ -1,0 +1,116 @@
+.MainBanner {
+    &:hover {
+        cursor: pointer;
+    }
+
+    .slick-slider {
+        position: relative;
+        
+        .prevArrow {
+            position: absolute;
+            top: 45%;
+            left: 3%;
+            font-size: 50px;
+            color: white;
+            z-index: 999;
+        }
+
+        .nextArrow {
+            position: absolute;
+            top: 45%;
+            left: 95%;
+            font-size: 50px;
+            color: White;
+            z-index: 999;
+        }
+
+        .slick-list {
+            position: relative;
+            @keyframes fadeInLeftSD {
+                
+                0% {
+                  opacity: 0;
+                  transform: translateX(100px);
+                }
+
+                20% {
+                    opacity: 0;
+                    transform: translateX(100px);
+                  }
+              
+                100% {
+                  opacity: 1;
+                  transform: none;
+                }
+            }
+
+            .sliderWrapper {
+                width: 1920px;
+                height: 600px;
+                overflow: hidden;
+                img {
+                margin: 0px 0 0 -300px;
+                z-index: -1;
+                }
+            }
+
+            .txtWrapper {
+                display: block;
+                position: absolute;
+                bottom: 35%;
+                margin-left: 200px;
+                
+                span {
+                    display: block;
+                    font-size: 52px;
+                    color: black;
+                    letter-spacing: -0.025em;
+                   
+                    small {
+                        display: block;
+                        margin-top: 20px;
+                        font-size: 24px;
+                        letter-spacing: -0.025em;
+                    }
+                }
+            }
+              
+            .fadeInLeftSD {
+                animation-name: fadeInLeftSD;
+            }
+              
+            .slick-active .txtWrapper {
+                animation-name: fadeInLeftSD;
+                animation-duration: 2s;
+            }
+        }
+
+        .slick-dots {
+            position: absolute;
+            bottom: 5px;
+            background-color: transparent;
+            
+            ul {
+                margin: 20px 0;
+               
+                li {
+                    margin: 0 8px;
+                    transition: all 0.5s ease-in-out;
+                    color: white;
+                    border-radius: 20px;
+                    padding: 7px 0 0px;
+                    font-size: 12px;
+                }
+                
+                li.slick-active {
+                    width: auto;
+                    margin: 0 8px;
+                    background-color: black;
+                    border-radius: 20px;
+                    padding: 7px 10px 0px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

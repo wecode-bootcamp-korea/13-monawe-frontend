@@ -6,6 +6,7 @@ import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import MainPage from "./pages/MainPage/MainPage";
 import Welcome from "./pages/Welcome/Welcome";
 import Login from "./pages/Login/Login";
+import MainBanner from "./pages/MainPage/components/MainBanner/MainBanner";
 
 class Routes extends Component {
   render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
           <Route exact path="/JoinStepTwo" component={JoinStepTwo} />
           <Route exact path="/JoinStepThree" component={JoinStepThree} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/MainBanner" component={MainBanner} />
         </Switch>
       </Router>
     );
