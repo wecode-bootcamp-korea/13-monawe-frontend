@@ -1,12 +1,10 @@
 {
-  "userInfo": {
-    "name": "민경민",
-    "account": "tommin231",
-    "password": "123456",
-    "email": "example@email.com",
-    "phoneNumber": "01040035298",
-    "dateOfBirth": "1995-11-16",
-    "smsAgreement": "true",
-    "emailAgreement": "false"
-  }
+  "name": "민경민",
+  "account": "tommin231",
+  "password": "123456",
+  "email": "example@email.com",
+  "phoneNumber": "01040035298",
+  "dateOfBirth": "1995-11-16",
+  "smsAgreement": true,
+  "emailAgreement": false  
 }
