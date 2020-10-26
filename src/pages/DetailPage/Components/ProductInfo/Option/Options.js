@@ -1,20 +1,21 @@
-// import "./Option.scss";
-// import React, { Component } from "react";
+import "./Options.scss";
+import React, { Component } from "react";
 
-// class Options extends Component {
-//   render() {
-//   const {options, price}= this.props.productInfo
-//     return (
-// //       {options.map((el)=>(
-// //         <div
-// //         onClick={this.props.handleAdd}
-// //         price={price}
-// //         option={el}>
-// //         {el}
-// //       </div>
-// //     )
-// //     )}
-// //     )
-// // }
+class Options extends Component {
+  render() {
+    const { productInfo } = this.props;
+    console.log(productInfo);
 
-// export default Options;
+    return (
+      <>
+        {options.map(el => (
+          <div onClick={this.props.handleAdd} price={price} option={el}>
+            {el}
+          </div>
+        ))}{" "}
+      </>
+    );
+  }
+}
+
+export default Options;

@@ -158,10 +158,10 @@ class ProductInfo extends Component {
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
                   <div className="dropDownContents">
-                    {/* <Options
+                    <Options
                       productInfo={this.props.productInfo}
                       handleAdd={this.handleAdd}
-                    /> */}
+                    />
                   </div>
                 </div>
               </div>
