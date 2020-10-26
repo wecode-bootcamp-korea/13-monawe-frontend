@@ -28,24 +28,27 @@ $light-background-color: #f1f1f1;
   }
 
   .slick-slider {
+    min-width: 1520px;
     position: relative;
     display: flex;
     justify-content: center;
 
     .slick-prev:before {
+      position: absolute;
       left: 185px;
       content: "\f0a8";
       @include arrow-style;
     }
 
     .slick-next:before {
+      position: absolute;
       left: -185px;
       content: "\f0a9";
       @include arrow-style;
     }
 
     .slick-list {
-      width: 1090px;
+      width: 1320px;
       height: auto;
       margin: 30px 15px 0 15px;
 
