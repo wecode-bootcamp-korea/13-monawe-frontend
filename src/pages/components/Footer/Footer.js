@@ -6,17 +6,8 @@ import "./Footer.scss";
 
 export class Footer extends Component {
   render() {
-    
-    let userDiv = []
-    const element = (<h1>Hello, world</h1>);
-
-    for(let i = 0; i < 10; i++) {
-      userDiv.push(element)
-    }
-
     return (
       <footer className="mgm-footer">
-        {userDiv}
         <div className = "footer-top">
          <div className = "container">
             <div className = "notice">
