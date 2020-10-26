@@ -24,6 +24,7 @@ class SearchBox extends Component {
 
   handleSearchBox = e => {
     this.props.onSearchBox(e);
+    this.setState({ currentSearchWord: "" });
   };
 
   handleSearchWord = e => {
