@@ -10,7 +10,8 @@ class DetailPage extends Component {
     this.state = {
       productInfo: {},
       averageRating: "",
-      productReview: []
+      productReview: [],
+      chosenProduct: []
     };
   }
 
@@ -25,6 +26,10 @@ class DetailPage extends Component {
         this.setState({ productReview: res.productReview });
       });
   }
+
+  // onAdd = () => {
+  //   this.setState({chosenProduct: });
+  // };
 
   render() {
     const { productInfo, averageRating, productReview } = this.state;
