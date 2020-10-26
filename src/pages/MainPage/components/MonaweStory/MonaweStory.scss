@@ -1,0 +1,125 @@
+@mixin arrow-style {
+  position: absolute;
+  color: #e5e5e5;
+  font-size: 50px;
+  font-family: "Font Awesome 5 Pro";
+}
+
+$color: #555555;
+$light-color: #9f9f9f;
+$light-background-color: #f1f1f1;
+
+.MonaweStory {
+  position: relative;
+  left: -20px;
+  padding-top: 100px;
+  margin: 100px 0;
+
+  > div {
+    width: auto;
+  }
+
+  h1 {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    font-size: 40px;
+  }
+
+  .slick-slider {
+    position: relative;
+    display: flex;
+    width: 1520px;
+    justify-content: center;
+
+    .slick-prev:before {
+      left: 185px;
+      content: "\f0a8";
+      @include arrow-style;
+    }
+
+    .slick-next:before {
+      left: -185px;
+      content: "\f0a9";
+      @include arrow-style;
+    }
+
+    .slick-list {
+      width: 1090px;
+      height: auto;
+      margin: 30px 15px 0 15px;
+
+      .slick-track {
+        display: flex;
+      }
+    }
+
+    .slick-slide {
+      width: 300px !important;
+      margin-right: 10px;
+      height: auto;
+      cursor: pointer;
+
+      :focus {
+        outline: none;
+      }
+    }
+
+    .storyInfo {
+      width: 300px;
+      margin-top: 23px;
+
+      span {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: $light-color;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 24px;
+        letter-spacing: -0.04em;
+        margin-bottom: 14px;
+      }
+
+      p {
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 300;
+        color: $light-color;
+      }
+    }
+
+    .storyProduct {
+      display: flex;
+      justify-content: space-between;
+
+      > div {
+        margin: auto 0;
+        width: 175px;
+        min-height: 78px;
+        line-height: 20px;
+
+        span {
+          display: block;
+          margin: 4px 0;
+        }
+
+        .brandName {
+          font-size: 14px;
+          color: $light-color;
+        }
+
+        .productName {
+          font-size: 14px;
+        }
+
+        .productPrice {
+          font-size: 14px;
+          color: #ff3c00;
+        }
+      }
+    }
+  }
+}
