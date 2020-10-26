@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage";
+import Welcome from "./pages/Welcome/Welcome";
 import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
-import MainPage from "./pages/MainPage/MainPage";
-import Welcome from "./pages/Welcome/Welcome";
 import Login from "./pages/Login/Login";
 
 class Routes extends Component {
