@@ -3,11 +3,7 @@ import "./ProductRecommendation.scss";
 
 class ProductRecommendation extends Component {
   render() {
-    return (
-      <div>
-        <h1>h1</h1>
-      </div>
-    );
+    return <h1>h1</h1>;
   }
 }
 
