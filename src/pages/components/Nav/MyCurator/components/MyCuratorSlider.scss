@@ -1,0 +1,57 @@
+.MyCuratorSlider {
+  .slick-slider {
+    display: flex;
+    position: relative;
+
+    .slick-arrow {
+      outline: none;
+      background-color: transparent;
+      border: none;
+      font-size: 28px;
+      font-weight: 100;
+      color: #c8c8c8;
+      cursor: pointer;
+      -webkit-transform: translateY(-15%);
+      transform: translateY(-15%);
+    }
+
+    .slick-list {
+      width: 880px;
+      height: auto;
+
+      .slick-slide {
+        width: 160px;
+        height: auto;
+        cursor: pointer;
+
+        :focus {
+          outline: none;
+        }
+
+        img {
+          width: 160px;
+          height: 160px;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+
+          span {
+            width: 160px;
+            margin: 10px 0;
+            font-size: 14px;
+            font-weight: 400;
+          }
+
+          small {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgb(255, 117, 74);
+          }
+        }
+      }
+    }
+  }
+}
