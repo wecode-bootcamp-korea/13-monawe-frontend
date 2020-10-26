@@ -1,0 +1,208 @@
+@import "../../../Styles/common.scss";
+
+.mgm-footer {
+  font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
+  font-size: 14px;
+  color : #555;
+  
+  li {
+    padding-bottom: 8px;
+  }
+
+  a:visited{
+    color:inherit;
+    
+  }
+
+  button {
+    border : 1px #ccc solid;
+    border-radius : 2px;
+    color : #555;
+    background: #fff;
+    display: block;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  select {
+    border: 1px solid #ccc;
+    background: #fff;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1300px;
+  }
+
+  .footer-top {
+    border-top: 1px #ececec solid;
+    border-bottom : 1px #ececec solid;
+    padding: 35px 0 30px 0;
+    background-color: #F6F6F6;
+
+    li {
+      width: 100%;
+      font-size: 13px;
+      a {
+        @include flex-spaceBetween-center
+      }
+    }
+
+    .notice {
+      width: 340px;
+    }
+  
+    .customor {
+      width: 390x;
+      height: 119px;
+      margin-left: 25px;
+      padding-left: 20px;
+      border-left: 1px #ececec solid;
+      button {
+        margin: 10px 0 0 20px;
+        width: 101px;
+        height: 26px;
+      }
+    }
+  
+    .helper {
+      width: 200px;
+      height: 119px;
+      margin-left: 20px;
+      padding-left: 26px;
+      border-left: 1px #ececec solid;
+      button {
+        width: 142px;
+        height: 28px;
+        margin-top: 19px;
+      }
+    }
+  
+    .sns {
+      width: 172px;
+      height: 119px;
+      margin-left: 20px;
+      padding-left: 26px;
+      border-left: 1px #ececec solid;
+  
+      li {
+        a {
+          justify-content: flex-start;
+        }
+      }
+  
+      .instagram::before{
+        content: "";
+        display: inline-block;
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+        background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -24px -250px;
+      }
+  
+      .facebook::before{
+        content: "";
+        display: inline-block;
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+        background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -48px -250px;
+      }
+    }
+  }
+
+  .footer-bottom {
+    padding: 10px 0 0 65px;
+
+    .info {
+      justify-self: flex-start;
+      ul{
+        color: black;
+        font-weight: 500;
+        font-size: 15px;
+        width: 90%;
+      }
+      div {
+        font-size: 13px;
+        margin-top: 14px;
+      }
+    }
+
+    .family {
+      font-size: 13px;
+      line-height: 20px;
+      word-break: keep-all;
+      width: 240px;
+
+      .strong {
+        font-size: 15px;
+      }
+      
+      select {
+        margin-bottom: 18px;
+        padding: 0 40px 0 20px;
+        width: 200px;
+        height: 40px;
+      }
+
+    }
+  }
+
+  // utility class
+  .strong {
+    color : #000;
+  }
+
+  .text-subject {
+    overflow: hidden;
+  }
+
+  .space-between {
+    @include flex-spaceBetween-center
+  }
+
+  .font-14 {
+    font-size: 14px;
+  }
+
+  .padding-right-5 {
+    padding-right: 5px;
+  }
+
+  .font-20 {
+    font-size:  20px;
+  }
+
+  .font-24 {
+    font-size:  24px;
+  }
+
+  .margin-bottom-5 {
+    margin-bottom: 5px;
+  }
+
+  .margin-bottom-8 {
+    margin-bottom: 8px;
+  }
+
+  .margin-bottom-14 {
+    margin-bottom: 14px;
+  }
+
+  .margin-bottom-20 {
+    margin-bottom: 20px;
+  }
+  
+  .plus-icon {
+    width: 15px;
+    height: 15px;
+    background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat 0 -250px;
+  }
+}
