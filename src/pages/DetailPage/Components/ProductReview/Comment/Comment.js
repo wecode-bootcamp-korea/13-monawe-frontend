@@ -3,7 +3,7 @@ import "./Comment.scss";
 
 class Comment extends Component {
   render() {
-    const { account, title, content, date, rating } = this.props.comment;
+    const { user_id, title, content, created_at, rating } = this.props.comment;
     console.log(rating);
     const starDiv = [];
     const star = <i className="fas fa-star" />;
@@ -19,8 +19,8 @@ class Comment extends Component {
           <strong className="itemTitle">{title}</strong>
           <span class="itemTxt">{content}</span>
           <div className="itemPayInfo">
-            <span>{account}</span>
-            <span>{date}</span>
+            <span>{user_id}</span>
+            <span>{created_at}</span>
           </div>
           <div className="smallStarGrade">{starDiv}</div>
         </div>

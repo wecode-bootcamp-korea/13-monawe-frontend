@@ -27,7 +27,7 @@ class ProductReviews extends Component {
             </h4>
             <div className="photoReviewSlider">
               {this.props.prReview.map(el => (
-                <img src={el.imageUrl} />
+                <img src={el.image_url} />
               ))}{" "}
             </div>
           </div>
