@@ -184,7 +184,7 @@ class JoinStep2 extends Component {
       isPwInfoValid
     } = this.state;
     return (
-      <main className="JoinStepTwo">
+      <div className="JoinStepTwo">
         <h2>회원가입</h2>
         <div className="stepWrapper">
           <div className="step">
@@ -387,7 +387,7 @@ class JoinStep2 extends Component {
             </form>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 }

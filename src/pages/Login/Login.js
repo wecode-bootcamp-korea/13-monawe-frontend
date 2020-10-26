@@ -5,7 +5,7 @@ import "./Login.scss";
 class Login extends Component {
   render() {
     return (
-      <main className="Welcome">
+      <div className="Welcome">
         <h2>로그인</h2>
         <div className="snsJoin">
           <h3>SNS회원가입</h3>
@@ -33,7 +33,7 @@ class Login extends Component {
             </button>
           </ul>
         </div>
-      </main>
+      </div>
     );
   }
 }
