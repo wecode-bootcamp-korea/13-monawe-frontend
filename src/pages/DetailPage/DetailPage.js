@@ -22,7 +22,7 @@ class DetailPage extends Component {
       .then(res => {
         this.setState({ productInfo: res.productInfo });
         this.setState({ averageRating: res.averageRating });
-        this.setState({ productReview: res.productReview });
+        this.setState({ productReview: res.REVIEWS });
       });
   }
 
