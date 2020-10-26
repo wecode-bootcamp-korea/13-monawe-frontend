@@ -7,7 +7,7 @@ export default class Product extends Component {
     return (
       <li className="Product">
         <div className="imgBox">
-          <img src={imageUrl} />
+          <img src={imageUrl} alt="imageUrl" />
         </div>
         <span className="stationeryListInfo">
           <span className="txtBrand">{subcategoryName}</span>

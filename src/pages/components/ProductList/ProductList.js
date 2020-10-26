@@ -3,10 +3,21 @@ import Product from "./Product";
 import "./ProductList.scss";
 
 class ProductList extends Component {
-  state = { ProductList: [] };
+  state = {
+    ProductList: [],
+    orderBy: "-created_at",
+    page_number: 1,
+    item_per_page: 20
+  };
 
   componentDidMount() {
-    fetch("data/list.json", {})
+    const { orderBy } = this.state;
+    const { pageNumber } = this.state;
+    const { itemPerPag } = this.state;
+    fetch(
+      `10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPag}`,
+      {}
+    )
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -14,10 +25,27 @@ class ProductList extends Component {
         });
       });
   }
+  componentDidUpdate() {
+    const { orderBy } = this.state;
+    const { pageNumber } = this.state;
+    const { itemPerPag } = this.state;
+    fetch(
+      `10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPag}`,
+      {}
+    )
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          ProductList: res.data
+        });
+      });
+  }
+  /*onclick = e => {
+    this.setState({ state: e.target.value });
+  };*/
 
   render() {
     const { ProductList } = this.state;
-    console.log(ProductList);
     return (
       <div className="ProductList">
         <div className="categorySort">
