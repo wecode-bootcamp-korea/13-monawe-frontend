@@ -1,0 +1,248 @@
+.JoinStepTwo {
+    width: 100%;
+    height: 1048px;
+    padding: 100px 0;
+    h2 {
+        height: 190px;
+        background-color: #faf9f7;
+        font-size: 48px;
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .stepWrapper {
+       padding: 61px 330px 0px;
+        .step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 55px 0px 55px;
+            span {
+                font-size: 20px;
+                color: #666666;
+                i {
+                    color: grey;
+                    margin-left: 45px;
+                }
+            }
+            .currentStep {
+                color: black;
+                font-size: 20px;
+                i {
+                    color:black;
+                }
+            }
+        }
+        .userInfoField {
+            margin-top: 59px;
+            padding: 0px 53px 0px 56px;
+            .description {
+                margin-bottom: 17px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p{
+                    color: #666;
+                    font-size: 13px;
+                }
+            }
+            form {
+                padding-top: 17px;
+                border-top: solid 1px black;
+                ul{
+                    li{
+                        margin-bottom: 5px;
+                        label {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            
+                            strong {
+                                width: 158px;
+                                font-size: 16px;
+                            }
+                            input {
+                                width: 100%;
+                                height: 40px;
+                                padding: 0 20px;
+                                border: 1px #ccc solid;
+                                border-radius: 1px;        
+                                font-size: 14px;
+                                &:focus{
+                                    outline: solid 1px black;
+                                }
+                            }
+                        }
+                        .infoError {
+                            margin: 3px 0px 0px 118px;
+                            color: red;
+                            font-size: 8px;
+                        }
+                        .infoValid {
+                            display: none;
+                        }
+                        .pwGuideline {
+                            color: #BBBBBB;
+                            margin: 3px 0px 0px 118px;
+                            font-size: 12px;
+                            margin-bottom: 5px;
+                        }
+                        
+                        label {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            strong  {
+                                width: 158px;
+                                font-size: 16px;
+                            }
+                            .inputWrapper {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                width: 100%;
+                                input {
+                                    width: 100%;
+                                    height: 40px;
+                                    padding: 0 20px;
+                                    border: 1px #ccc solid;
+                                    border-radius: 1px;        
+                                    font-size: 14px;
+                                    margin: 0 8px 0 -8px;
+                                }
+                                button {
+                                    width: 136px;
+                                    height: 40px;
+                                    background-color: white;
+                                    border: 1px black solid;
+                                    border-radius: 3px;
+                                    font-weight: 600;
+                                    &:focus {
+                                        outline: none;
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                        }
+                        .infoError {
+                            margin: 3px 0px 0px 118px;
+                            color: red;
+                            font-size: 8px;
+                            
+                        }
+                        .infoValid {
+                            display: none;
+                        }
+ 
+                    }
+                }
+                .buttonArea {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .cancleBtn {
+                        width: 111px;
+                        height: 40px;
+                        background-color: white;
+                        border: 1px solid grey;
+                        border-radius: 3px;
+                        font-size: 14px;
+                        margin: 0px 5px;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .confirmBtn {
+                        width: 111px;
+                        height: 40px;
+                        background-color:black;
+                        border: 1px solid grey;
+                        border-radius: 3px;
+                        font-size: 14px;
+                        color: white;
+                        margin: 0px 5px;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .optionalInfo {
+                    margin: 30px 0 20px ;
+                    padding: 30px 0;
+                    width: 100%;
+                    border-top: solid 1px #CCCCCC;
+                    border-bottom: solid 1px#CCCCCC;
+                    li{
+                        margin-bottom: 5px;
+                        label {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            
+                            strong {
+                                width: 158px;
+                                font-size: 16px;
+                            }
+                            input {
+                                width: 100%;
+                                height: 40px;
+                                padding: 0 20px;
+                                border: 1px #ccc solid;
+                                border-radius: 1px;        
+                                font-size: 14px;
+                                &:focus{
+                                    outline: solid 1px black;
+                                }
+                            }
+                        }
+                    }
+                    .AgreementWrapper {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        strong {
+                            margin-top: -35px;
+                            width: 158px;
+                            font-size: 16px;
+                        }
+                        .txtAgreement {
+                            width:100%;
+                            margin: 20px 0 0 -17px;
+                            
+                            span {
+                                height: 16px;
+                                display: flex;
+                                align-items: center;
+                                margin-bottom: 5px;
+                                
+                                input {
+                                    width: 16px;
+                                    height: 16px;
+                                }
+                                label {
+                                    margin-left: 5px;
+                                    font-size: 14px;
+                                }
+                            }
+                            p {
+                                width: 450px;
+                                display: flex;
+                                color: #999999;
+                                font-size:13px;
+                                margin-top: 15px;
+                                flex-wrap: wrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+                       
+                        
