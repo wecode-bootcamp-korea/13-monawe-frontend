@@ -16,7 +16,6 @@ class Login extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state);
   };
 
   handleLogin = () => {
@@ -31,7 +30,6 @@ class Login extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log("백엔드에서 오는 응답 메세지: ", result);
         if (result.message === "SIGNIN_SUCCESS") {
           localStorage.setItem("token", result.token);
           this.props.history.push("/");
