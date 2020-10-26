@@ -24,11 +24,7 @@ class ProductListNav extends Component {
         <div className="inner">
           <div className="categoryArea">
             <ul>
-              <li className="active">
-                <Link to="/" className="StationeryTitle">
-                  Stationery
-                </Link>
-              </li>
+              <li className="StationeryTitle">Stationery</li>
             </ul>
             <ul className="categoryBox">
               {menus &&
