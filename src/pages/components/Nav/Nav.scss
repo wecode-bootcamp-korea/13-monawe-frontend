@@ -1,0 +1,151 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-spaceBetween-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin list-style {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+@mixin button-style {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.Nav {
+  width: 100%;
+  height: 0;
+  position: fixed;
+
+  .navMenu {
+    min-width: 1400px;
+    height: 100px;
+    padding: 0 45px;
+    @include flex-spaceBetween-center;
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    top: -100px;
+    z-index: 50;
+    background-color: #ffffff;
+    cursor: pointer;
+
+    .menuTab {
+      @include flex-center;
+
+      & > div {
+        margin-right: 40px;
+        @include flex-center;
+
+        button {
+          width: 100px;
+          height: 100px;
+          @include flex-center;
+          font-size: 30px;
+          font-weight: 400;
+          text-align: center;
+          @include button-style;
+        }
+
+        span {
+          font-family: "Montserrat Alternates", sans-serif;
+          font-size: 24px;
+
+          span {
+            color: #a9abad;
+          }
+        }
+      }
+
+      .menuLists {
+        @include flex-center;
+
+        .menu {
+          height: 100px;
+          margin-right: 30px;
+          @include flex-center;
+          flex-direction: column;
+          position: relative;
+
+          small {
+            width: 100%;
+            display: block;
+            font-size: 12px;
+            text-align: right;
+            color: #ffffff;
+            visibility: visible;
+          }
+
+          &:hover {
+            border-bottom: 3px solid #ff3c00;
+
+            small {
+              width: 100%;
+              color: #ff3c00;
+              font-weight: 400;
+              visibility: visible;
+              transition-property: color;
+              transition-duration: 0.3s;
+              transition-timing-function: ease-in;
+            }
+
+            span {
+              color: #ff3c00;
+            }
+          }
+        }
+      }
+    }
+
+    .userInfo {
+      @include flex-center;
+
+      .userName {
+        width: auto;
+        margin-right: 50px;
+        @include flex-center;
+        align-content: center;
+
+        > span {
+          height: 50px;
+          @include flex-center;
+          align-content: center;
+          font-size: 16px;
+
+          span {
+            font-weight: 400;
+          }
+        }
+
+        button {
+          padding: 0;
+          font-size: 16px;
+          @include button-style;
+        }
+      }
+
+      .icons {
+        @include flex-center;
+        margin-right: 35px;
+
+        button {
+          width: 50px;
+          height: 50px;
+          @include flex-center;
+          font-size: 26px;
+          @include button-style;
+        }
+      }
+    }
+  }
+}
