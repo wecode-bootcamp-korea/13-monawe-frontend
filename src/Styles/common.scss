@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
-*{
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap");
+
+* {
   text-decoration: none;
 }
 html {
   font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕",
-    Dotum, "돋움";
+    Dotum, "돋움", "Montserrat Alternates";
   font-weight: 400;
   font-size: 16px;
   color: #000;
   outline: none;
 }
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 @mixin flex-spaceBetween-column {
   display: flex;
   flex-direction: column;
@@ -26,4 +30,5 @@ html {
   justify-content: space-between;
   align-items: center;
 }
+
 $theme-color: rgb(196, 15, 57);

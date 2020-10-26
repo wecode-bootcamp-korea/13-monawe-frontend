@@ -1,54 +1,59 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import Product from "./Product";
 import "./ProductList.scss";
 
 class ProductList extends Component {
-  state = { ProductList: "" };
+  state = { ProductList: [] };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/list.json", {
-      method: "GET"
-    })
+    fetch("data/list.json", {})
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.setState({
-          ProductList: res.productList
+          ProductList: res.data
         });
       });
   }
 
   render() {
-    console.log(this.state);
     const { ProductList } = this.state;
+    console.log(ProductList);
     return (
       <div className="ProductList">
-        <ul>
-          <li>
-            <Link to="/" className="stationeryLink">
-              <span className="stationeryImg">
-                <img
-                  src="https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_285X285_20191206103812.blob"
-                  alt="stationeryImg"
+        <div className="categorySort">
+          <div className="innerSort">
+            <h3>153프리미엄</h3>
+            <span>
+              등록상품:
+              <b>23</b>개
+            </span>
+            <div className="sortArea">
+              <select>
+                <option>40개씩</option>
+                <option>80개씩</option>
+                <option>100개씩</option>
+              </select>
+              <select>
+                <option> 신상품순 </option>
+                <option> 가격 높은순 </option>
+                <option> 낮은 가격순</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="Products">
+          <ul className="Product">
+            {ProductList &&
+              ProductList.map(el => (
+                <Product
+                  imageUrl={el.imageUrl}
+                  subcategoryName={el.subcategoryName}
+                  name={el.name}
+                  price={el.price}
                 />
-              </span>
-              <span className="stationeryListInfo">
-                <span className="txtBrand">
-                  {ProductList && ProductList[0].group}
-                </span>
-                <span className="txtTitle">
-                  {ProductList && ProductList[0].productName}
-                </span>
-                <span className="txtPrice">
-                  <span className="numPrice">
-                    {ProductList && ProductList[0].price}
-                  </span>
-                  <span className="priceWon">원</span>
-                </span>
-              </span>
-            </Link>
-          </li>
-        </ul>
+              ))}
+          </ul>
+        </div>
       </div>
     );
   }
