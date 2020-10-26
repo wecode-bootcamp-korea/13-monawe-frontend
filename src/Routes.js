@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import ProductRecommendation from "./pages/MainPage/components/ProductRecommendation/ProductRecommendation";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import DetailPage from "./pages/DetailPage/DetailPage";
-import ProductDetail from "./pages/DetailPage/Components/ProductDetail/ProductDetail";
+import MainPage from "./pages/MainPage/MainPage";
 
 class Routes extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={ProductRecommendation} />
+          <Route exact path="/" component={MainPage} />
         </Switch>
       </Router>
     );
