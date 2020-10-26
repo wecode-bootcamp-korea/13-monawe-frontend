@@ -1,0 +1,188 @@
+.mainContainer {
+  width: 1200px;
+  padding-top: 100px;
+  margin: 0 auto;
+  .reviewContainer {
+    margin-top: 100px;
+
+    .reviewSummary {
+      padding: 20px 12px 20px 37px;
+      height: 185px;
+      background-color: #fcfbf9;
+      display: flex;
+
+      .starReview {
+        span {
+          top: 15px;
+          color: #000;
+          font-size: 22px;
+          font-weight: 400;
+        }
+
+        div.grade {
+          padding-top: 20px;
+          padding-left: 10px;
+
+          .gradeTxt {
+            :first-child {
+              color: #010101;
+              font-size: 35px;
+              font-weight: 700;
+            }
+
+            :nth-child(2) {
+              color: #999;
+              font-size: 40px;
+            }
+
+            :last-child {
+              color: #999;
+              font-size: 20px;
+            }
+          }
+
+          .gradeStarBig {
+            margin-top: 15px;
+          }
+        }
+      }
+
+      .photoReview {
+        h4 {
+          padding-left: 90px;
+          padding-bottom: 10px;
+          font-size: 13px;
+        }
+        .photoReviewSlider {
+          padding: 0px 32px 0px 80px;
+
+          img {
+            margin-left: 10px;
+            width: 118px;
+            height: 118px;
+          }
+        }
+      }
+    }
+    .reviewList {
+      margin-top: 50px;
+
+      .listTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 16px;
+
+        .allReview {
+          color: #666;
+          font-size: 18px;
+        }
+
+        span {
+          font-size: 12px;
+        }
+
+        .btnArea {
+          span {
+            margin-right: 10px;
+          }
+          button {
+            height: 40px;
+            line-height: 38px;
+            font-size: 16px;
+            background-color: #fff;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            text-align: center;
+            color: #000;
+            border-radius: 3px;
+
+            margin-left: 10px;
+            padding: 0 32px;
+            border-color: #555;
+          }
+        }
+      }
+
+      .listItems {
+        margin-left: -20px;
+        // height: 500px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .item {
+          margin-left: 20px;
+          margin-top: 10px;
+          padding: 18px 20px 20px 20px;
+          width: 285px;
+          height: 337px;
+          border: 1px solid #ececec;
+
+          strong {
+            display: block;
+            line-height: 20px;
+            color: #555;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 15px;
+          }
+
+          span {
+            font-weight: 200;
+            line-height: 20px;
+            color: #555;
+            font-size: 13px;
+          }
+
+          .itemPayInfo {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ececec;
+          }
+
+          .smallStarGrade {
+            display: flex;
+
+            i {
+              width: 18px;
+              padding-top: 10px;
+              color: grey;
+            }
+          }
+        }
+      }
+
+      .listPaging {
+        margin-top: 250px;
+        margin-bottom: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        :nth-child(3) {
+          background: #666666;
+        }
+
+        div {
+          padding-left: 20px;
+          display: flex;
+          text-align: center;
+          align-items: center;
+          span {
+            color: white;
+          }
+
+          text-align: center;
+          text-align: bottom;
+          width: 50px;
+          height: 50px;
+          border-color: black;
+        }
+      }
+    }
+  }
+}
