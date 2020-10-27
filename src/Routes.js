@@ -13,6 +13,7 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
+import AddressList from "./pages/MyPage/components/AddressList";
 
 class Routes extends Component {
   render() {
@@ -32,6 +33,7 @@ class Routes extends Component {
           <Route exact path="/JoinStepTwo" component={JoinStepTwo} />
           <Route exact path="/JoinStepThree" component={JoinStepThree} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/AddressList" component={AddressList} />
         </Switch>
       </Router>
     );
