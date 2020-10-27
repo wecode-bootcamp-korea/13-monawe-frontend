@@ -77,7 +77,7 @@ export default class JoinStepOne extends Component {
   render() {
     const { is01IconClicked, is02IconClicked, is03IconClicked } = this.state;
     return (
-      <main className="JoinStepOne">
+      <div className="JoinStepOne">
         <h2>회원가입</h2>
         <div className="step1Wrapper">
           <div className="step">
@@ -367,7 +367,7 @@ export default class JoinStepOne extends Component {
             </fieldset>
           </form>
         </div>
-      </main>
+      </div>
     );
   }
 }

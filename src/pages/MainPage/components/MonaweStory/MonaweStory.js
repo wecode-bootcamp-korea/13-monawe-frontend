@@ -18,33 +18,11 @@ class MonaweStory extends Component {
 
   render() {
     const settings = {
+      infinite: true,
       autoplay: true,
       speed: 500,
-      infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1
-      // centerMode: true,
-      // centerPadding: "60px",
-      // responsive: [
-      //   {
-      //     breakpoint: 768,
-      //     settings: {
-      //       arrows: false,
-      //       centerMode: true,
-      //       centerPadding: "40px",
-      //       slidesToShow: 3
-      //     }
-      //   },
-      //   {
-      //     breakpoint: 480,
-      //     settings: {
-      //       arrows: false,
-      //       centerMode: true,
-      //       centerPadding: "40px",
-      //       slidesToShow: 1
-      //     }
-      //   }
-      // ],
     };
 
     const { stories } = this.state;
@@ -56,7 +34,10 @@ class MonaweStory extends Component {
           <Slider {...settings}>
             {stories.map((story, idx) => (
               <div key={idx}>
-                <img src={story.mainImage} alt="" />
+                <div
+                  className="storyMainImage"
+                  style={{ backgroundImage: `url(${story.mainImage})` }}
+                ></div>
                 <div className="storyInfo">
                   <span>{story.tag}</span>
                   <h2>{story.title}</h2>

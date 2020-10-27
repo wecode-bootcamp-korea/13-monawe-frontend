@@ -10,117 +10,137 @@ $light-color: #9f9f9f;
 $light-background-color: #f1f1f1;
 
 .MonaweStory {
-  position: relative;
-  left: -20px;
-  padding-top: 100px;
   margin: 100px 0;
 
-  > div {
-    width: auto;
-  }
-
   h1 {
-    width: 1200px;
+    width: 1350px;
+    padding-bottom: 20px;
     margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    font-size: 40px;
+    font-weight: 500;
+    font-size: 44px;
   }
 
   .slick-slider {
-    min-width: 1520px;
-    position: relative;
-    display: flex;
     width: 1520px;
-    justify-content: center;
+    margin: 0px auto;
+
+    .slick-prev {
+      left: -52px;
+      width: 50px;
+      height: 49px;
+    }
+
+    .slick-next {
+      right: -52px;
+      width: 50px;
+      height: 49px;
+    }
 
     .slick-prev:before {
-      position: absolute;
-      left: 185px;
+      position: static !important;
       content: "\f0a8";
       @include arrow-style;
     }
 
     .slick-next:before {
-      position: absolute;
-      left: -185px;
+      position: static !important;
       content: "\f0a9";
       @include arrow-style;
     }
+  }
 
-    .slick-list {
-      width: 1320px;
-      height: auto;
-      margin: 30px 15px 0 15px;
+  .slick-list {
+    .storyMainImage {
+      height: 450px;
+    }
 
-      .slick-track {
+    .slick-track {
+      .slick-active:nth-child(odd) .storyMainImage {
+        width: 100% !important;
+        height: 600px !important;
+      }
+
+      .slick-active:nth-child(even) .storyMainImage {
+        width: 100% !important;
+        height: 400px !important;
+      }
+
+      .slick-active > div {
+        padding: 0 15px;
+      }
+
+      .slick-slide {
         display: flex;
-      }
-    }
+        cursor: pointer;
 
-    .slick-slide {
-      width: 300px !important;
-      margin-right: 10px;
-      height: auto;
-      cursor: pointer;
-
-      :focus {
-        outline: none;
-      }
-    }
-
-    .storyInfo {
-      width: 300px;
-      margin-top: 23px;
-
-      span {
-        margin-bottom: 8px;
-        font-size: 14px;
-        color: $light-color;
-      }
-
-      h2 {
-        font-weight: 500;
-        font-size: 24px;
-        letter-spacing: -0.04em;
-        margin-bottom: 14px;
-      }
-
-      p {
-        line-height: 24px;
-        font-size: 16px;
-        font-weight: 300;
-        color: $light-color;
-      }
-    }
-
-    .storyProduct {
-      display: flex;
-      justify-content: space-between;
-
-      > div {
-        margin: auto 0;
-        width: 175px;
-        min-height: 78px;
-        line-height: 20px;
-
-        span {
-          display: block;
-          margin: 4px 0;
+        :focus {
+          outline: none;
         }
 
-        .brandName {
-          font-size: 14px;
-          color: $light-color;
+        .storyMainImage {
+          background-color: transparent;
+          background-size: cover;
+          background-position: center;
+          transition: height 0.4s linear;
         }
 
-        .productName {
-          font-size: 14px;
+        .storyInfo {
+          margin-top: 23px;
+
+          span {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: $light-color;
+          }
+
+          h2 {
+            font-weight: 500;
+            font-size: 24px;
+            letter-spacing: -0.04em;
+            margin: 14px 0;
+          }
+
+          p {
+            line-height: 24px;
+            font-size: 16px;
+            font-weight: 300;
+            color: $light-color;
+          }
         }
 
-        .productPrice {
-          font-size: 14px;
-          color: #ff3c00;
+        .storyProduct {
+          display: flex;
+
+          img {
+            width: 100px;
+            height: 100px;
+          }
+
+          > div {
+            width: 175px;
+            min-height: 78px;
+            margin: auto 0;
+            line-height: 20px;
+
+            span {
+              display: block;
+              margin: 4px 0 4px 8px;
+            }
+
+            .brandName {
+              font-size: 14px;
+              color: $light-color;
+            }
+
+            .productName {
+              font-size: 14px;
+            }
+
+            .productPrice {
+              font-size: 14px;
+              color: #ff3c00;
+            }
+          }
         }
       }
     }

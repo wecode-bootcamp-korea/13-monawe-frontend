@@ -5,7 +5,7 @@ import "./Welcome.scss";
 class Welcome extends Component {
   render() {
     return (
-      <main className="Welcome">
+      <div className="Welcome">
         <h2>회원가입</h2>
         <div className="contentWrapper">
           <span className="engDescription">Stationery Lifestyle Shop</span>
@@ -44,7 +44,7 @@ class Welcome extends Component {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 }

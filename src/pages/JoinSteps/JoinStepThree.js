@@ -4,7 +4,7 @@ import "./JoinStepThree.scss";
 export default class JoinStepThree extends Component {
   render() {
     return (
-      <main className="JoinStepThree">
+      <div className="JoinStepThree">
         <h2>회원가입</h2>
         <div className="stepWrapper">
           <div className="step">
@@ -76,7 +76,7 @@ export default class JoinStepThree extends Component {
             </li>
           </ul>
         </div>
-      </main>
+      </div>
     );
   }
 }

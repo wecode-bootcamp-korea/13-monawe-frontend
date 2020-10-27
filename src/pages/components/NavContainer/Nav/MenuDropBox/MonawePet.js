@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MENUS from "../Navdata";
+import MENUS from "../../SearchBox/Navdata";
 import "./MonawePet.scss";
 
 class MonawePet extends Component {
