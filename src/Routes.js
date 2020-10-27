@@ -21,7 +21,11 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/StationeryList" component={StationeryList} />
-          <Route exact path="/ProductList" component={ProductList} />
+          <Route
+            exact
+            path="/ProductList/product/list?category=1&order_by=:orderBy&page_number=:pageNumber&item_per_page=:itemPerPage"
+            component={ProductList}
+          />
           <Route exact path="/ProductListNav" component={ProductListNav} />
           <Route exact path="/navdata" component={navdata} />
           <Route exact path="/Product" component={Product} />

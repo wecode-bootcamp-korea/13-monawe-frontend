@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 import "./ProductList.scss";
 
 class ProductList extends Component {
@@ -7,56 +8,84 @@ class ProductList extends Component {
     ProductList: [],
     orderBy: "-created_at",
     pageNumber: 1,
-    itemPerPag: 20
+    itemPerPage: 20,
+    numPages: 0
   };
 
   componentDidMount() {
-    const { orderBy, pageNumber, itemPerPag } = this.state;
-
+    const { orderBy, pageNumber, itemPerPage } = this.state;
     fetch(
-      // "http://localhost:3000/data/list.json"
-      `http://10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPag}`
+      //"http://localhost:3000/data/ProductListPage.json"
+      `http://10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPage}`
     )
       .then(res => {
-        console.log("첫번째 res: ", res);
         return res.json();
       })
       .then(res => {
-        console.log("response: ", res);
+        console.log(res.numPages);
         this.setState({
-          ProductList: res.data
+          ProductList: res.data,
+          numPages: res.numPages
         });
-      })
-      .catch(err => {
-        console.log("에러", err);
       });
-    // console.log(this.state);
   }
-
-  componentDidUpdate() {
-    const { orderBy, pageNumber, itemPerPag } = this.state;
+  changeNum = e => {
+    const itemPerPage = e.target.value;
+    const { orderBy, pageNumber } = this.state;
     fetch(
-      `10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPag}`,
-      {}
+      `http://10.58.1.8:8000/product/list?category=1&order_by=${orderBy}&page_number=${pageNumber}&item_per_page=${itemPerPage}`
     )
-      .then(res => res.json())
+      .then(res => {
+        return res.json();
+      })
       .then(res => {
         this.setState({
           ProductList: res.data
         });
       });
-  }
-  changeNum = event => {
-    this.setState({ itemPerPag: event.target.name });
   };
 
-  changeState = event => {
-    this.setState({ itemPerPag: event.target.name });
+  changeState = e => {
+    const { orderBy, pageNumber, itemPerPage } = this.state;
+    const id = e.target.value;
+    fetch(
+      `http://10.58.1.8:8000/product/list?category=1&order_by=${id}&page_number=${pageNumber}&item_per_page=${itemPerPage}`
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        this.setState({
+          ProductList: res.data
+        });
+      });
+  };
+
+  changePageNumber = e => {
+    const id = e.target.value;
+    const { pageNumber, orderBy, itemPerPage } = this.state;
+    console.log(value);
+    fetch(
+      `http://10.58.1.8:8000/product/category/1?order_by=${orderBy}&page_number=${id}&item_per_page=${itemPerPage}`
+    )
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        this.setState({
+          ProductList: res.data
+        });
+      });
+
+  goToDetail = () => {
+    console.log("v");
+    };
   };
 
   render() {
-    const { ProductList } = this.state;
-
+    const { numPages, ProductList } = this.state;
+    const { orderBy, pageNumber, itemPerPage } = this.state;
+    // console.log(Array(5));
     return (
       <div className="ProductList">
         <div className="categorySort">
@@ -67,21 +96,21 @@ class ProductList extends Component {
               <b>23</b>개
             </span>
             <div className="sortArea">
-              <select>
-                <option name="40" onClick={() => this.changeNum(40)}>
-                  40개씩
-                </option>
-                <option name="80" onClick={() => this.changeNum(80)}>
-                  80개씩
-                </option>
-                <option name="100" onClick={() => this.changeNum(100)}>
-                  100개씩
-                </option>
+              <select value={this.state.value} onChange={this.changeNum}>
+                <option value="20">20개씩</option>
+                <option value="40">40개씩</option>
+                <option value="80">80개씩</option>
               </select>
-              <select>
-                <option> 신상품순 </option>
-                <option> 가격 높은순 </option>
-                <option> 낮은 가격순</option>
+              <select value={this.state.value} onChange={this.changeState}>
+                <option value="-created_at" onClick={this.changeState}>
+                  신상품순
+                </option>
+                <option value="-price" onClick={this.changeState}>
+                  가격 높은순
+                </option>
+                <option value="price" onClick={this.changeState}>
+                  낮은 가격순
+                </option>
               </select>
             </div>
           </div>
@@ -89,14 +118,23 @@ class ProductList extends Component {
         <div className="Products">
           <ul className="Product">
             {ProductList &&
-              ProductList.map(el => (
-                <Product
-                  imageUrl={el.imageUrl}
-                  subcategoryName={el.subcategoryName}
-                  name={el.name}
-                  price={el.price}
-                />
+              ProductList?.map(el => (
+                <Link to={`/detail/${el.id}`}>
+                  <Product
+                    imageUrl={el.imageUrl}
+                    subcategoryName={el.subcategoryName}
+                    name={el.name}
+                    price={el.price}
+                  />
+                </Link>
               ))}
+          </ul>
+        </div>
+        <div class="Paging">
+          <ul className="innerPaging">
+            {[...Array(numPages)].map((el, index) => (
+              <li onClick= {this.changePageNumber}>{index + 1}</li>
+            ))}
           </ul>
         </div>
       </div>

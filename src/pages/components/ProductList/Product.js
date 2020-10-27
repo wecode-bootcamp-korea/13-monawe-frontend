@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import "./Product.scss";
 
 export default class Product extends Component {
+  getNumberTransferToPrice = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   render() {
     const { subcategoryName, name, price, imageUrl } = this.props;
     return (
@@ -13,7 +17,9 @@ export default class Product extends Component {
           <span className="txtBrand">{subcategoryName}</span>
           <span className="txtTitle">{name}</span>
           <span className="txtPrice">
-            <span className="numPrice">{price}</span>
+            <span className="numPrice">
+              {this.getNumberTransferToPrice(price)}
+            </span>
             <span className="priceWon">원</span>
           </span>
         </span>
