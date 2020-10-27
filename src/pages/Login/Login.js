@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import API from "../../Config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -19,9 +20,8 @@ class Login extends Component {
   };
 
   handleLogin = () => {
-    const API = "http://10.58.1.8:8000/user/signin";
     const { account, password } = this.state;
-    fetch(API, {
+    fetch(`${API}/user/signin`, {
       method: "POST",
       body: JSON.stringify({
         account: account,
@@ -32,6 +32,7 @@ class Login extends Component {
       .then(result => {
         if (result.message === "SIGNIN_SUCCESS") {
           localStorage.setItem("token", result.token);
+          localStorage.setItem("name", result.name);
           this.props.history.push("/");
         } else {
           alert(
