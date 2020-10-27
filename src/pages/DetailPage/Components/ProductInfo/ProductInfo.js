@@ -1,29 +1,64 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
-import Options from "./Option/Options";
+
 import ProductRecommendation from "../../../MainPage/components/ProductRecommendation/ProductRecommendation";
 
 class ProductInfo extends Component {
-  state = {
-    chosenProduct: [
-      { option: "비올라(Viola) (재고36개)", num: 1, price: "20000원" }
-    ]
-  };
+  constructor() {
+    super();
+    this.state = {
+      price: "",
+      chosenProduct: []
+    };
+  }
 
-  handleAdd = item => {
-    console.log(item);
-    this.setState({
-      chosenProduct: {
-        option: item,
+  componentDidMount() {
+    const { price } = this.props.productInfo;
+    this.setState({ price: price });
+  }
+
+  handleAdd(option, idx) {
+    const chosenProduct = [
+      ...this.state.chosenProduct,
+      {
+        idx: idx,
+        option: option.name,
         num: 1,
-        price: 20000
+        price: option.price.split(".")[0]
       }
-    });
-  };
+    ];
+    this.setState({ chosenProduct });
+  }
+
+  handleIncreament(pr) {
+    const { price } = this.props.productInfo;
+    pr.price = price;
+    const chosenProduct = [...this.state.chosenProduct];
+    pr.num++;
+    this.setState({ chosenProduct });
+    pr.price = Number(pr.price) * pr.num;
+    this.setState({ chosenProduct });
+  }
+
+  handleDecreament(pr) {
+    pr.price = this.props.productInfo.price;
+    const chosenProduct = [...this.state.chosenProduct];
+    const num = pr.num - 1;
+    pr.num = num < 0 ? 0 : num;
+    this.setState({ chosenProduct });
+    pr.price = Number(pr.price) * pr.num;
+    this.setState({ chosenProduct });
+  }
+
+  handleDelete(pr) {
+    const chosenProduct = this.state.chosenProduct.filter(
+      item => item.idx !== pr.idx
+    );
+    this.setState({ chosenProduct });
+  }
 
   render() {
-    console.log("state", this.state.chosenProduct);
-    const { chosenProduct } = this.state;
+    // console.log("chosen", this.state.chosenProduct);
     const {
       name,
       bodyColor,
@@ -158,25 +193,51 @@ class ProductInfo extends Component {
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
                   <div className="dropDownContents">
-                    <Options
-                      productInfo={this.props.productInfo}
-                      handleAdd={this.handleAdd}
-                    />
+                    {options?.map((option, idx) => (
+                      <div onClick={() => this.handleAdd(option, idx)}>
+                        {option.name}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div chosenProductContainer>
-                {chosenProduct?.map(el => (
+              <div className="chosenProductContainer">
+                {this.state.chosenProduct?.map(product => (
                   <div className="chosenProduct">
-                    <div>{el.option}</div>
-                    <div>{el.num}</div>
-                    <div>{el.price}</div>
+                    <strong>{product.option}</strong>
+                    <div className="prCount">
+                      <i
+                        class="fas fa-plus"
+                        onClick={() => this.handleIncreament(product)}
+                      ></i>
+                      <div className="line"></div>
+                      <div>{product.num}</div>
+                      <div className="line"></div>
+                      <i
+                        class="fas fa-minus"
+                        onClick={() => this.handleDecreament(product)}
+                      ></i>
+                    </div>
+                    <div className="prPriceCount">
+                      <div>{product.price}</div>
+                      <i
+                        class="fas fa-times"
+                        onClick={() => this.handleDelete(product)}
+                      ></i>
+                    </div>
                   </div>
                 ))}
               </div>
               <div className="totalPrice">
                 <strong>총 상품금액</strong>
-                <span>0 </span>
+                <span>
+                  {" "}
+                  {this.state.chosenProduct
+                    .map(el => el.price)
+                    .reduce((stack, el) => {
+                      return Number(stack) + Number(el);
+                    }, 0)}
+                </span>
                 <span>원</span>
               </div>
             </div>

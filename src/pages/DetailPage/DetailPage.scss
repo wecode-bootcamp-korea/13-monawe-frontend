@@ -2,6 +2,7 @@
   width: 1200px;
   padding-top: 100px;
   margin: 0 auto;
+  position: relative;
 
   .location {
     margin-top: -7px;
@@ -31,7 +32,7 @@
   .productDetail {
     display: flex;
     height: 1000px;
-    margin-bottom: 100px;
+    margin-bottom: 180px;
 
     //
     .productPicture {
@@ -418,11 +419,16 @@
   }
 
   .productCategories {
+    position: absolute;
+    padding-top: 100px;
     ul {
       li {
         width: 300px;
         padding-bottom: 20px;
         border-bottom: 3px solid #ddd;
+        a {
+          text-decoration: none;
+        }
       }
       li:hover {
         color: black;
@@ -537,7 +543,7 @@
             border-radius: 3px;
 
             margin-left: 10px;
-            padding: 0 32px;
+            padding: 0 70px;
             border-color: #555;
           }
         }

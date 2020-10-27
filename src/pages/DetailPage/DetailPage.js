@@ -48,14 +48,14 @@ class DetailPage extends Component {
               <li>Stationary</li>
             </ul>
           </div>
-          <ProductInfo productInfo={productInfo} />
+          <ProductInfo productInfo={productInfo} key={productInfo} />
           <div className="productCategories">
             <ul>
               <li>
-                <a href>상품상세정보</a>
+                <a href="javascript:window.scrollTo(500, 1500)">상품상세정보</a>
               </li>
               <li>
-                <a href>상품리뷰(22)</a>
+                <a href="javascript:window.scrollTo(500, 3500)">상품리뷰(22)</a>
               </li>
               <li>
                 <a href>스토리픽</a>
@@ -65,7 +65,9 @@ class DetailPage extends Component {
               </li>
             </ul>
           </div>
+
           <ProductDetail productInfo={productInfo} />
+
           <ProductReviews avgrating={averageRating} prReview={productReview} />
         </div>
       </>
