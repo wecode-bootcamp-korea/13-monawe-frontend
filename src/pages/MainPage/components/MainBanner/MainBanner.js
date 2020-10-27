@@ -33,14 +33,10 @@ class MainBanner extends Component {
   customPaging = (pagi, i) => {
     const dot = pagi + 1;
     const dotActive = [
-      "1. 153 CLIP",
-      "2. 2021 몰스킨",
+      "1. 2021 몰스킨",
+      "2. 404 CLIP",
       "3. 유성매직 x LOVE PLANET",
-      "4. 컬러 리얼 브러쉬",
-      "5. 모나미 x 하비풀",
-      "6. 153 네오 아트",
-      "7. FX ZETA PAstel Pearl",
-      "8. 153 네오 만년필 DIY 세트"
+      "4. 컬러 리얼 브러쉬"
     ];
     if (pagi === this.state.currentSlideIndex && pagi === 0) {
       return <div className="txtDots">{dotActive[0]}</div>;
@@ -56,15 +52,6 @@ class MainBanner extends Component {
     }
     if (pagi === this.state.currentSlideIndex && pagi === 4) {
       return <div className="txtDots">{dotActive[4]}</div>;
-    }
-    if (pagi === this.state.currentSlideIndex && pagi === 5) {
-      return <div className="txtDots">{dotActive[5]}</div>;
-    }
-    if (pagi === this.state.currentSlideIndex && pagi === 6) {
-      return <div className="txtDots">{dotActive[6]}</div>;
-    }
-    if (pagi === this.state.currentSlideIndex && pagi === 7) {
-      return <div className="txtDots">{dotActive[7]}</div>;
     } else {
       return <div>{dot}</div>;
     }
@@ -81,19 +68,20 @@ class MainBanner extends Component {
   render() {
     const Slides = [
       {
-        src: "images/MainBanner_grey.png",
-        main01Txt: "153의 작은변화",
-        main02Txt: "153 CLIP",
-        sub01Txt: "클립으로 노트나 주머니에 끼워",
-        sub02Txt: "보관하기 편한 153 클립"
-      },
-      {
         src: "images/MainBanner_purple.png",
         main01Txt: "2021 몰스킨",
         main02Txt: "얼리버드 10% 할인 ",
         sub01Txt: "단순하지만 완벽한 노트북",
         sub02Txt: "몰스킨을 만나보세요"
       },
+      {
+        src: "images/MainBanner_grey.png",
+        main01Txt: "404의 작은변화",
+        main02Txt: "404 CLIP",
+        sub01Txt: "클립으로 노트나 주머니에 끼워",
+        sub02Txt: "보관하기 편한 404 클립"
+      },
+
       {
         src: "images/MainBanner_pink.png",
         main01Txt: "마법처럼 사랑을 전하는",
@@ -102,35 +90,10 @@ class MainBanner extends Component {
         sub02Txt: "새로운 패키지 제품"
       },
       {
-        src:
-          "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/stationerymain/banner/49/2020092109073805654.jpg",
+        src: "images/MainBanner_rainbow.png",
         main01Txt: "컬러 리얼 브러쉬",
         main02Txt: "6색 세트",
         sub01Txt: "펜으로 그리는 감성 수채화",
-        sub02Txt: ""
-      },
-      {
-        src:
-          "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/stationerymain/banner/49/2020083109030843043.jpg",
-        main01Txt: "리제의 모나미 데코마카",
-        main02Txt: "캘리그라피 클래스",
-        sub01Txt: "모나미 X 하비풀",
-        sub02Txt: "두 번째 온라인 취미 클래스"
-      },
-      {
-        src:
-          "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/stationerymain/banner/49/2020081703280513234.jpg",
-        main01Txt: "파스텔 펄 시리즈, 그 두번째",
-        main02Txt: "FX ZETA Pastel Pearl",
-        sub01Txt: "4본입 출시",
-        sub02Txt: ""
-      },
-      {
-        src:
-          "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/stationerymain/banner/49/2020081009091572051.jpg",
-        main01Txt: "날마다 다른 컬러",
-        main02Txt: "153 네오 만년필 DIY",
-        sub01Txt: "5가지 컬러로 만드는 매력만점 만년필",
         sub02Txt: ""
       }
     ];

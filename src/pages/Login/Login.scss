@@ -10,33 +10,38 @@
         font-size: 48px;
         font-weight: 300;
         letter-spacing: -0.04em;
-        @include flex-center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .contentWrapper {
         height: 533.800px;
         margin: 44px 305px 0px;     
         .engDescription {
-            //height: 40px;
             font-size: 16px;
             color: #666;
             line-height: 40px;
             font-weight: 400;
-            @include flex-center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .korDescription {
-            //height: 50.4px;
+            height: 50.4px;
             font-size: 30px;
             font-weight: 400;
             display: block;
-            @include flex-center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .joinBox {
-            //height: 392.4px;
             border-top: solid 1px black;
             margin-top: 50px;
-            @include flex-center; 
+            display: flex;
+            justify-content: center;
+            align-items: center; 
             .joinTotal {
-             //height: 100%;
              padding-top: 60px;
              margin: auto 122.500px;
                 .joinBtn {
@@ -47,7 +52,9 @@
                     background-color: black;
                     color: white;
                     border-radius: 3px;
-                    @include flex-center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     &:hover {
                         cursor:pointer;
                     }
@@ -55,11 +62,15 @@
                 .snsJoin {
                     margin-top: 70px;
                     h3 {
-                    @include flex-center;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                     }
                     ul {
-                    @include flex-spaceBetween-center;
-                    margin-top: 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 20px;
                         button {
                           color: #555555;
                           font-size: 14px;

@@ -1,5 +1,3 @@
-@import "../../Styles/common.scss";
-
 .JoinStepTwo {
     width: 100%;
     height: 1048px;
@@ -10,12 +8,16 @@
         font-size: 48px;
         font-weight: 300;
         letter-spacing: -0.04em;
-        @include flex-center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .stepWrapper {
        padding: 61px 330px 0px;
         .step {
-            @include flex-spaceBetween-center; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 0px 55px 0px 55px;
             span {
                 font-size: 20px;
@@ -38,7 +40,9 @@
             padding: 0px 53px 0px 56px;
             .description {
                 margin-bottom: 17px;
-                @include flex-spaceBetween-center;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 p{
                     color: #666;
                     font-size: 13px;
@@ -51,7 +55,9 @@
                     li{
                         margin-bottom: 5px;
                         label {
-                            @include flex-spaceBetween-center;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             
                             strong {
                                 width: 158px;
@@ -85,13 +91,17 @@
                         }
                         
                         label {
-                            @include flex-spaceBetween-center;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             strong  {
                                 width: 158px;
                                 font-size: 16px;
                             }
                             .inputWrapper {
-                                @include flex-spaceBetween-center;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
                                 width: 100%;
                                 input {
                                     width: 100%;
@@ -131,7 +141,9 @@
                     }
                 }
                 .buttonArea {
-                    @include flex-center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     .cancleBtn {
                         width: 111px;
                         height: 40px;
@@ -167,7 +179,9 @@
                     li{
                         margin-bottom: 5px;
                         label {
-                            @include flex-spaceBetween-center;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
                             
                             strong {
                                 width: 158px;
@@ -187,7 +201,9 @@
                         }
                     }
                     .AgreementWrapper {
-                        @include flex-spaceBetween-center;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
                         strong {
                             margin-top: -35px;
                             width: 158px;

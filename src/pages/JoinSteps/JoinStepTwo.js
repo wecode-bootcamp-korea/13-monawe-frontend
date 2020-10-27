@@ -30,23 +30,14 @@ class JoinStep2 extends Component {
     this.setState({
       [name]: String(value)
     });
-    console.log(this.state);
   };
 
-  handleSMSCheckbox = e => {
-    const { name } = e.target;
+  toggleCheckbox = e => {
+    const { smsAgreement, emailAgreement } = this.state;
     this.setState({
-      [name]: !this.state.smsAgreement
+      smsAgreement: !smsAgreement,
+      emailAgreement: !emailAgreement
     });
-    console.log(this.state);
-  };
-
-  handleEmailCheckbox = e => {
-    const { name } = e.target;
-    this.setState({
-      [name]: !this.state.emailAgreement
-    });
-    console.log(this.state);
   };
 
   checkId = e => {
@@ -86,12 +77,12 @@ class JoinStep2 extends Component {
   };
 
   isPwInfoValid = password => {
-    const number = /[0-9]/g;
-    const character = /[a-zA-z]/g;
-    const specialCharacter = /\W|_/g;
-    const isNumIncluded = password.match(number) ? true : false;
-    const isCharIncluded = password.match(character) ? true : false;
-    const isSpecialCharIncluded = password.match(specialCharacter)
+    const numberReg = /[0-9]/g;
+    const characterReg = /[a-zA-z]/g;
+    const specialCharacterReg = /\W|_/g;
+    const isNumIncluded = password.match(numberReg) ? true : false;
+    const isCharIncluded = password.match(characterReg) ? true : false;
+    const isSpecialCharIncluded = password.match(specialCharacterReg)
       ? true
       : false;
     const isPwLong = password.length >= 6 && password.length <= 16;
@@ -148,12 +139,8 @@ class JoinStep2 extends Component {
       password !== "" &&
       email !== "" &&
       phoneNumber !== "";
-    console.log("필수정보 모두 기입?", isEssentialInfoValid);
     const isPasswordSame = password === confirmPw;
-    console.log("비밀번호가 같은가요?", isPasswordSame);
-    console.log("비밀번호 valid?", this.isPwInfoValid(password));
     const isIdValid = account.length >= 5 && account.length <= 16;
-    console.log("아이디 valid?", isIdValid);
     this.isInputNull();
     this.isPasswordSame();
     if (
@@ -178,7 +165,6 @@ class JoinStep2 extends Component {
       })
         .then(response => response.json())
         .then(result => {
-          console.log("result >>> ", result);
           if (result.message === "SIGNUP_SUCCESS") {
             alert("회원가입 완료");
             this.props.history.push("/JoinStepThree");
@@ -188,8 +174,6 @@ class JoinStep2 extends Component {
   };
 
   render() {
-    console.log("패스워드", this.state.password);
-    console.log("패스워드isnull?", this.state.isPasswordNull);
     const {
       isNameNull,
       isAccountNull,
@@ -270,7 +254,7 @@ class JoinStep2 extends Component {
                   </div>
                   <div
                     className={
-                      this.state.password !== null && !isPwInfoValid
+                      this.state.password !== "" && isPwInfoValid === false
                         ? "infoError"
                         : "infoValid"
                     }
@@ -360,7 +344,7 @@ class JoinStep2 extends Component {
                             name="smsAgreement"
                             type="checkbox"
                             value="smsAgreement"
-                            onChange={this.handleSMSCheckbox}
+                            onChange={this.toggleCheckbox}
                           ></input>
                           <label htmlFor="smsAgreement">
                             SMS를 통한 상품 및 이벤트 정보 수신에 동의
@@ -372,7 +356,7 @@ class JoinStep2 extends Component {
                             name="emailAgreement"
                             type="checkbox"
                             value="emailAgreement"
-                            onChange={this.handleEmailCheckbox}
+                            onChange={this.toggleCheckbox}
                           ></input>
                           <label htmlFor="emailAgreement">
                             이메일을 통한 상품 및 이벤트 정보 수신에 동의
