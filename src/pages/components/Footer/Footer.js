@@ -5,7 +5,7 @@ import "./Footer.scss";
 export class Footer extends Component {
   render() {
     return (
-      <footer className="mgm-footer">
+      <footer className="footer">
         <div className="footer-top">
           <div className="container">
             <div className="notice">
