@@ -43,7 +43,7 @@
     width: 1300px;
   }
 
-  .footer-top {
+  .footerTop {
     border-top: 1px #ececec solid;
     border-bottom : 1px #ececec solid;
     padding: 35px 0 30px;
@@ -122,7 +122,7 @@
     }
   }
 
-  .footer-bottom {
+  .footerBottom {
     padding: 10px 0 0 65px;
 
     .info {
@@ -134,7 +134,7 @@
         font-size: 15px;
         width: 90%;
       }
-      
+
       div {
         font-size: 13px;
         margin-top: 14px;
@@ -166,47 +166,47 @@
     color : #000;
   }
 
-  .text-subject {
+  .textSubject {
     overflow: hidden;
   }
 
-  .space-between {
+  .spaceBetween {
     @include flex-spaceBetween-center
   }
 
-  .font-14 {
+  .font14 {
     font-size: 14px;
   }
 
-  .padding-right-5 {
+  .paddingRight5 {
     padding-right: 5px;
   }
 
-  .font-20 {
+  .font20 {
     font-size:  20px;
   }
 
-  .font-24 {
+  .font24 {
     font-size:  24px;
   }
 
-  .margin-bottom-5 {
+  .marginBottom5 {
     margin-bottom: 5px;
   }
 
-  .margin-bottom-8 {
+  .marginBottom8 {
     margin-bottom: 8px;
   }
 
-  .margin-bottom-14 {
+  .marginBottom14 {
     margin-bottom: 14px;
   }
 
-  .margin-bottom-20 {
+  .marginBottom20 {
     margin-bottom: 20px;
   }
   
-  .plus-icon {
+  .plusIcon {
     width: 15px;
     height: 15px;
     background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat 0 -250px;
