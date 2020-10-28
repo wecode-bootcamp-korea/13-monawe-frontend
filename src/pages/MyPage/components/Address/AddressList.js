@@ -33,7 +33,7 @@ export class AddressList extends Component {
               <li>{"서울 광진구 아차산로 312(자양동, 드림타운)"}</li>
               <li>{"303호"}</li>
             </ul>
-            <button>수정</button>
+            <button onClick={() => this.toggleModal()}>수정</button>
           </div>
         </div>
         <table className="address-table">
@@ -43,9 +43,9 @@ export class AddressList extends Component {
             <th>연락처</th>
             <th>관리</th>
           </thead>
-          <Address />
-          <Address />
-          <Address />
+          <Address toggleModal={this.toggleModal} />
+          <Address toggleModal={this.toggleModal} />
+          <Address toggleModal={this.toggleModal} />
         </table>
         <div className="bottom-button">
           <button
@@ -54,12 +54,7 @@ export class AddressList extends Component {
           >
             배송지 추가
           </button>
-          <button
-            className="set-default-button"
-            onClick={() => this.toggleModal()}
-          >
-            기본배송지 설정
-          </button>
+          <button className="set-default-button">기본배송지 설정</button>
         </div>
         <AddressModal
           display={this.state.modalDisplay}

@@ -24,7 +24,7 @@ export class Address extends Component {
         </td>
         <td className="td-phone-number">010-4003-5298</td>
         <td className="td-edit">
-          <button>수정</button>
+          <button onClick={() => this.props.toggleModal()}>수정</button>
         </td>
       </tr>
     );
