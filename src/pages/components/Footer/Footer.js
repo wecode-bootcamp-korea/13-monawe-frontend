@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../../../Styles/common.scss";
-import "../../../Styles/reset.scss";
 import "./Footer.scss";
 
 export class Footer extends Component {
