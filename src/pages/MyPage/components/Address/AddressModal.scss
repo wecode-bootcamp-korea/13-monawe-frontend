@@ -1,0 +1,18 @@
+.mgm-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+
+  .modal-inner {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: calc(50% - 250px);
+    left: calc(50% - 250px);
+    background: #fff;
+  }
+}

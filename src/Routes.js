@@ -13,7 +13,7 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
-import AddressList from "./pages/MyPage/components/AddressList";
+import AddressList from "./pages/MyPage/components/Address/AddressList";
 
 class Routes extends Component {
   render() {

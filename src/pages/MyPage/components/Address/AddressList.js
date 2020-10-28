@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Address from "./Address";
+import AddressModal from "./AddressModal";
 import "./AddressList.scss";
 
 export class AddressList extends Component {
@@ -38,6 +39,7 @@ export class AddressList extends Component {
           <button className="add-address-button">배송지 추가</button>
           <button className="set-default-button">기본배송지 설정</button>
         </div>
+        <AddressModal />
       </div>
     );
   }
