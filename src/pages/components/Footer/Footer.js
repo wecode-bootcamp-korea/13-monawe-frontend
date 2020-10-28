@@ -36,9 +36,11 @@ export class Footer extends Component {
               </ul>
             </div>
             <div className="customor">
-              <span>
-                <div className="marginBottom14 strong">고객지원센터 {">"}</div>
-              </span>
+              <div>
+                <span className="marginBottom14 strong">
+                  고객지원센터 {">"}
+                </span>
+              </div>
               <div className="spaceBetween">
                 <div>
                   <p className="font24 marginBottom8 strong">1544-2884</p>
