@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./Footer.scss";
 
 export class Footer extends Component {
@@ -11,28 +10,28 @@ export class Footer extends Component {
             <div className="notice">
               <div className="spaceBetween strong marginBottom14">
                 <div>공지사항</div>
-                <Link className="plusIcon"></Link>
+                <div className="plusIcon"></div>
               </div>
               <ul>
                 <li>
-                  <Link>
+                  <div>
                     <span className="textSubject">
                       네임펜 제품가격 인상안내
                     </span>
                     <span>2020.08.05</span>
-                  </Link>
+                  </div>
                 </li>
                 <li>
-                  <Link>
+                  <div>
                     <span>서비스 개편 및 간편 결제 서비스 추가</span>
                     <span>2020.09.11</span>
-                  </Link>
+                  </div>
                 </li>
                 <li>
-                  <Link>
+                  <div>
                     <span>모나미몰 이용약관 개정 안내</span>
                     <span>2020.10.05</span>
-                  </Link>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -65,13 +64,13 @@ export class Footer extends Component {
               <div className="marginBottom20">모나미 공식 SNS</div>
               <ul>
                 <li>
-                  <Link className="instagram">모나미펫 인스타그램</Link>
+                  <div className="instagram">모나미펫 인스타그램</div>
                 </li>
                 <li>
-                  <Link className="instagram">모나미 인스타그램</Link>
+                  <div className="instagram">모나미 인스타그램</div>
                 </li>
                 <li>
-                  <Link className="facebook">페이스북</Link>
+                  <div className="facebook">페이스북</div>
                 </li>
               </ul>
             </div>
@@ -86,19 +85,19 @@ export class Footer extends Component {
             <div>
               <ul className="spaceBetween">
                 <li>
-                  <Link>회사소개</Link>
+                  <div>회사소개</div>
                 </li>
                 <li>
-                  <Link>이용약관</Link>
+                  <div>이용약관</div>
                 </li>
                 <li>
-                  <Link>개인정보처리방침</Link>
+                  <div>개인정보처리방침</div>
                 </li>
                 <li>
-                  <Link>사업자 정보확인</Link>
+                  <div>사업자 정보확인</div>
                 </li>
                 <li>
-                  <Link>제휴/입점 안내</Link>
+                  <div>제휴/입점 안내</div>
                 </li>
               </ul>
               <div>
