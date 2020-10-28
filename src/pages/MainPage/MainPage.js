@@ -4,6 +4,7 @@ import MyCurator from "../components/Nav/MyCurator/MyCurator";
 import SearchBox from "../components/Nav/SearchBox/SearchBox";
 import MonaweStory from "./components/MonaweStory/MonaweStory";
 import "./MainPage.scss";
+import Footer from "../components/Footer/Footer"
 import ProductRecommendation from "./components/ProductRecommendation/ProductRecommendation";
 
 class MainPage extends Component {
@@ -43,6 +44,7 @@ class MainPage extends Component {
         <main>
           <MonaweStory />
         </main>
+        <Footer/>
       </>
     );
   }

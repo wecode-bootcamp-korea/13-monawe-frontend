@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
-import Options from "./Option/Options";
-import ProductRecommendation from "../../../MainPage/components/ProductRecommendation/ProductRecommendation";
-
 class ProductInfo extends Component {
   state = {
     chosenProduct: [
@@ -158,10 +155,6 @@ class ProductInfo extends Component {
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
                   <div className="dropDownContents">
-                    <Options
-                      productInfo={this.props.productInfo}
-                      handleAdd={this.handleAdd}
-                    />
                   </div>
                 </div>
               </div>
