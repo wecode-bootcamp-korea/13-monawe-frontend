@@ -50,7 +50,9 @@
       width: 100%;
       font-size: 13px;
       a {
-        @include flex-spaceBetween-center
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
 
@@ -168,7 +170,9 @@
   }
 
   .spaceBetween {
-    @include flex-spaceBetween-center
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .font14 {
