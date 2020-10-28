@@ -2,6 +2,57 @@ import React, { Component } from "react";
 import "./Cart.scss";
 
 export default class Cart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      id: "",
+      product_id: "",
+      product_option_id: "",
+      product_amount: 1,
+      product_price: 20000,
+      totalPricebyProduct: 20000,
+      cartList: {}
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://10.58.5.5:8000/order/cart", {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.setState({
+          cartList: res.PRODUCTS
+        });
+      });
+  }
+
+  /*addItem = () => {
+    const {cartList} = this.state;
+    this.setState({
+      cartList: [...cartList, {user: Date.now(), userId: "jjburi_", comment: this.state.content}],
+      content: ""
+    })
+  };*/
+
+  removeCnt = () => {
+    const { product_amount } = this.state;
+    this.setState({ product_amount: product_amount - 1 });
+  };
+
+  addCnt = () => {
+    const { product_amount } = this.state;
+    this.setState({ product_amount: product_amount + 1 });
+  };
+
+  changeCnt = () => {
+    const { totalPricebyProduct, product_price, product_amount } = this.state;
+    this.setState({ totalPricebyProduct: product_amount * product_price });
+  };
+
+  removeCart = () => {};
+
   render() {
     return (
       <div className="Cart">
@@ -12,11 +63,11 @@ export default class Cart extends Component {
           <h3>일반장바구니 (n)</h3>
           <ul className="infoTxt">
             <li>
-              모나위 배송상품과 업체배송상품은 배송비가 별도로 부과되며,
+              · 모나위 배송상품과 업체배송상품은 배송비가 별도로 부과되며,
               산간도서지역은 추가 배송비가 발생됩니다.
             </li>
             <li>
-              장바구니에 담긴 상품은 최대 30일까지 보관되며 30일 경과 시 자동
+              · 장바구니에 담긴 상품은 최대 30일까지 보관되며 30일 경과 시 자동
               삭제됩니다.
             </li>
           </ul>
@@ -25,7 +76,6 @@ export default class Cart extends Component {
           <form>
             <fieldset className="listField">
               <table>
-                <caption>장바구니 목록</caption>
                 <colgroup>
                   <col style={{ width: "40px" }} />
                   <col style={{ width: "96px" }} />
@@ -48,7 +98,7 @@ export default class Cart extends Component {
                         />
                       </label>
                     </th>
-                    <th colSpan="2">상품명</th>
+                    <th colspan="2">상품명</th>
                     <th>상품금액</th>
                     <th>수량</th>
                     <th>
@@ -74,74 +124,67 @@ export default class Cart extends Component {
                     </td>
                     <td>
                       <figure>
-                        <img src="https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_80X80_20191206103813.blob" />
+                        <img
+                          alt="productImg"
+                          src="https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_80X80_20191206103813.blob"
+                        />
                       </figure>
                     </td>
                     <td>
                       <div className="infoArea">
-                        <span>153 블라썸</span>
-                        <span className="txtOption">비올라(Viola)</span>
+                        <div>153 블라썸</div>
+                        <div className="txtOption">비올라(Viola)</div>
                       </div>
                     </td>
                     <td className="txtRight">
-                      <em>20,000</em>원
+                      <em>{this.state.product_price}</em>원
                     </td>
                     <td>
                       <div className="eaArea">
+                        <div className="btnDown" onClick={this.removeCnt}>
+                          <i class="fas fa-minus"></i>
+                        </div>
                         <input
                           type="text"
                           className="goodsCnt"
-                          value="1"
+                          value={this.state.product_amount}
                           maxLength="4"
                         />
-                        <button
-                          type="button"
-                          class="btn-down"
-                          className="btnDown"
-                          onClick={this.removeCnt}
-                        />
-                        <button
-                          type="button"
-                          class="btn-up"
-                          className="btnUp"
-                          onClick={this.addCnt}
-                        />
+                        <div className="btnUp" onClick={this.addCnt}>
+                          <i class="fas fa-plus"></i>
+                        </div>
                       </div>
                       <button
                         type="button"
-                        class="btn-whitegray small"
-                        className="btnCount"
+                        className="changeCntBtn"
                         onClick={this.changeCnt}
                       >
                         변경
                       </button>
                     </td>
                     <td className="txtRight">
-                      <em className="payPrice">120,000</em>원
-                      <small className="discountPrice">(0원)</small>
+                      <em className="payPrice">
+                        {this.state.totalPricebyProduct}
+                      </em>
+                      원<small className="discountPrice">(0원)</small>
                     </td>
                     <td>
                       <small>모나위배송</small>
                     </td>
                     <td rowSpan="1" className="txtRight">
                       <em>0</em>원
-                      <span class="deliveryinfo">
-                        <a href="#" class="btn-popinfo type-over">
-                          <strong>!</strong>
-                        </a>
-                      </span>
                     </td>
-                    <td className="orderBtn">
+                    <td className="order">
                       <button
                         type="button"
-                        class="btn-gray small"
+                        className="orderBtn"
                         onclick={this.orderCheck}
                       >
                         바로주문
                       </button>
                       <button
                         type="button"
-                        class="btn-whitegray small"
+                        className="deleteBtn"
                         onclick={this.removeCart}
                       >
                         삭제
@@ -150,26 +193,24 @@ export default class Cart extends Component {
                   </tr>
                 </tbody>
               </table>
-              <div className="btnArea">
+              <div className="selectBtnArea">
                 <label>
                   <input
                     type="checkbox"
                     class="small"
                     className="chkCartAll2"
                   />
-                  전체선택
                 </label>
                 <button
                   type="button"
-                  class="btn-gray small"
+                  className="addWishList"
                   onclick={this.addWishList}
                 >
                   찜하기
                 </button>
-
                 <button
                   type="button"
-                  class="btn-whitegray small"
+                  className="dltCheckedItem"
                   onclick={this.removeSelected}
                 >
                   선택삭제
@@ -205,14 +246,14 @@ export default class Cart extends Component {
             <div className="btnArea">
               <button
                 type="button"
-                class="btn-whitegray"
+                className="orderCheckedItem"
                 onclick={this.orderSelected}
               >
                 선택상품주문
               </button>
               <button
                 type="button"
-                class="btn-whitegray"
+                className="orderAllItem"
                 onclick={this.orderTable}
               >
                 전체상품주문

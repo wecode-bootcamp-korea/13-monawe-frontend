@@ -1,0 +1,420 @@
+.Cart {
+    width: 100%;
+    height: 1048px;
+    padding: 100px 0;
+    min-width: 1260px;
+    min-height: 560px;
+    h2 {
+        height: 190px;
+        display: flex;
+        background-color: #faf9f7;
+        font-size: 48px;
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        justify-content: center;
+        align-items: center;
+    }
+    .innerCartContent {
+        width: 1200px;
+        margin: 0 auto;
+        h3 {
+            font-size: 20px;
+            margin-top: 52px;
+        }
+        ul {
+            li{
+                font-size: 13px;
+                color: #666666;
+                padding: 8px 0 0;
+            }
+        }
+    }
+    .formArea {
+        width: 1200px;
+        margin: 0 auto;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: -0.025em;
+        line-height: 1;
+        margin-top: 16px;
+        form {
+            display: block;
+            .listField {
+                display: block;
+                margin-inline-start: 2px;
+                margin-inline-end: 2px;
+                padding-block-start: 0.35em;
+                padding-inline-start: 0.75em;
+                padding-inline-end: 0.75em;
+                padding-block-end: 0.625em;
+                min-inline-size: min-content;
+                table {
+                    width: 100%;
+                    display: table;
+                    border-top: 1px solid #000;
+                    table-layout: fixed;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    colgroup {
+                       col {
+                           font-size: 16px;
+                       }
+                    }
+                    thead {
+                        display: table-header-group;
+                        vertical-align: middle;
+                        border-color: inherit;
+                        tr {
+                            th {
+                                height: 50px;
+                                color: #000;
+                                font-size: 16px;
+                                font-weight: 400;
+                                border-bottom: 1px solid #ccc;
+                                line-height: 1;
+                                padding: 14px 0px 10px;
+                            }
+                        }
+                    }
+                    tbody {
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        letter-spacing: -0.025em;
+                        tr {
+                            td {
+                                text-align: center;
+                                vertical-align: middle;
+                                padding: 23px 20 22px;
+                                border-bottom: 1px solid #ececec;
+                                min-height: 82px;
+                                font-size: 14px;
+                                line-height: 20px;
+                                font-weight: 400;
+                                figure {
+                                    vertical-align: top;
+                                    img {
+                                        padding: 23px 0 22px;
+                                    }
+                                }
+                                .infoArea {
+                                    display: block;
+                                    margin-left: 32px;
+                                    text-align: left;
+                                    .txtOption {
+                                        display: block;
+                                        margin-top: 10px;
+                                        color: #666;
+                                        font-size: 14px;
+                                        line-height: 22px;
+                                    }
+                                }
+                                .eaArea {
+                                    width: 84px;
+                                    height: 32px;
+                                    display: inline-block;
+                                    position: relative;
+                                    vertical-align: top;
+                                    overflow: hidden;
+                                    input {
+                                        width: 100%;
+                                        height: 100%;
+                                        font-size: 12px;
+                                        text-align: center;
+                                        line-height: 22px;
+                                        vertical-align: top;
+                                        border: 1px solid #d9d9d9;
+                                        background-color: #fff;
+                                        
+                                        &:focus {
+                                            outline: none;
+                                        }
+                                    }
+                                    .btnDown {
+                                        width: 24px;
+                                        height: 32px;
+                                        position: absolute;
+                                        top: 0%;
+                                        border: 1px solid #d9d9d9;
+                                        border-right: none;
+                                        padding-top: 5px;
+                                        color: gray;
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    .btnUp {
+                                        width: 24px;
+                                        height: 32px;
+                                        position: absolute;
+                                        top: 0%;
+                                        right: 0%;
+                                        border: 1px solid #d9d9d9;
+                                        border-left: none;
+                                        padding-top: 5px;
+                                        color: gray;
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                                .changeCntBtn {
+                                    width: 84px;
+                                    height: 28px;
+                                    margin-top: 6px;
+                                    font-size: 13px;
+                                    border-color: #ececec;
+                                    color: #999;
+                                    background-color: #fff;
+                                    border: 1px solid #ccc;
+                                    text-align: center;
+                                    border-radius: 3px;
+                                    padding: 0 8px;
+                                    line-height: 26px;
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+                                }
+                                small {
+                                    display: block;
+                                    color: #555;
+                                    font-size: 13px;
+                                    font-weight: 400;
+                                }
+                            }
+                            .txtRight {
+                                text-align: right;
+                                padding: 23px 25px 22px;
+                                em {
+                                    font-style: normal;
+                                    font-weight: 700;
+                                }
+                            }
+                            .order {
+                                .orderBtn {
+                                    width: 74px;
+                                    height: 28px;
+                                    margin: 6px auto;
+                                    line-height: 26px;
+                                    font-size: 13px;
+                                    background-color: #555;
+                                    border: 1px solid #555;
+                                    text-align: center;
+                                    color: #fff;
+                                    border-radius: 3px;
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+                                }
+                                .deleteBtn {
+                                    width: 74px;
+                                    height: 28px;
+                                    margin: 6px auto;
+                                    line-height: 26px;
+                                    font-size: 13px;
+                                    color: #555;
+                                    background-color: white;
+                                    border: 1px solid #555;
+                                    text-align: center;
+                                    border-radius: 3px;
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+                .selectBtnArea {
+                    margin: 10px 0 0 10px;
+                    letter-spacing: -0.025em;
+                    line-height: 1;
+                    .addWishList {
+                        width: 74px;
+                        height: 28px;
+                        margin: 6px 10px;
+                        line-height: 26px;
+                        font-size: 13px;
+                        background-color: #555;
+                        border: 1px solid #555;
+                        text-align: center;
+                        color: #fff;
+                        border-radius: 3px;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .dltCheckedItem {
+                        width: 74px;
+                        height: 28px;
+                        margin: 6px auto;
+                        line-height: 26px;
+                        font-size: 13px;
+                        color: #555;
+                        background-color: white;
+                        border: 1px solid #555;
+                        text-align: center;
+                        border-radius: 3px;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .priceField {
+                width: 100%;
+                display: table;
+                margin-top: 40px;
+                background-color: #f9f9f9;
+                border-top: 1px solid #666;
+                border-bottom: 1px solid #ececec;
+                .orderPrice {
+                    width: 280px;
+                    height: 120px;
+                    display: table-cell;
+                    padding: 0 35px;
+                    vertical-align: middle;
+                    dt {
+                        width: 40%;
+                        display: inline-block;
+                        line-height: 44px;
+                        color: #555;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    dd {
+                        width: 60%;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 44px;
+                        color: #333;
+                        text-align: right;
+                        em {
+                            font-size: 24px;
+                        }
+                    }
+                }
+                .discount {
+                    width: 310px;
+                    height: 120px;
+                    display: table-cell;
+                    padding: 0 35px;
+                    vertical-align: middle;
+                    dt {
+                        width: 40%;
+                        display: inline-block;
+                        line-height: 44px;
+                        color: #555;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    dd {
+                        width: 60%;
+                        display: inline-block;
+                        line-height: 44px;
+                        color: #333;
+                        font-size: 16px;
+                        text-align: right;
+                        em {
+                            font-size: 24px;
+                        }
+                    }
+                }
+                .shipping {
+                    width: 280px;
+                    height: 120px;
+                    display: table-cell;
+                    padding: 0 35px;
+                    vertical-align: middle;
+                    dt {
+                        width: 40%;
+                        display: inline-block;
+                        line-height: 44px;
+                        color: #555;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    dd {
+                        width: 60%;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 44px;
+                        color: #333;
+                        text-align: right;
+                        em {
+                            font-size: 24px;
+                        }
+                    }
+                }
+                .total {
+                    width: 280px;
+                    height: 120px;
+                    display: table-cell;
+                    padding: 0 35px;
+                    vertical-align: middle;
+                    dt {
+                        width: 40%;
+                        display: inline-block;
+                        line-height: 44px;
+                        color: #555;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    dd {
+                        width: 60%;
+                        display: inline-block;
+                        font-size: 16px;
+                        line-height: 44px;
+                        color: #333;
+                        text-align: right;
+                        em {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+            .btnArea {
+                margin-top: 20px;
+                text-align: right;
+                .orderCheckedItem {
+                    height: 40px;
+                    display: inline-block;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                    padding: 0 40px;
+                    line-height: 38px;
+                    font-size: 16px;
+                    background-color: #fff;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    text-align: center;
+                    color: #666;
+                    border-radius: 3px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .orderAllItem {
+                    height: 40px;
+                    display: inline-block;
+                    margin-left: 10px;
+                    vertical-align: middle;
+                    padding: 0 40px;
+                    line-height: 38px;
+                    font-size: 16px;
+                    background-color: #000;
+                    border: 1px solid #000;
+                    box-sizing: border-box;
+                    text-align: center;
+                    color: #fff;
+                    border-radius: 3px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
