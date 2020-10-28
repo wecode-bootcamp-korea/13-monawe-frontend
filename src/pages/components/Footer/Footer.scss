@@ -1,4 +1,6 @@
 .footer {
+  $borderLight: 1px solid #ececec;
+
   font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
   font-size: 14px;
   color : #555;
@@ -41,8 +43,8 @@
   }
 
   .footerTop {
-    border-top: 1px #ececec solid;
-    border-bottom : 1px #ececec solid;
+    border-top: $borderLight;
+    border-bottom : $borderLight;
     padding: 35px 0 30px;
     background-color: #F6F6F6;
 
@@ -65,7 +67,7 @@
       height: 119px;
       margin-left: 25px;
       padding-left: 20px;
-      border-left: 1px #ececec solid;
+      border-left: $borderLight;
 
       button {
         margin: 10px 0 0 20px;
@@ -79,7 +81,7 @@
       height: 119px;
       margin-left: 20px;
       padding-left: 26px;
-      border-left: 1px #ececec solid;
+      border-left: $borderLight;
 
       button {
         width: 142px;
@@ -93,7 +95,7 @@
       height: 119px;
       margin-left: 20px;
       padding-left: 26px;
-      border-left: 1px #ececec solid;
+      border-left: $borderLight;
   
       li {
         a {
