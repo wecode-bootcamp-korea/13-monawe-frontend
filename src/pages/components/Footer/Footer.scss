@@ -103,19 +103,19 @@
   
       .instagram::before{
         content: "";
-        display: inline-block;
-        margin-right: 5px;
         width: 22px;
         height: 22px;
+        display: inline-block;
+        margin-right: 5px;
         background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -24px -250px;
       }
   
       .facebook::before{
         content: "";
-        display: inline-block;
-        margin-right: 5px;
         width: 22px;
         height: 22px;
+        display: inline-block;
+        margin-right: 5px;
         background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -48px -250px;
       }
     }
