@@ -65,15 +65,9 @@ export class Footer extends Component {
             <div className="sns">
               <div className="marginBottom20">모나미 공식 SNS</div>
               <ul>
-                <li>
-                  <div className="instagram">모나미펫 인스타그램</div>
-                </li>
-                <li>
-                  <div className="instagram">모나미 인스타그램</div>
-                </li>
-                <li>
-                  <div className="facebook">페이스북</div>
-                </li>
+                <li className="instagram">모나미펫 인스타그램</li>
+                <li className="instagram">모나미 인스타그램</li>
+                <li className="facebook">페이스북</li>
               </ul>
             </div>
           </div>
@@ -86,21 +80,11 @@ export class Footer extends Component {
           <div className="info">
             <div>
               <ul className="spaceBetween">
-                <li>
-                  <div>회사소개</div>
-                </li>
-                <li>
-                  <div>이용약관</div>
-                </li>
-                <li>
-                  <div>개인정보처리방침</div>
-                </li>
-                <li>
-                  <div>사업자 정보확인</div>
-                </li>
-                <li>
-                  <div>제휴/입점 안내</div>
-                </li>
+                <li>회사소개</li>
+                <li>이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>사업자 정보확인</li>
+                <li>제휴/입점 안내</li>
               </ul>
               <div>
                 (주)모나미 | 대표 : 민경민 | 주소 : 서울시 광진구 지구 노로 17 |
