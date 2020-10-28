@@ -41,11 +41,11 @@ export class Footer extends Component {
               </span>
               <div className="spaceBetween">
                 <div>
-                  <div className="font24 marginBottom8 strong">1544-2884</div>
-                  <div className="marginBottom8">
+                  <p className="font24 marginBottom8 strong">1544-2884</p>
+                  <p className="marginBottom8">
                     평일08:30~17:30(점심시간 12:00~13:00)
-                  </div>
-                  <div>주말/공휴일: 휴무</div>
+                  </p>
+                  <p>주말/공휴일: 휴무</p>
                 </div>
                 <div>
                   <button>카카오톡문의 {">"}</button>
