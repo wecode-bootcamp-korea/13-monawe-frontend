@@ -44,11 +44,7 @@ class Login extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div className="Welcome">
-=======
       <div className="Login">
->>>>>>> f0717016f0fd85dc5cbf06546aa7f3e9256df313
         <h2>로그인</h2>
         <div className="LoginArea">
           <div className="LoginMenu">
