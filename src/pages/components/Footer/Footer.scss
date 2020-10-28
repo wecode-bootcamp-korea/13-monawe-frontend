@@ -1,5 +1,6 @@
 .footer {
   $borderLight: 1px solid #ececec;
+  $borderDark: 1px #ccc solid;
 
   font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
   font-size: 14px;
@@ -14,7 +15,7 @@
   }
 
   button {
-    border : 1px #ccc solid;
+    border : $borderDark;
     border-radius : 2px;
     color : #555;
     background: #fff;
@@ -26,7 +27,7 @@
   }
 
   select {
-    border: 1px solid #ccc;
+    border: $borderDark;
     background: #fff;
 
     &:hover{
