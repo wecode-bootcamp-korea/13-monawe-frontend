@@ -4,6 +4,18 @@ import AddressModal from "./AddressModal";
 import "./AddressList.scss";
 
 export class AddressList extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalDisplay: false
+    };
+  }
+
+  toggleModal = () => {
+    this.setState({ modalDisplay: !this.state.modalDisplay });
+  };
+
   render() {
     return (
       <div className="mgm-address-list">
@@ -36,10 +48,23 @@ export class AddressList extends Component {
           <Address />
         </table>
         <div className="bottom-button">
-          <button className="add-address-button">배송지 추가</button>
-          <button className="set-default-button">기본배송지 설정</button>
+          <button
+            className="add-address-button"
+            onClick={() => this.toggleModal()}
+          >
+            배송지 추가
+          </button>
+          <button
+            className="set-default-button"
+            onClick={() => this.toggleModal()}
+          >
+            기본배송지 설정
+          </button>
         </div>
-        <AddressModal />
+        <AddressModal
+          display={this.state.modalDisplay}
+          toggle={this.toggleModal}
+        />
       </div>
     );
   }

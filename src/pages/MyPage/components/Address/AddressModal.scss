@@ -1,4 +1,5 @@
 .mgm-modal-wrapper {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -9,10 +10,21 @@
 
   .modal-inner {
     position: relative;
-    width: 500px;
+    width: 600px;
     height: 500px;
-    top: calc(50% - 250px);
+    padding: 24px;
+    top: calc(50% - 300px);
     left: calc(50% - 250px);
     background: #fff;
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
+}
+
+.modal-hidden {
+  display: none;
 }
