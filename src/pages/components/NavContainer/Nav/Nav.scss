@@ -34,10 +34,12 @@ $border-color: #ececec;
     height: 100px;
     padding: 0 45px;
     @include flex-spaceBetween-center;
-    font-size: 18px;
-    font-weight: 700;
     position: relative;
     z-index: 50;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid $border-color;
+
     background-color: #ffffff;
     cursor: pointer;
 

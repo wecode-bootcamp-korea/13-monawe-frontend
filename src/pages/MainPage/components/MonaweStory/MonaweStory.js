@@ -19,9 +19,9 @@ class MonaweStory extends Component {
   render() {
     const settings = {
       infinite: true,
-      autoplay: true,
+      // autoplay: true,
       speed: 500,
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1
     };
 
@@ -34,10 +34,9 @@ class MonaweStory extends Component {
           <Slider {...settings}>
             {stories.map((story, idx) => (
               <div key={idx}>
-                <div
-                  className="storyMainImage"
-                  style={{ backgroundImage: `url(${story.mainImage})` }}
-                ></div>
+                <div className="storyMainImage">
+                  <img src={story.mainImage} alt={story.title} />
+                </div>
                 <div className="storyInfo">
                   <span>{story.tag}</span>
                   <h2>{story.title}</h2>

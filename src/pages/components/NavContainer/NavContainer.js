@@ -8,7 +8,7 @@ class NavContainer extends Component {
   constructor() {
     super();
     this.state = {
-      userName: null,
+      userName: "",
       isMyCurator: false,
       isSearchBox: false
     };
@@ -16,7 +16,7 @@ class NavContainer extends Component {
 
   componentDidMount() {
     const userName = localStorage.getItem("name");
-    this.setState({ userName: userName });
+    this.setState({ userName });
   }
 
   handleMyCurator = e => {
@@ -32,7 +32,7 @@ class NavContainer extends Component {
   };
 
   render() {
-    const { userName } = this.state;
+    const { userName, isMyCurator } = this.state;
 
     return (
       <header className="NavContainer">
@@ -43,7 +43,7 @@ class NavContainer extends Component {
         />
         <MyCurator
           userName={userName}
-          isMyCurator={this.state.isMyCurator}
+          isMyCurator={isMyCurator}
           onMyCurator={this.handleMyCurator}
           onLogOut={this.handleLogOut}
         />

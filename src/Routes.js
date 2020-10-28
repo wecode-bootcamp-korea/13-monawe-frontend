@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import StationeryList from "./pages/StationeryList/StationeryList";
 import ProductList from "./pages/components/ProductList/ProductList";
@@ -6,15 +7,14 @@ import ProductListNav from "./pages/components/ProductListNav/ProductListNav";
 import navdata from "./pages/components/ProductListNav/navdata";
 import Product from "./pages/components/ProductList/Product";
 import Paging from "./pages/components/ProductList/Paging/Paging";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import Welcome from "./pages/Welcome/Welcome";
 import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
-import MyPage from "./pages/MyPage/MyPage";
 import NavContainer from "./pages/components/NavContainer/NavContainer";
+import MyPageContainer from "./pages/MyPage/MyPageContainer";
 
 class Routes extends Component {
   render() {
@@ -22,7 +22,6 @@ class Routes extends Component {
       <Router>
         <NavContainer />
         <Switch>
-          <Route exact path="/" component={MainPage} />
           <Route exact path="/StationeryList" component={StationeryList} />
           <Route exact path="/ProductList" component={ProductList} />
           <Route exact path="/ProductListNav" component={ProductListNav} />
@@ -37,7 +36,7 @@ class Routes extends Component {
           <Route exact path="/Login" component={Login} />
           <Route exact path="/MainPage" component={MainPage} />
           <Route exact path="/detail/:id" component={DetailPage} />
-          <Route exact path="/MyPage" component={MyPage} />
+          <Route exact path="/MyPage" component={MyPageContainer} />
         </Switch>
       </Router>
     );

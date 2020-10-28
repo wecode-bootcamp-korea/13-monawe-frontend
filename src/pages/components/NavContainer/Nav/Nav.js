@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MENUS from "../SearchBox/Navdata";
+import MENUS from "./Navdata";
 import ContentType from "./MenuDropBox/ContentType";
 import MonawePet from "./MenuDropBox/MonawePet";
 import ListType from "./MenuDropBox/ListType";
@@ -64,10 +64,8 @@ class Nav extends Component {
               ))}
             </ul>
           </div>
-          <div className={userName !== null ? "userInfo" : "userInfo inactive"}>
-            <div
-              className={userName !== null ? "userName" : "userName inactive"}
-            >
+          <div className={userName ? "userInfo" : "userInfo inactive"}>
+            <div className={userName ? "userName" : "userName inactive"}>
               <span>
                 {userName}
                 <span>님&nbsp;&nbsp;</span>
@@ -81,11 +79,7 @@ class Nav extends Component {
               <button className="fas fa-shopping-bag" />
               <div className="popUpBoxWrap">
                 <button className="fas fa-user" />
-                <div
-                  className={
-                    userName === null ? "popUpBox " : "popUpBox inactive"
-                  }
-                >
+                <div className={userName ? "popUpBox inactive " : "popUpBox "}>
                   <div>horn</div>
                   <ul>
                     <Link to="/Login">로그인</Link>
