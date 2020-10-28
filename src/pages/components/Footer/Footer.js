@@ -87,7 +87,7 @@ export class Footer extends Component {
                 <li>제휴/입점 안내</li>
               </ul>
               <div>
-                (주)모나미 | 대표 : 민경민 | 주소 : 서울시 광진구 지구 노로 17 |
+                (주)모나위 | 대표 : 민경민 | 주소 : 서울시 광진구 지구 노로 17 |
                 사업자등록번호 : 101-22-01004
               </div>
               <div className="marginBottom20">
@@ -109,7 +109,7 @@ export class Footer extends Component {
             <select name="" id="">
               <option value="">패밀리 사이트</option>
               <option value="">모나르때</option>
-              <option value="">모나미 컨샙스토어</option>
+              <option value="">모나위 컨샙스토어</option>
             </select>
             <div className="marginBottom8 strong">
               이니시스(에스크로) 서비스
