@@ -20,6 +20,7 @@
     color : #555;
     background: #fff;
     display: block;
+
     &:hover {
       cursor: pointer;
     }
@@ -28,6 +29,7 @@
   select {
     border: 1px solid #ccc;
     background: #fff;
+
     &:hover{
       cursor: pointer;
     }
@@ -65,7 +67,7 @@
       margin-left: 25px;
       padding-left: 20px;
       border-left: 1px #ececec solid;
-      
+
       button {
         margin: 10px 0 0 20px;
         width: 101px;
@@ -79,6 +81,7 @@
       margin-left: 20px;
       padding-left: 26px;
       border-left: 1px #ececec solid;
+
       button {
         width: 142px;
         height: 28px;
@@ -124,12 +127,14 @@
 
     .info {
       justify-self: flex-start;
+
       ul{
         color: black;
         font-weight: 500;
         font-size: 15px;
         width: 90%;
       }
+      
       div {
         font-size: 13px;
         margin-top: 14px;
