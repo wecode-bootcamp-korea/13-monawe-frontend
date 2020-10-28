@@ -84,7 +84,7 @@ $theme-color: #92c54d;
             color: #555555;
             font-size: 13px;
             cursor: pointer;
-            all: unset;
+            outline: none;
             border-radius: 2px;
             background-color: transparent;
             @include border-style;
