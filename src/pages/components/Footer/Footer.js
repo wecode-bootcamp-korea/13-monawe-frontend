@@ -37,9 +37,7 @@ export class Footer extends Component {
             </div>
             <div className="customor">
               <div>
-                <span className="marginBottom14 strong">
-                  고객지원센터 {">"}
-                </span>
+                <p className="marginBottom14 strong">고객지원센터 {">"}</p>
               </div>
               <div className="spaceBetween">
                 <div>
