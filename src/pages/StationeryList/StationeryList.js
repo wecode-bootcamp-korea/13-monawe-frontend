@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import "./StationeryList.scss";
+import ProductList from "../components/ProductList/ProductList";
+import ProductListNav from "../components/ProductListNav/ProductListNav";
+import Paging from "../components/ProductList/Paging/Paging";
 
-class StationeryList extends Component {
+export default class StationeryList extends Component {
   render() {
     return (
       <div>
-        <h1>h1</h1>
+        <ProductListNav />
+        <ProductList />
+        <Paging />
       </div>
     );
   }
 }
-
-export default StationeryList;

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
-
-import ProductRecommendation from "../../../MainPage/components/ProductRecommendation/ProductRecommendation";
-
 class ProductInfo extends Component {
   constructor() {
     super();

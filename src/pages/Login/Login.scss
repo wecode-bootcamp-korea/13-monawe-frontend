@@ -1,6 +1,6 @@
 @import "../../Styles/common.scss";
 
-.Welcome {
+.Login {
     width: 100%;
     height: 1048px;
     padding: 100px 0;
@@ -11,83 +11,133 @@
         font-weight: 300;
         letter-spacing: -0.04em;
         display: flex;
-        justify-content: center;
-        align-items: center;
+  justify-content: center;
+  align-items: center;;
     }
-    .contentWrapper {
-        height: 533.800px;
-        margin: 44px 305px 0px;     
-        .engDescription {
-            font-size: 16px;
-            color: #666;
-            line-height: 40px;
-            font-weight: 400;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .korDescription {
-            height: 50.4px;
-            font-size: 30px;
-            font-weight: 400;
-            display: block;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .joinBox {
-            border-top: solid 1px black;
-            margin-top: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center; 
-            .joinTotal {
-             padding-top: 60px;
-             margin: auto 122.500px;
-                .joinBtn {
-                    width: 323px;
-                    height: 62px;
-                    padding: 0px 40px;
-                    border: solid 1px black;
-                    background-color: black;
-                    color: white;
-                    border-radius: 3px;
+
+    .LoginArea {
+        .LoginMenu {
+            margin: 43px auto 0;
+            width: 650px;
+            .LoginTap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0px 40px 0px;;
+                .memberTap {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    &:hover {
-                        cursor:pointer;
+                    width: 50%;
+                    font-size: 20px;
+                    color: #000;
+                    border-bottom: 2.5px solid #000;
+                    padding: 15px;
+                    font-weight: 500;
+                }
+                .nonmemberTap {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    font-size: 20px;
+                    color: #999;
+                    border-bottom: 2.5px solid #999;
+                    padding: 15px;
+                    font-weight: 500;
+                }
+            }
+            .inputArea {
+                margin: 60px 122.500px 0px;
+                .inputWrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    strong {
+                        letter-spacing: -0.025em;
+                        font-size: 16px;
+                        display: inline-block;
+                        line-height: 50px;
+                        color: #333;
+                    }
+                    input {
+                        padding: 0 20px;
+                        width: 290px;
+                        height: 50px;
+                        line-height: 38px;
+                        font-size: 14px;
+                        border: 1px solid #ccc;
+                        &:focus {
+                            outline: solid black 1px;
+                        }
                     }
                 }
-                .snsJoin {
-                    margin-top: 70px;
-                    h3 {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                button {
+                    width: 405px;
+                    height: 64px;
+                    margin-top: 19px;
+                    padding: 0 20px;
+                    color: white;
+                    background-color: black;
+                    border-radius: 3px;
+                    border-color: black;
+                    font-size: 19px;
+                    &:hover {
+                        cursor: pointer;
                     }
-                    ul {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        margin-top: 20px;
-                        button {
-                          color: #555555;
-                          font-size: 14px;
-                          font-weight: 600px;
-                          background-color: white;
-                          border: none;
-                          width: 90px;
-                          height: 90px;
-                          img {
-                              width: 55px;
-                              height: 55px;
-                              margin-bottom: 5px;
-                          }
-                        }
+                }
+
+            }
+            .findInfo {
+                padding: 0 40px;
+                ul {
+                    margin: 30px 122.5px 0px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    li {
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: #555555;
+                    }
+                    .toJoin {
+                        text-decoration: none;
+                        font-size: 14px;
+                        color: #555555;
+                    }
+                }
+            }
+            .snsJoin {
+                margin-top: 30px;
+                padding-top: 30px;
+                border-top: solid 1px #DDDDDD;
+                h3 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                }
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 20px 122.5px 0px;
+                    button {
+                      color: #555555;
+                      font-size: 14px;
+                      font-weight: 600px;
+                      background-color: white;
+                      border: none;
+                      width: 90px;
+                      height: 90px;
+                      img {
+                          width: 55px;
+                          height: 55px;
+                          margin-bottom: 5px;
+                      }
                     }
                 }
             }
         }
     }
-}
+} 
