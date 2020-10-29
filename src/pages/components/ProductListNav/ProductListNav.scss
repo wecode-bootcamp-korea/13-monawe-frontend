@@ -36,72 +36,32 @@
                     .depth2Title {
                         display: block;
                         font-size: 16px;
-                        font-weight: 700;
+                        font-weight: 800;
                         margin-bottom: 15px;
                         color: #000000;
                     }
-                }
-                    ul {
-                        li {
-                        float: left;
-                        width: 200px;
-                            .depth3 {
-                                font-size: 14px;
-                                line-height: 24px;
-                                text-decoration: none;
-                                color: #555555;
-                            }
-                            .depth3:hover {
-                                border-bottom :1px solid #000000;
-                                color: #000000;
-                            }
-                        }
-                    } 
-                }
-            }    
-            .categorySort {
-                display: flex;
-                justify-content: center;
                 
-                .innerSort{
-                    position: relative;
-                    width: 100%;
-                    padding: 20px 0;
-                    align-items: center;
-                    box-sizing: border-box;
-                    h3 {
-                        display: inline-block;
-                        width: auto;
-                        font-size: 24px;
-                        font-weight: 400;
-                    }
-                    span {
-                        margin-left: 16px;
-                        font-size: 14px;
-                        b{
-                            font-size: 16px;
-                        } 
-                    }
-                    .sortArea {
-                        position: absolute;
-                        right: 0;
-                        box-sizing: border-box;
-                        display: inline-block;
-                        select {
-                            display:inline-block;
-                            border: none;
-                            margin-left: 100px;
-                            width: auto;
-                            box-sizing: border-box;
+                    ul {
+                        padding-top: 10px;
+                        .depth3 {
                             font-size: 14px;
-                            color: #000;
-                            outline: none;
+                            line-height: 24px;
+                            text-decoration: none;
+                            color: #555555;
                         }
-                       
+                        .depth3:hover {
+                            border-bottom :1px solid #000000;
+                            color: #000000;
+                        }
+                            li {
+                            float: left;
+                            width: 200px;   
+                        }
                     }
-                }
-
+                } 
             }
-        }
+        }    
+        
+    }
     
-    }  
+}  
