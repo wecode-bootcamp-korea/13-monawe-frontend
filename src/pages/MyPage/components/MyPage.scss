@@ -1,0 +1,143 @@
+@mixin title-style-one {
+  white-space: nowrap;
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@mixin title-stype-two {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: $theme-color;
+}
+
+$theme-color: #666666;
+
+.MyPage {
+  .recentelyOrderHistory {
+    position: relative;
+    padding-top: 18px;
+    display: flex;
+
+    strong {
+      @include title-style-one;
+    }
+
+    div {
+      @include title-stype-two;
+      padding: 5px 5px;
+    }
+
+    span:first-child {
+      padding-left: 3px;
+      border-left: 1px solid #000;
+    }
+  }
+}
+
+.orderProcess {
+  width: 768px;
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-around;
+
+  > div:last-child > div:after {
+    display: none;
+  }
+
+  .processUnit {
+    width: 60px;
+    height: 60px;
+    white-space: nowrap;
+
+    span {
+      width: 80px;
+      display: block;
+      position: relative;
+      right: 10px;
+      text-align: center;
+    }
+
+    div {
+      display: block;
+      margin-top: 8px;
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      line-height: 60px;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    div::after {
+      content: ">";
+      position: relative;
+      display: block;
+      top: -60px;
+      right: -73px;
+      font-size: 40px;
+      color: #000;
+      text-align: center;
+    }
+  }
+}
+
+.orderLevel {
+  height: 120px;
+  position: relative;
+  float: right;
+  top: -70px;
+  right: 5%;
+  flex-direction: column;
+  padding-left: 20px;
+  border-left: 1px solid #f0f0f0;
+
+  div {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    span {
+      color: $theme-color;
+      padding-right: 15px;
+      white-space: nowrap;
+    }
+
+    div {
+      width: 80px;
+      height: 35px;
+      padding: 0 35%;
+      color: $theme-color;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+    }
+  }
+}
+
+.recentelyViewedProducts {
+  margin-top: 100px;
+
+  > div {
+    width: 100%;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+
+    strong {
+      @include title-style-one;
+    }
+
+    > span {
+      height: 18px;
+      padding: 0 3px 5px 3px;
+      margin-left: 6px;
+      border-left: 1px solid #000;
+      @include title-stype-two;
+    }
+  }
+}
