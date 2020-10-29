@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import STORIES from "./MonaweStoryData";
-import "../../../../../node_modules/slick-carousel/slick/slick.scss";
-import "../../../../../node_modules/slick-carousel/slick/slick-theme.css";
 import "./MonaweStory.scss";
 
 class MonaweStory extends Component {
@@ -18,7 +16,7 @@ class MonaweStory extends Component {
 
   render() {
     const settings = {
-      infinite: true,
+      infinite: false,
       autoplay: true,
       speed: 500,
       slidesToShow: 4,
@@ -36,7 +34,11 @@ class MonaweStory extends Component {
               <div key={idx}>
                 <div
                   className="storyMainImage"
-                  style={{ backgroundImage: `url(${story.mainImage})` }}
+                  style={{
+                    backgroundImage: `url(${story.mainImage})`,
+                    width: 300,
+                    height: 450
+                  }}
                 ></div>
                 <div className="storyInfo">
                   <span>{story.tag}</span>

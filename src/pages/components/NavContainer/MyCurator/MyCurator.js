@@ -64,8 +64,6 @@ class MyCurator extends Component {
               <MyCuratorSlider
                 recentelyViewedProducts={recentelyViewedProducts}
               />
-              {/* <i className="fas fa-exclamation-circle" />
-              <strong>최근 본 상품이 없습니다.</strong> */}
             </div>
           </div>
         </div>

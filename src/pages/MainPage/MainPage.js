@@ -6,12 +6,10 @@ import "./MainPage.scss";
 class MainPage extends Component {
   render() {
     return (
-      <>
-        <main className="mainContents">
-          <ProductRecommendation />
-          <MonaweStory />
-        </main>
-      </>
+      <main className="mainContents">
+        <ProductRecommendation />
+        <MonaweStory />
+      </main>
     );
   }
 }
