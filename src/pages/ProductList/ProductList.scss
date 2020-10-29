@@ -1,0 +1,90 @@
+.ProductList{
+  display: flex;
+  flex-direction: column;
+  
+  .productContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    .ProductListPage{
+        width: 1200px;
+    }
+    .categorySort {
+        display: flex;
+        justify-content: center;
+        margin:0 50px;
+        .innerSort{
+            width: 1200px;
+            position: relative;
+            padding: 20px 0;
+            align-items: center;
+            box-sizing: border-box;
+            h3 {
+                display: inline-block;
+                width: auto;
+                font-size: 24px;
+                font-weight: 400;
+            }
+            span {
+                margin-left: 16px;
+                font-size: 14px;
+                b{
+                    font-size: 16px;
+                } 
+            }
+            .sortArea {
+                position: absolute;
+                right: 0;
+                box-sizing: border-box;
+                display: inline-block;
+                select {
+                    display:inline-block;
+                    border: none;
+                    margin-left: 100px;
+                    width: auto;
+                    box-sizing: border-box;
+                    font-size: 14px;
+                    color: #000;
+                    outline: none;
+                }
+            
+            }
+        }
+
+    }
+    .Products {
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & ul{
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            height: auto;
+        }
+    }
+  }
+    .Paging{
+        margin: 0 20px 80px;
+        .innerPaging{
+            line-height: 24px;
+            display: flex;
+            justify-content: center;
+            & li {
+                color: #cccccc;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+            }
+            & li:hover:not(.active){
+                color: #ffffff;
+                cursor: pointer;
+                background-color: #666666;
+            }    
+        }
+    }
+}

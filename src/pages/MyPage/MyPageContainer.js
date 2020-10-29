@@ -28,6 +28,10 @@ class MyPageContainer extends Component {
       : this.setState({ clickedBoxIdx: "" });
   };
 
+  handleLogOut = e => {
+    localStorage.clear();
+  };
+
   render() {
     const { myPageData, userName, clickedBoxIdx } = this.state;
 
@@ -46,7 +50,9 @@ class MyPageContainer extends Component {
                 입니다.
               </span>
               <div>
-                <Link to="/Login">로그아웃</Link>
+                <Link to="/Login" onClick={this.handleLogOut}>
+                  로그아웃
+                </Link>
                 <button>등급별혜택안내 +</button>
               </div>
             </div>
@@ -99,5 +105,3 @@ const MYPAGESTATUS = [
   { statusName: "예치금", status: 0, unit: "원" },
   { statusName: "적립금", status: 0, unit: "원" }
 ];
-
-const MENUS = [{ 0: <MyPage /> }, { 7: <AddressList /> }];

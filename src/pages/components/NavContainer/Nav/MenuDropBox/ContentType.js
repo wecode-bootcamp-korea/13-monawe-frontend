@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { API_KM } from "../../../../../Config";
 import "./ContentType.scss";
 
 class ContentType extends Component {
-  handleDropBox = e => {
-    console.log(e);
+  handlePageChange = id => {
+    this.props.history.push(
+      "/products?category=1&subcategory=1&order_by=created_at&page_number=1&item_per_page=20"
+    );
   };
 
   render() {
@@ -14,7 +18,9 @@ class ContentType extends Component {
         <div>
           {categories?.map((category, idx) => (
             <ul key={idx}>
-              <h5>{category.title}</h5>
+              <h5 onClick={() => this.handlePageChange(idx + 1)}>
+                {category.title}
+              </h5>
               {category.subcategories.map((subcategory, idx) => (
                 <li key={idx}>{subcategory}</li>
               ))}
@@ -26,4 +32,4 @@ class ContentType extends Component {
   }
 }
 
-export default ContentType;
+export default withRouter(ContentType);
