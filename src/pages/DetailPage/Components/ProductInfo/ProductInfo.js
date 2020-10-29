@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
+
 class ProductInfo extends Component {
   constructor() {
     super();
@@ -12,7 +13,7 @@ class ProductInfo extends Component {
 
   componentDidMount() {
     const { price } = this.props.productInfo;
-    this.setState({ price });
+    this.setState({ price: price });
   }
 
   handleAdd(option, idx) {
