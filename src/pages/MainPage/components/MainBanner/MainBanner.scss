@@ -50,7 +50,7 @@
                 height: 600px;
                 overflow: hidden;
                 img {
-                margin: 0px 0 0 -400px;
+                // margin: 0px 0 0 -400px;
                 z-index: -1;
                 }
             }
@@ -99,7 +99,7 @@
                     transition: all 0.5s ease-in-out;
                     color: white;
                     border-radius: 20px;
-                    padding: 8px 0px 0px;
+                    padding: 3px 0px 0px;
                     font-size: 12px;
                 }
                 
@@ -108,7 +108,7 @@
                     margin: 0 8px;
                     background-color: black;
                     border-radius: 20px;
-                    padding: 8px 10px 0px;
+                    padding: 5px 10px 0px;
                     font-size: 12px;
                 }
             }

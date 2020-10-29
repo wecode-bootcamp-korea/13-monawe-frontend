@@ -1,6 +1,6 @@
 .mgm-modal-wrapper {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 5000;
@@ -55,9 +55,11 @@
         button {
           height: 40px;
           background: #fff;
-          border: 2px solid black;
+          border: 1px solid black;
           border-radius: 2px;
           margin-left: 5%;
+          outline: none;
+          cursor: pointer;
 
           &:focus {
             outline: none;
@@ -73,12 +75,18 @@
     .modal-bottom-button {
       width: 210px;
       margin: 0 auto auto;
+      outline: none;
+      cursor: pointer;
 
       .cancel-button {
         width: 100px;
         height: 35px;
         background: #fff;
         margin-right: 10px;
+        outline: none;
+        cursor: pointer;
+        border-radius: 2px;
+        border: 1px solid black;
       }
       .accept-button {
         width: 100px;
@@ -86,6 +94,10 @@
         background: #222;
         border: 1px solid #222;
         color: #fff;
+        outline: none;
+        cursor: pointer;
+        border-radius: 2px;
+        border: 1px solid black;
       }
     }
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { API_CY } from "../../../../../src/Config";
 import MyCuratorSlider from "./components/MyCuratorSlider";
 
 import "./MyCurator.scss";
@@ -13,10 +14,16 @@ class MyCurator extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/list.json")
+    const userToken = localStorage.getItem("token");
+    fetch(`${API_CY}/order/recent`, {
+      method: "GET",
+      headers: {
+        Authorization: userToken
+      }
+    })
       .then(res => res.json())
       .then(res => {
-        this.setState({ recentelyViewedProducts: res.data });
+        this.setState({ recentelyViewedProducts: res.viewed_list });
       });
   }
 
@@ -40,7 +47,9 @@ class MyCurator extends Component {
                 <i className="fas fa-medal" />
                 <div>
                   <h3>{userName}님 맞춤알림</h3>
-                  <Link to="/MyPage">마이페이지</Link>
+                  <Link to="/MyPage" onClick={this.handleMyCurator}>
+                    마이페이지
+                  </Link>
                   <Link to="/Login" onClick={this.handleLogOut}>
                     로그아웃
                   </Link>

@@ -94,12 +94,12 @@ export class AddressList extends Component {
             <button
               onClick={() =>
                 this.toggleModal("edit", {
-                  id: this.state.addressList[0].id,
-                  name: this.state.addressList[0].name,
-                  address: this.state.addressList[0].address,
-                  detailedAddress: this.state.addressList[0].detailed_address,
-                  zipCode: this.state.addressList[0].zip_code,
-                  phoneNumber: this.state.addressList[0].phone_number
+                  id: this.state.addressList[0]?.id,
+                  name: this.state.addressList[0]?.name,
+                  address: this.state.addressList[0]?.address,
+                  detailedAddress: this.state.addressList[0]?.detailed_address,
+                  zipCode: this.state.addressList[0]?.zip_code,
+                  phoneNumber: this.state.addressList[0]?.phone_number
                 })
               }
             >
