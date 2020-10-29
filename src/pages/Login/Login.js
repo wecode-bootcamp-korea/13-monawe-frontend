@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import API from "../../Config";
+import { API_KM } from "../../Config";
 import "./Login.scss";
 
 class Login extends Component {
@@ -21,7 +21,7 @@ class Login extends Component {
 
   handleLogin = () => {
     const { account, password } = this.state;
-    fetch(`${API}/user/signin`, {
+    fetch(`${API_KM}/user/signin`, {
       method: "POST",
       body: JSON.stringify({
         account: account,

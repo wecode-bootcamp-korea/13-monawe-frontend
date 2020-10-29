@@ -47,10 +47,7 @@ class Nav extends Component {
           <div className="menuTab">
             <div>
               <button className="fas fa-bars" />
-              <Link
-                to="/
-              "
-              >
+              <Link to="/">
                 monawe<span>mall</span>
               </Link>
             </div>
@@ -86,7 +83,7 @@ class Nav extends Component {
                   <div>horn</div>
                   <ul>
                     <Link to="/Login">로그인</Link>
-                    <Link to="/JoinStepOne">회원가입</Link>
+                    <Link to="/Welcome">회원가입</Link>
                     <li>비회원로그인</li>
                   </ul>
                 </div>

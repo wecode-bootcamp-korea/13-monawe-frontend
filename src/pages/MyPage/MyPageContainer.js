@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import MYPAGEMENUS from "./MyPageData";
-import MyPage from "./components/MyPage";
+import MyPage from "./components/MyPage/MyPage";
+import AddressList from "./components/Address/AddressList";
 import "./MyPageContainer.scss";
 
 class MyPageContainer extends Component {
@@ -9,12 +10,15 @@ class MyPageContainer extends Component {
     super();
     this.state = {
       myPageData: [],
+      userName: "",
       clickedBoxIdx: ""
     };
   }
   componentDidMount() {
+    const userName = localStorage.getItem("name");
     this.setState({
-      myPageData: MYPAGEMENUS
+      myPageData: MYPAGEMENUS,
+      userName
     });
   }
 
@@ -25,7 +29,7 @@ class MyPageContainer extends Component {
   };
 
   render() {
-    const { myPageData, clickedBoxIdx } = this.state;
+    const { myPageData, userName, clickedBoxIdx } = this.state;
 
     return (
       <div className="MyPageContainer">
@@ -35,7 +39,7 @@ class MyPageContainer extends Component {
           <div>
             <div className="userInfo">
               <span>
-                <strong>김수연</strong>님
+                <strong>{userName}</strong>님
               </span>
               <span>
                 현재 등급은 <span className="fontHighlight">그린(Green)</span>
@@ -80,9 +84,7 @@ class MyPageContainer extends Component {
               ))}
             </ul>
           </aside>
-          <div>
-            <MyPage />
-          </div>
+          <div>{clickedBoxIdx === 7 ? <AddressList /> : <MyPage />}</div>
         </div>
       </div>
     );
@@ -97,3 +99,5 @@ const MYPAGESTATUS = [
   { statusName: "예치금", status: 0, unit: "원" },
   { statusName: "적립금", status: 0, unit: "원" }
 ];
+
+const MENUS = [{ 0: <MyPage /> }, { 7: <AddressList /> }];

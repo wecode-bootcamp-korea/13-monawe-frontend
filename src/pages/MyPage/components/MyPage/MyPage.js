@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import MyCuratorSlider from "../../components/NavContainer/MyCurator/components/MyCuratorSlider";
+import MyCuratorSlider from "../../../components/NavContainer/MyCurator/components/MyCuratorSlider";
+import { API_CY } from "../../../../Config";
 import "./MyPage.scss";
 
 class MyPage extends Component {
@@ -11,7 +12,13 @@ class MyPage extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.5.5:8000/order/recent")
+    const userToken = localStorage.getItem("token");
+    fetch(`${API_CY}/order/recent`, {
+      method: "GET",
+      headers: {
+        Authorization: userToken
+      }
+    })
       .then(res => res.json())
       .then(res => {
         this.setState({ recentelyViewedProducts: res.viewed_list });

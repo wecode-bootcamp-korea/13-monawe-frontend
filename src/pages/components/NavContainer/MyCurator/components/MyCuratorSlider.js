@@ -39,7 +39,6 @@ class MyCuratorSlider extends Component {
     };
 
     const { recentelyViewedProducts } = this.props;
-
     return (
       <div className="MyCuratorSlider">
         <Slider {...settings}>
