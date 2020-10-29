@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
+<<<<<<< HEAD
 
 import ProductRecommendation from "../../../MainPage/components/ProductRecommendation/ProductRecommendation";
 
+=======
+>>>>>>> main
 class ProductInfo extends Component {
   state = {
     chosenProduct: [
@@ -32,7 +35,6 @@ class ProductInfo extends Component {
       description,
       tag,
       price,
-      options,
       imageUrl
     } = this.props.productInfo;
 

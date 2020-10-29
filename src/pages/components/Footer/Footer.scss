@@ -1,0 +1,230 @@
+.footer {
+  $borderLight: 1px solid #ececec;
+  $borderDark: 1px #ccc solid;
+
+  font-family: "Lato", "Noto Sans KR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
+  font-size: 14px;
+  color : #555;
+  padding-bottom: 20px;
+  
+  li {
+    padding-bottom: 8px;
+  }
+
+  a:visited{
+    color:inherit;
+  }
+
+  button {
+    border : $borderDark;
+    border-radius : 2px;
+    color : #555;
+    background: #fff;
+    display: block;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  select {
+    border: $borderDark;
+    background: #fff;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1300px;
+  }
+
+  .footerTop {
+    border-top: $borderLight;
+    border-bottom : $borderLight;
+    padding: 35px 0 30px;
+    background-color: #F6F6F6;
+
+    li {
+      width: 100%;
+      font-size: 13px;
+      a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .notice {
+      width: 340px;
+    }
+  
+    .customor {
+      width: 390x;
+      height: 119px;
+      margin-left: 25px;
+      padding-left: 20px;
+      border-left: $borderLight;
+
+      button {
+        margin: 10px 0 0 20px;
+        width: 107px;
+        height: 26px;
+      }
+    }
+  
+    .helper {
+      width: 200px;
+      height: 119px;
+      margin-left: 20px;
+      padding-left: 26px;
+      border-left: $borderLight;
+
+      button {
+        width: 142px;
+        height: 28px;
+        margin-top: 19px;
+      }
+    }
+  
+    .sns {
+      width: 172px;
+      height: 119px;
+      margin-left: 20px;
+      padding-left: 26px;
+      border-left: $borderLight;
+  
+      li {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+      }
+  
+      .instagram::before{
+        content: "";
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        margin-right: 5px;
+        background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -24px -250px;
+      }
+  
+      .facebook::before{
+        content: "";
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        margin-right: 5px;
+        background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat -48px -250px;
+      }
+    }
+  }
+
+  .footerBottom {
+    padding: 10px 0 0 65px;
+
+    .info {
+      justify-self: flex-start;
+
+      ul{
+        color: black;
+        font-weight: 500;
+        font-size: 15px;
+        width: 90%;
+      }
+
+      div {
+        font-size: 13px;
+        margin-top: 14px;
+      }
+    }
+
+    .family {
+      font-size: 13px;
+      line-height: 20px;
+      word-break: keep-all;
+      width: 240px;
+
+      .strong {
+        font-size: 15px;
+      }
+      
+      select {
+        margin-bottom: 18px;
+        padding: 0 40px 0 20px;
+        width: 200px;
+        height: 40px;
+      }
+
+    }
+  }
+
+  // utility class
+  .strong {
+    color : #000;
+  }
+
+  .textSubject {
+    overflow: hidden;
+  }
+
+  .bottom1 {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 24px;
+    color: black;
+
+    span:last-child {
+     color: #939597;
+    }
+  }
+
+  .spaceBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .font14 {
+    font-size: 14px;
+  }
+
+  .paddingRight5 {
+    padding-right: 5px;
+  }
+
+  .font20 {
+    font-size:  20px;
+  }
+
+  .font24 {
+    font-size:  24px;
+  }
+
+  .marginBottom5 {
+    margin-bottom: 5px;
+  }
+
+  .marginBottom8 {
+    margin-bottom: 8px;
+  }
+
+  .marginBottom14 {
+    margin-bottom: 14px;
+  }
+
+  .marginBottom20 {
+    margin-bottom: 20px;
+  }
+  
+  .plusIcon {
+    width: 15px;
+    height: 15px;
+    background: url(https://www.monamimall.com/w/images/w/common/bl_comm.png) no-repeat 0 -250px;
+  }
+}

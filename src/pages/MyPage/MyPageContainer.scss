@@ -1,0 +1,211 @@
+@mixin border-style {
+  border: 1px solid #dddddd;
+}
+
+$theme-color: #92c54d;
+
+.MyPageContainer {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-size: 48px;
+    text-align: center;
+    font-weight: 300;
+    padding-top: 180px;
+    padding-bottom: 30px;
+    vertical-align: middle;
+  }
+
+  .myPageBanner {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    @include border-style;
+
+    i {
+      width: 150px;
+      height: auto;
+      padding: auto;
+      position: relative;
+      top: 18%;
+      color: $theme-color;
+      font-size: 100px;
+      text-align: center;
+      transform: translateY(-25%);
+    }
+
+    > div {
+      height: 91px;
+      display: flex;
+
+      .userInfo {
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+
+        > span:first-child,
+        strong {
+          font-size: 24px;
+          padding-bottom: 4px;
+        }
+
+        .fontHighlight {
+          color: $theme-color;
+          font-size: 16px;
+          padding-bottom: 5px;
+          font-weight: 400;
+        }
+
+        > div {
+          display: flex;
+          margin-top: 16px;
+
+          a {
+            height: 26px;
+            padding: 7px 8px;
+            margin: 10px 0;
+            display: inline-block;
+            color: #ffffff;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #555555;
+          }
+
+          button {
+            height: 26px;
+            padding: 0 8px;
+            margin: 10px 0 10px 5px;
+            color: #555555;
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+            border-radius: 2px;
+            background-color: transparent;
+            @include border-style;
+          }
+        }
+      }
+
+      .myPageMenus {
+        display: flex;
+
+        li {
+          height: 89px;
+          margin: 10px;
+          display: flex;
+          text-align: center;
+          min-width: 187px;
+          padding-bottom: 5px;
+          border-left: 1px solid #dddddd;
+          flex-direction: column;
+
+          span {
+            margin: 8px;
+
+            strong {
+              font-size: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .myPageContents {
+    margin-top: 40px;
+    margin-bottom: 100px;
+
+    aside {
+      float: left;
+
+      ul {
+        width: 160px;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+
+        :first-child a::after {
+          display: none;
+        }
+
+        :first-child a::before {
+          display: none;
+        }
+
+        > div {
+          padding: 0 15px 3px 15px;
+          font-size: 20px;
+          border-bottom: 1px solid #dddddd;
+
+          a {
+            display: block;
+            position: relative;
+            color: #000000;
+            font-size: 20px;
+            padding-top: 13px;
+            padding-bottom: 8px;
+            font-weight: 300;
+            line-height: 23px;
+          }
+
+          a::before {
+            width: 15px;
+            height: 1px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            background: #000000;
+            content: "";
+            transition: 0.4s;
+            transform: rotate(-90deg);
+          }
+
+          a::after {
+            width: 15px;
+            height: 1px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            background: #000000;
+            content: "";
+            transition: 0.4s;
+            transform: rotate(-180deg);
+          }
+        }
+
+        .menuLists {
+          height: 0;
+          overflow: hidden;
+
+          li {
+            color: #030303;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+
+            &:last-child {
+              padding-bottom: 10px;
+            }
+          }
+
+          &.active {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    > div {
+      width: 960px;
+      float: left;
+      margin-left: 80px;
+    }
+  }
+}
