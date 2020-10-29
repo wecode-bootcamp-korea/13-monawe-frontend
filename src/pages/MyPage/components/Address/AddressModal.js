@@ -8,6 +8,7 @@ export class AddressModal extends Component {
   constructor() {
     super();
     this.state = {
+      id: "",
       name: "",
       address: "",
       detailedAddress: "",
@@ -15,8 +16,8 @@ export class AddressModal extends Component {
       zipCode: "",
       isDefault: false
     };
+    this.baseState = this.state;
   }
-
   handleChange(e) {
     const target = e.target;
     const value = target.value;
@@ -33,6 +34,7 @@ export class AddressModal extends Component {
 
   handleSubmit() {
     const {
+      id,
       name,
       address,
       detailedAddress,
@@ -51,31 +53,75 @@ export class AddressModal extends Component {
       alert("모든 정보를 입력해주세요");
       return;
     }
+    if (this.props.mode === "add") {
+      fetch("http://10.58.1.8:8000/user/address", {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          address: address,
+          detailed_address: detailedAddress,
+          phone_number: phoneNumber,
+          zip_code: zipCode,
+          is_default: isDefault
+        }),
+        headers: new Headers({
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        })
+      }).then(res => {
+        if (res.status === 200) {
+          alert("주소를 추가했습니다.");
+          this.props.addAddress();
+          this.props.toggle();
+        } else {
+          alert("주소를 추가하지 못했습니다.");
+          this.props.toggle();
+        }
+      });
+    } else {
+      fetch("http://10.58.1.8:8000/user/address", {
+        method: "PATCH",
+        body: JSON.stringify({
+          address_id: id,
+          name: name,
+          address: address,
+          detailed_address: detailedAddress,
+          phone_number: phoneNumber,
+          zip_code: zipCode,
+          is_default: isDefault
+        }),
+        headers: new Headers({
+          Authorization:
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        })
+      }).then(res => {
+        if (res.status === 200) {
+          alert("주소를 수정 했습니다.");
+          this.props.addAddress();
+          this.props.toggle();
+        } else {
+          alert("주소를 수정하지 못했습니다.");
+          this.props.toggle();
+        }
+      });
+    }
+  }
 
-    fetch("http://10.58.1.8:8000/user/address", {
-      method: "POST",
-      body: JSON.stringify({
-        name: name,
-        address: address,
-        detailed_address: detailedAddress,
-        phone_number: phoneNumber,
-        zip_code: zipCode,
-        is_default: isDefault
-      }),
-      headers: new Headers({
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
-      })
-    }).then(res => {
-      if (res.status === 200) {
-        alert("주소를 추가했습니다.");
-        this.props.addAddress();
-        this.props.toggle();
+  componentDidUpdate(previousProps) {
+    if (previousProps.address !== this.props.address) {
+      if (this.props.address) {
+        this.setState({
+          id: this.props.address.id,
+          name: this.props.address.name,
+          address: this.props.address.address,
+          detailedAddress: this.props.address.detailedAddress,
+          zipCode: this.props.address.zipCode,
+          phoneNumber: this.props.address.phoneNumber
+        });
       } else {
-        alert("주소를 추가하지 못했습니다.");
-        this.props.toggle();
+        this.setState(this.baseState);
       }
-    });
+    }
   }
 
   render() {
@@ -99,6 +145,7 @@ export class AddressModal extends Component {
                   className="width100p"
                   type="text"
                   name="name"
+                  value={this.state.name}
                   onChange={e => this.handleChange(e)}
                 />
               </td>
@@ -110,6 +157,7 @@ export class AddressModal extends Component {
                   className="width100p"
                   type="text"
                   name="phoneNumber"
+                  value={this.state.phoneNumber}
                   onChange={e => this.handleChange(e)}
                 />
               </td>
@@ -121,6 +169,7 @@ export class AddressModal extends Component {
                   className="width65p"
                   type="text"
                   name="zipCode"
+                  value={this.state.zipCode}
                   onChange={e => this.handleChange(e)}
                 />
                 <button className="width20p">주소찾기</button>
@@ -133,6 +182,7 @@ export class AddressModal extends Component {
                   className="width100p"
                   type="text"
                   name="address"
+                  value={this.state.address}
                   onChange={e => this.handleChange(e)}
                 />
               </td>
@@ -144,6 +194,7 @@ export class AddressModal extends Component {
                   className="width100p"
                   type="text"
                   name="detailedAddress"
+                  value={this.state.detailedAddress}
                   onChange={e => this.handleChange(e)}
                 />
               </td>

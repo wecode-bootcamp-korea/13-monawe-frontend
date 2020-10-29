@@ -4,9 +4,8 @@ import AddressModal from "./AddressModal";
 import "./AddressList.scss";
 
 export class AddressList extends Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
       modalMode: "add",
       modalDisplay: false,
@@ -68,8 +67,12 @@ export class AddressList extends Component {
       });
   };
 
-  toggleModal = mode => {
-    this.setState({ modalDisplay: !this.state.modalDisplay, modalMode: mode });
+  toggleModal = (mode, address) => {
+    this.setState({
+      modalDisplay: !this.state.modalDisplay,
+      modalMode: mode,
+      address: address
+    });
   };
 
   render() {
@@ -79,17 +82,32 @@ export class AddressList extends Component {
         <div className="default-address">
           <div className="default-address-name">
             <ul>
-              <li>{"자취방"}</li>
-              <li>(기본배송지)</li>
+              <li>{this.state.addressList[0]?.name}</li>
+              <li>
+                {this.state.addressList[0]?.is_default ? "기본배송지" : ""}
+              </li>
             </ul>
           </div>
           <div className="default-address-info">
             <ul>
-              <li>{"05053"}</li>
-              <li>{"서울 광진구 아차산로 312(자양동, 드림타운)"}</li>
-              <li>{"303호"}</li>
+              <li>({this.state.addressList[0]?.zip_code})</li>
+              <li>{this.state.addressList[0]?.address}</li>
+              <li>{this.state.addressList[0]?.detailed_address}</li>
             </ul>
-            <button onClick={() => this.toggleModal("edit")}>수정</button>
+            <button
+              onClick={() =>
+                this.toggleModal("edit", {
+                  id: this.state.addressList[0].id,
+                  name: this.state.addressList[0].name,
+                  address: this.state.addressList[0].address,
+                  detailedAddress: this.state.addressList[0].detailed_address,
+                  zipCode: this.state.addressList[0].zip_code,
+                  phoneNumber: this.state.addressList[0].phone_number
+                })
+              }
+            >
+              수정
+            </button>
           </div>
         </div>
         <table className="address-table">
@@ -129,6 +147,7 @@ export class AddressList extends Component {
           display={this.state.modalDisplay}
           toggle={this.toggleModal}
           mode={this.state.modalMode}
+          address={this.state.address}
           addAddress={this.addAddress}
         />
       </div>

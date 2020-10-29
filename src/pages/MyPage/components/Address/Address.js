@@ -22,9 +22,23 @@ export class Address extends Component {
             <li>{this.props.detailedAddress}</li>
           </ul>
         </td>
-        <td className="td-phone-number">010-4003-5298</td>
+        <td className="td-phone-number">{this.props.phoneNumber}</td>
         <td className="td-edit">
-          <button onClick={() => this.props.toggleModal()}>수정</button>
+          <button
+            onClick={() =>
+              this.props.toggleModal("edit", {
+                id: this.props.id,
+                name: this.props.name,
+                isDefault: this.props.isDefault,
+                phoneNumber: this.props.phoneNumber,
+                zipCode: this.props.zipCode,
+                address: this.props.address,
+                detailedAddress: this.props.detailedAddress
+              })
+            }
+          >
+            수정
+          </button>
           <button
             className="delete-button"
             onClick={() => this.props.deleteAddress(this.props.id)}
