@@ -15,6 +15,7 @@ import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
 import MyPage from "./pages/MyPage/MyPage";
 import NavContainer from "./pages/components/NavContainer/NavContainer";
+import Footer from "./pages/components/Footer/Footer";
 
 class Routes extends Component {
   render() {
@@ -39,6 +40,7 @@ class Routes extends Component {
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/MyPage" component={MyPage} />
         </Switch>
+        <Footer />
       </Router>
     );
   }

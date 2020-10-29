@@ -19,7 +19,7 @@ class MonaweStory extends Component {
   render() {
     const settings = {
       infinite: true,
-      autoplay: true,
+      // autoplay: true,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 1
