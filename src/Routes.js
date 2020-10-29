@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import StationeryList from "./pages/StationeryList/StationeryList";
-import Paging from "./pages/components/ProductList/Paging/Paging";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import Welcome from "./pages/Welcome/Welcome";
 import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
@@ -21,7 +20,6 @@ class Routes extends Component {
         <NavContainer />
         <Switch>
           <Route exact path="/StationeryList" component={StationeryList} />
-          <Route exact path="/Paging" component={Paging} />
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/Welcome" component={Welcome} />
           <Route exact path="/products" component={ProductList} />
