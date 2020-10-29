@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Product from "./Product";
 import "./ProductList.scss";
+import ProductListNav from "../ProductListNav/ProductListNav";
 
 class ProductList extends Component {
   state = {
@@ -9,20 +10,22 @@ class ProductList extends Component {
     pageNumber: 1,
     itemPerPage: 20,
     numPages: 0,
-    numProducts: 0
+    numProducts: 0,
+    subcategory: 0
   };
 
   componentDidMount() {
     const query = window.location.search.substring(1);
     const vars = query.split("&");
     const queryValue = [];
-    for (var i = 1; i < vars.length; i++) {
+    for (var i = 0; i < vars.length; i++) {
       var pair = vars[i].split("=");
       queryValue.push(pair[1]);
     }
+    console.log(queryValue);
 
     fetch(
-      `http://10.58.1.8:8000/products?category=1&order_by=${queryValue[0]}&page_number=${queryValue[1]}&item_per_page=${queryValue[2]}`
+      `http://10.58.1.8:8000/products?category=${queryValue[0]}&subcategory=${queryValue[1]}&order_by=${queryValue[2]}&page_number=${queryValue[3]}&item_per_page=${queryValue[4]}`
     )
       .then(res => {
         return res.json();
@@ -36,31 +39,38 @@ class ProductList extends Component {
       });
   }
 
-  changeUrlState = e => {
-    const nameTwo = e?.target.dataset.name;
-    const { value, name } = e.target;
-
+  changeUrlState = (event, name, string) => {
+    const value = string ? string : event.target.value;
     let query = window.location.search.substring(1);
     let vars = query.split("&");
     let queryValue = [];
-
-    for (let i = 1; i < vars.length; i++) {
+    for (let i = 0; i < vars.length; i++) {
       let pair = vars[i].split("=");
       queryValue.push(pair[1]);
     }
-    const OrderBytype = name === "sortBtn" ? value : queryValue[0];
-    const pagingNumber =
-      name === "pagingbtn" || nameTwo === "pagingbtn" ? value : queryValue[1];
-    const itemPerPageNum = name === "itemPerPageBtn" ? value : queryValue[2];
+    const categoryName = name === "category" ? value : +queryValue[0];
+    const subcategoryName = name === "subcategory" ? value : +queryValue[1];
+    const OrderBytype = name === "sortBtn" ? value : queryValue[2];
+    const pagingNumber = name === "pagingbtn" ? value : +queryValue[3];
+    const itemPerPageNum = name === "itemPerPageBtn" ? value : +queryValue[4];
+    console.log(
+      categoryName,
+      subcategoryName,
+      OrderBytype,
+      pagingNumber,
+      itemPerPageNum,
+      "-3-"
+    );
     fetch(
-      `http://10.58.1.8:8000/products?category=1&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
+      `http://10.58.1.8:8000/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
     )
       .then(res => {
         return res.json();
       })
       .then(res => {
+        console.log("됐다!", res);
         this.props.history.push(
-          `/products?category=1&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
+          `/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
         );
         this.setState({
           ProductList: res.data,
@@ -70,35 +80,39 @@ class ProductList extends Component {
   };
 
   render() {
+    console.log("render");
     const { numPages, ProductList, numProducts } = this.state;
     return (
       <div className="ProductList">
-        <div className="categorySort">
-          <div className="innerSort">
-            <h3>153프리미엄</h3>
-            <span>
-              등록상품:
-              <b>{numProducts}</b>개
-            </span>
-            <div className="sortArea">
-              <select
-                name="itemPerPageBtn"
-                value={this.state.value}
-                onChange={this.changeUrlState}
-              >
-                <option value="20">20개씩</option>
-                <option value="40">40개씩</option>
-                <option value="80">80개씩</option>
-              </select>
-              <select
-                name="sortBtn"
-                value={this.state.value}
-                onChange={this.changeUrlState}
-              >
-                <option value="created_at">신상품순</option>
-                <option value="-price">가격 높은순</option>
-                <option value="price">낮은 가격순</option>
-              </select>
+        <ProductListNav subcategoryPage={this.changeUrlState} />
+        <div className="ProductListPage">
+          <div className="categorySort">
+            <div className="innerSort">
+              <h3>153프리미엄</h3>
+              <span>
+                등록상품:
+                <b>{numProducts}</b>개
+              </span>
+              <div className="sortArea">
+                <select
+                  onChange={e =>
+                    this.changeUrlState(e, "itemPerPageBtn", this.state.value)
+                  }
+                >
+                  <option value="20">20개씩</option>
+                  <option value="40">40개씩</option>
+                  <option value="80">80개씩</option>
+                </select>
+                <select
+                  onChange={e =>
+                    this.changeUrlState(e, "sortBtn", this.state.value)
+                  }
+                >
+                  <option value="created_at">신상품순</option>
+                  <option value="-price">가격 높은순</option>
+                  <option value="price">낮은 가격순</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -119,11 +133,7 @@ class ProductList extends Component {
         <div class="Paging">
           <ul className="innerPaging">
             {[...Array(numPages)].map((el, index) => (
-              <li
-                data-name="pagingbtn"
-                value={index + 1}
-                onClick={this.changeUrlState}
-              >
+              <li onClick={e => this.changeUrlState(e, "pagingbtn", index + 1)}>
                 {index + 1}
               </li>
             ))}

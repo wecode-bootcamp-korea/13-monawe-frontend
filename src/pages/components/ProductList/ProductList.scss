@@ -1,45 +1,49 @@
 .ProductList{
-    .categorySort {
-        display: flex;
-        justify-content: center;
-        margin:0 50px;
-        .innerSort{
-            position: relative;
-            width: 100%;
-            padding: 20px 0;
-            align-items: center;
-            box-sizing: border-box;
-            h3 {
-                display: inline-block;
-                width: auto;
-                font-size: 24px;
-                font-weight: 400;
-            }
-            span {
-                margin-left: 16px;
-                font-size: 14px;
-                b{
-                    font-size: 16px;
-                } 
-            }
-            .sortArea {
-                position: absolute;
-                right: 0;
+    .ProductListPage{
+        .categorySort {
+            display: flex;
+            justify-content: center;
+            margin:0 50px;
+            .innerSort{
+                position: relative;
+                width: 100%;
+                padding: 20px 0;
+                align-items: center;
                 box-sizing: border-box;
-                display: inline-block;
-                select {
-                    display:inline-block;
-                    border: none;
-                    margin-left: 100px;
+                h3 {
+                    display: inline-block;
                     width: auto;
-                    box-sizing: border-box;
-                    font-size: 14px;
-                    color: #000;
-                    outline: none;
+                    font-size: 24px;
+                    font-weight: 400;
                 }
-            
+                span {
+                    margin-left: 16px;
+                    font-size: 14px;
+                    b{
+                        font-size: 16px;
+                    } 
+                }
+                .sortArea {
+                    position: absolute;
+                    right: 0;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    select {
+                        display:inline-block;
+                        border: none;
+                        margin-left: 100px;
+                        width: auto;
+                        box-sizing: border-box;
+                        font-size: 14px;
+                        color: #000;
+                        outline: none;
+                    }
+                
+                }
             }
+
         }
+      
 
     }
     .Products {
@@ -47,7 +51,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        ul{
+        & ul{
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -60,18 +64,17 @@
         .innerPaging{
             display: flex;
             justify-content: center;
-            li {
+            & li {
                 color: #cccccc;
                 float: left;
                 padding: 8px 16px;
                 text-decoration: none;
                 transition: background-color .3s;
             }
-            li:hover:not(.active){
+            & li:hover:not(.active){
                 color: #ffffff;
                 background-color: #666666;
             }    
         }
     }
-    
 }

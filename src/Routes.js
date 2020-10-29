@@ -8,6 +8,7 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
+import ProductList from "./pages/components/ProductList/ProductList";
 
 class Routes extends Component {
   render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
           <Route exact path="/StationeryList" component={StationeryList} />
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/Welcome" component={Welcome} />
+          <Route exact path="/products" component={ProductList} />
           <Route exact path="/JoinStepOne" component={JoinStepOne} />
           <Route exact path="/JoinStepTwo" component={JoinStepTwo} />
           <Route exact path="/JoinStepThree" component={JoinStepThree} />
