@@ -9,6 +9,7 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
+import MainBanner from "./pages/MainPage/components/MainBanner/MainBanner";
 import NavContainer from "./pages/components/NavContainer/NavContainer";
 import MyPageContainer from "./pages/MyPage/MyPageContainer";
 import Footer from "./pages/components/Footer/Footer";
@@ -30,6 +31,7 @@ class Routes extends Component {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/MyPage" component={MyPageContainer} />
+          <Route exact path="/MainBanner" component={MainBanner} />
         </Switch>
         <Footer />
       </Router>
