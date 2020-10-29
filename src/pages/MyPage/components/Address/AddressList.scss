@@ -1,0 +1,110 @@
+.mgm-address-list {
+  h2 {
+    margin: 20px 0;
+    font-weight: 400;
+    font-size: 36px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  .default-address {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #999;
+    background: #f9f9f9;
+
+    button {
+      color: #fff;
+      background: #555;
+      border-radius: 2px;
+      border: none;
+      padding: 5px 20px;
+    }
+  }
+  .default-address-name {
+    padding: 10px 0;
+    font-weight: 500;
+    flex-grow: 1;
+  }
+  .default-address-info{
+    padding: 10px 10px 10px 30px;
+    border-left: 1px #fff solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 5;
+  }
+
+  .address-table {
+    margin-top: 50px;
+    width: 100%;
+    min-width: 1000px;
+    border-top: 1px solid black;
+
+    th {
+      font-weight: 400;
+      padding: 10px;
+      border-bottom: 1px solid #999;
+    }
+
+    td {
+      vertical-align: middle;
+      text-align: center;
+      padding: 30px;
+      border-bottom: 1px solid #ececec;
+    }
+
+    .td-name-inner {
+      li {
+        margin: 5px 0 0 0;
+      }
+      align-items: center;
+      display: flex;
+    }
+
+    .td-name, 
+    .td-address {
+      text-align: start;
+    }
+
+    button {
+      display: block;
+      margin-bottom: 5px;
+      color: #fff;
+      background: #555;
+      border-radius: 2px;
+      border: none;
+      padding: 5px 20px;
+    }
+
+    .delete-button {
+      background: #fff;
+      color: #000;
+      border: 1px solid #222;
+    }
+  }
+
+  .bottom-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .add-address-button {
+    font-size: 16px;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid black;
+    padding: 10px 35px;
+  }
+  .set-default-button {
+    margin-left: 10px;
+    font-size: 16px;
+    background: #111;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px 35px;
+  }
+}
