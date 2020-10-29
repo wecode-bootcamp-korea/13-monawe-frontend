@@ -1,0 +1,121 @@
+.mgm-modal-wrapper {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  width: calc(99vw + 3px);
+  height: 110vh;
+  background: rgba(0,0,0,0.5);
+
+  .modal-inner {
+    position: relative;
+    width: 600px;
+    height: 500px;
+    padding: 24px;
+    top: calc(50% - 300px);
+    left: calc(50% - 300px);
+    background: #fff;
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid black;
+      margin: -20px 0 30px;
+    }
+
+    animation-name: slideUp;
+    animation-duration: 0.5s;
+
+    .modal-table {
+      width: 100%;
+      border-bottom: 1px #999 solid;
+
+      .td-fixed {
+        width: 100px;
+      }
+      
+      .td-auto {
+        width: auto;
+        display: flex;
+        input {
+          height: 40px;
+          margin-bottom: 10px;
+          padding: 0 10px;
+          border: 1px #999 solid;
+          border-radius: 2px;
+
+          &:focus {
+            outline: none;
+            border-color: #000;
+          }
+        }
+
+        button {
+          height: 40px;
+          background: #fff;
+          border: 2px solid black;
+          border-radius: 2px;
+          margin-left: 5%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .checkbox-default {
+      margin-top: 10px;
+    }
+
+    .modal-bottom-button {
+      width: 210px;
+      margin: 0 auto auto;
+
+      .cancel-button {
+        width: 100px;
+        height: 35px;
+        background: #fff;
+        margin-right: 10px;
+      }
+      .accept-button {
+        width: 100px;
+        height: 35px;
+        background: #222;
+        border: 1px solid #222;
+        color: #fff;
+      }
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      top: calc(50%);
+    }
+    100% {
+      opacity: 1;
+      top: calc(50% - 300px);
+    }
+  }
+
+  //utility class
+  .width20p {
+    width: 30%;
+  }
+
+  .width65p {
+    width: 65%;
+  }
+
+  .width100p {
+    width: 100%;
+  }
+
+}
+
+.modal-hidden {
+  display: none;
+}
