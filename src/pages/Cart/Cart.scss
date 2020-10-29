@@ -37,7 +37,7 @@
         letter-spacing: -0.025em;
         line-height: 1;
         margin-top: 16px;
-        form {
+        .form {
             display: block;
             .listField {
                 display: block;
@@ -95,7 +95,11 @@
                                 figure {
                                     vertical-align: top;
                                     img {
-                                        padding: 23px 0 22px;
+                                        width: 70px;
+                                        height: 70px;
+                                        display: flex;
+                                        align-items: center;
+                                        margin-left: 5px;
                                     }
                                 }
                                 .infoArea {

@@ -1,66 +1,129 @@
 import React, { Component } from "react";
+import AddCart from "./AddCart";
 import "./Cart.scss";
 
 export default class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      id: "",
-      product_id: "",
-      product_option_id: "",
-      product_amount: 1,
-      product_price: 20000,
-      totalPricebyProduct: 20000,
-      cartList: {}
+      product_option_id: 0,
+      product_name: "",
+      product_thumbnail: "",
+      product_bodycolor: "",
+      product_price: 0,
+      changed_amount: [],
+      product_company: "",
+      priceByEach: 0,
+      cartList: []
     };
   }
 
   componentDidMount() {
     fetch("http://10.58.5.5:8000/order/cart", {
-      method: "GET"
+      method: "GET",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+      }
     })
       .then(res => res.json())
       .then(res => {
         console.log(res);
         this.setState({
-          cartList: res.PRODUCTS
+          cartList: res.product_detail
         });
       });
   }
 
-  /*addItem = () => {
-    const {cartList} = this.state;
-    this.setState({
-      cartList: [...cartList, {user: Date.now(), userId: "jjburi_", comment: this.state.content}],
-      content: ""
+  removeCnt = productNum => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(el =>
+        el.product_option_id === productNum
+          ? { ...el, product_amount: el.product_amount - 1 }
+          : el
+      )
+    }));
+  };
+
+  addCnt = productNum => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(el =>
+        el.product_option_id === productNum
+          ? { ...el, product_amount: el.product_amount + 1 }
+          : el
+      )
+    }));
+  };
+
+  changeCnt = productNum => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(el =>
+        el.product_option_id === productNum
+          ? { ...el, total_price: el.product_amount * el.product_price }
+          : el
+      )
+    }));
+    //const { cartList } = this.state;
+    let changedAmount = this.state.cartList.filter(
+      el => el.product_option_id === productNum
+    );
+
+    console.log("test!!!!!!!!!!", changedAmount[0].product_amount);
+
+    fetch(`http://10.58.5.5:8000/order/cart/${productNum}`, {
+      method: "PATCH",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+      },
+      body: JSON.stringify({
+        amount: changedAmount[0].product_amount
+      })
     })
-  };*/
-
-  removeCnt = () => {
-    const { product_amount } = this.state;
-    this.setState({ product_amount: product_amount - 1 });
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
   };
 
-  addCnt = () => {
-    const { product_amount } = this.state;
-    this.setState({ product_amount: product_amount + 1 });
+  removeCart = idx => {
+    fetch(`http://10.58.5.5:8000/order/cart/${idx}`, {
+      method: "DELETE"
+      // headers: {
+      //    Auth: localStorage.getItem("token"),
+      // }
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log("인덱스!!!", idx);
+        console.log("res?????", res.message);
+        this.setState({
+          cartList: res.product_detail
+        });
+        // console.log(res);
+      });
   };
-
-  changeCnt = () => {
-    const { totalPricebyProduct, product_price, product_amount } = this.state;
-    this.setState({ totalPricebyProduct: product_amount * product_price });
-  };
-
-  removeCart = () => {};
 
   render() {
+    const {
+      product_name,
+      product_thumbnail,
+      product_bodycolor,
+      product_price,
+      changed_amount,
+      product_company,
+      priceByEach,
+      product_option_id,
+      cartList
+    } = this.state;
+    console.log(changed_amount);
     return (
       <div className="Cart">
         <div className="titleArea">
           <h2>장바구니</h2>
         </div>
         <div className="innerCartContent">
-          <h3>일반장바구니 (n)</h3>
+          <h3>일반장바구니 ({cartList.length > 0 ? cartList.length : 0})</h3>
           <ul className="infoTxt">
             <li>
               · 모나위 배송상품과 업체배송상품은 배송비가 별도로 부과되며,
@@ -73,7 +136,7 @@ export default class Cart extends Component {
           </ul>
         </div>
         <div className="formArea">
-          <form>
+          <div className="form">
             <fieldset className="listField">
               <table>
                 <colgroup>
@@ -111,86 +174,23 @@ export default class Cart extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <label>
-                        <input
-                          type="checkbox"
-                          class="small"
-                          className="cartIdx_0"
-                          onClick={this.calPrice}
-                        />
-                      </label>
-                    </td>
-                    <td>
-                      <figure>
-                        <img
-                          alt="productImg"
-                          src="https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_80X80_20191206103813.blob"
-                        />
-                      </figure>
-                    </td>
-                    <td>
-                      <div className="infoArea">
-                        <div>153 블라썸</div>
-                        <div className="txtOption">비올라(Viola)</div>
-                      </div>
-                    </td>
-                    <td className="txtRight">
-                      <em>{this.state.product_price}</em>원
-                    </td>
-                    <td>
-                      <div className="eaArea">
-                        <div className="btnDown" onClick={this.removeCnt}>
-                          <i class="fas fa-minus"></i>
-                        </div>
-                        <input
-                          type="text"
-                          className="goodsCnt"
-                          value={this.state.product_amount}
-                          maxLength="4"
-                        />
-                        <div className="btnUp" onClick={this.addCnt}>
-                          <i class="fas fa-plus"></i>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        className="changeCntBtn"
-                        onClick={this.changeCnt}
-                      >
-                        변경
-                      </button>
-                    </td>
-                    <td className="txtRight">
-                      <em className="payPrice">
-                        {this.state.totalPricebyProduct}
-                      </em>
-                      원<small className="discountPrice">(0원)</small>
-                    </td>
-                    <td>
-                      <small>모나위배송</small>
-                    </td>
-                    <td rowSpan="1" className="txtRight">
-                      <em>0</em>원
-                    </td>
-                    <td className="order">
-                      <button
-                        type="button"
-                        className="orderBtn"
-                        onclick={this.orderCheck}
-                      >
-                        바로주문
-                      </button>
-                      <button
-                        type="button"
-                        className="deleteBtn"
-                        onclick={this.removeCart}
-                      >
-                        삭제
-                      </button>
-                    </td>
-                  </tr>
+                  {cartList?.map(cart => (
+                    <AddCart
+                      product_name={cart.product_name}
+                      product_thumbnail={cart.product_thumbnail}
+                      product_bodycolor={cart.product_bodycolor}
+                      product_price={cart.product_price}
+                      product_amount={cart.product_amount}
+                      product_company={cart.product_company}
+                      total_price={cart.total_price}
+                      product_option_id={cart.product_option_id}
+                      calPrice={this.calPrice}
+                      removeCnt={() => this.removeCnt(cart.product_option_id)}
+                      addCnt={() => this.addCnt(cart.product_option_id)}
+                      changeCnt={() => this.changeCnt(cart.product_option_id)}
+                      removeCart={() => this.removeCart(cart.product_option_id)}
+                    />
+                  ))}
                 </tbody>
               </table>
               <div className="selectBtnArea">
@@ -259,7 +259,7 @@ export default class Cart extends Component {
                 전체상품주문
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     );
