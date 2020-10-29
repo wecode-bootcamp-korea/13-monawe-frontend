@@ -238,6 +238,7 @@ class ProductInfo extends Component {
                       </div>
                     ))}
                   </div>
+                  <div className="dropDownContents"></div>
                 </div>
               </div>
               <div className="chosenProductContainer">

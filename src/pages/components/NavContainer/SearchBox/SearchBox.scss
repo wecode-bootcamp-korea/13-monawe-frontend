@@ -34,8 +34,9 @@ $light-background-color: #f1f1f1;
   border: 1px solid black;
   background-color: #fff;
   z-index: 50;
-  display: block;
+  visibility: visible;
   opacity: 1;
+  transition: 0.4s ease;
 
   .searchInput {
     @include flex-center;
@@ -272,8 +273,8 @@ $light-background-color: #f1f1f1;
   }
 
   &.hidden {
-    display: none;
     opacity: 0;
+    visibility: hidden;
   }
 
   .inactive {

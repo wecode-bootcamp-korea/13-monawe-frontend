@@ -3,7 +3,6 @@ import "./DetailPage.scss";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductReviews from "./Components/ProductReview/ProductReview";
 import ProductDetail from "./Components/ProductDetail/ProductDetail";
-import Nav from "../components/Nav/Nav";
 
 class DetailPage extends Component {
   constructor() {
@@ -51,7 +50,6 @@ class DetailPage extends Component {
 
     return (
       <>
-        <Nav />
         <div className="mainContainer">
           <div className="location">
             <ul>
@@ -84,6 +82,25 @@ class DetailPage extends Component {
 
           <ProductReviews avgrating={averageRating} prReview={productReview} />
         </div>
+        <ProductInfo productInfo={productInfo} />
+        <div className="productCategories">
+          <ul>
+            <li>
+              <a href>상품상세정보</a>
+            </li>
+            <li>
+              <a href>상품리뷰(22)</a>
+            </li>
+            <li>
+              <a href>스토리픽</a>
+            </li>
+            <li>
+              <a>반품교환안내</a>
+            </li>
+          </ul>
+        </div>
+        <ProductDetail productInfo={productInfo} />
+        <ProductReviews avgrating={averageRating} prReview={productReview} />
       </>
     );
   }
