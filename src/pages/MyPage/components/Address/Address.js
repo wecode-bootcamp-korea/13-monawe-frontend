@@ -17,7 +17,7 @@ export class Address extends Component {
         </td>
         <td width="50%" className="td-address">
           <ul>
-            <li>({this.props.zipCode})</li>
+            <li>{this.props.zipCode}</li>
             <li>{this.props.address}</li>
             <li>{this.props.detailedAddress}</li>
           </ul>

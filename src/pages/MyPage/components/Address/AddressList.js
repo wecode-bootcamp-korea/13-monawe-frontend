@@ -8,6 +8,7 @@ export class AddressList extends Component {
     super();
 
     this.state = {
+      modalMode: "add",
       modalDisplay: false,
       addressList: []
     };
@@ -51,8 +52,24 @@ export class AddressList extends Component {
     });
   };
 
-  toggleModal = () => {
-    this.setState({ modalDisplay: !this.state.modalDisplay });
+  addAddress = () => {
+    fetch("http://10.58.1.8:8000/user/address", {
+      headers: new Headers({
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ addressList: [] });
+        res.data.forEach(element => {
+          this.setState({ addressList: [...this.state.addressList, element] });
+        });
+      });
+  };
+
+  toggleModal = mode => {
+    this.setState({ modalDisplay: !this.state.modalDisplay, modalMode: mode });
   };
 
   render() {
@@ -72,7 +89,7 @@ export class AddressList extends Component {
               <li>{"서울 광진구 아차산로 312(자양동, 드림타운)"}</li>
               <li>{"303호"}</li>
             </ul>
-            <button onClick={() => this.toggleModal()}>수정</button>
+            <button onClick={() => this.toggleModal("edit")}>수정</button>
           </div>
         </div>
         <table className="address-table">
@@ -102,7 +119,7 @@ export class AddressList extends Component {
         <div className="bottom-button">
           <button
             className="add-address-button"
-            onClick={() => this.toggleModal()}
+            onClick={() => this.toggleModal("add")}
           >
             배송지 추가
           </button>
@@ -111,6 +128,8 @@ export class AddressList extends Component {
         <AddressModal
           display={this.state.modalDisplay}
           toggle={this.toggleModal}
+          mode={this.state.modalMode}
+          addAddress={this.addAddress}
         />
       </div>
     );
