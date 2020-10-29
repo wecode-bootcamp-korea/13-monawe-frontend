@@ -4,8 +4,8 @@
   top: 0;
   left: 0;
   z-index: 5000;
-  width: 100vw;
-  height: 100vh;
+  width: calc(99vw + 3px);
+  height: 110vh;
   background: rgba(0,0,0,0.5);
 
   .modal-inner {
@@ -38,9 +38,11 @@
       
       .td-auto {
         width: auto;
+        display: flex;
         input {
           height: 40px;
           margin-bottom: 10px;
+          padding: 0 10px;
           border: 1px #999 solid;
           border-radius: 2px;
 

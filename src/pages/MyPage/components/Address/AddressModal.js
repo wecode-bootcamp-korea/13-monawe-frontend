@@ -166,6 +166,7 @@ export class AddressModal extends Component {
               <td className="td-fixed">주소</td>
               <td className="td-auto">
                 <input
+                  placeholder="우편번호"
                   className="width65p"
                   type="text"
                   name="zipCode"
@@ -179,6 +180,7 @@ export class AddressModal extends Component {
               <td className="td-fixed"></td>
               <td className="td-auto">
                 <input
+                  placeholder="기본 주소"
                   className="width100p"
                   type="text"
                   name="address"
@@ -191,6 +193,7 @@ export class AddressModal extends Component {
               <td className="td-fixed"></td>
               <td className="td-auto">
                 <input
+                  placeholder="상세 주소"
                   className="width100p"
                   type="text"
                   name="detailedAddress"
