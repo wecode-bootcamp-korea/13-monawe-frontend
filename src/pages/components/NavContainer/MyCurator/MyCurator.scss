@@ -11,7 +11,7 @@
 }
 
 .MyCurator {
-  width: 100%;
+  min-width: 100%;
   padding: 20px 0;
   position: fixed;
   top: 0;
@@ -53,7 +53,8 @@
             line-height: 50px;
           }
 
-          button {
+          button,
+          a {
             all: unset;
             height: 26px;
             padding: 0 8px;
@@ -63,6 +64,10 @@
             border-radius: 2px;
             background-color: #ffffff;
             cursor: pointer;
+          }
+
+          a {
+            line-height: 28px;
           }
 
           :last-child {
@@ -99,6 +104,7 @@
     .curatorContents {
       width: 1200px;
       margin-top: 20px;
+      position: relative;
       @include flex-spaceBetween-center;
       align-items: flex-start;
 
@@ -142,8 +148,8 @@
   .curatorCloseBtn {
     width: 63px;
     position: absolute;
-    top: 20px;
-    right: 105px;
+    top: 7%;
+    right: 2%;
 
     button {
       font-size: 35px;
