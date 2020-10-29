@@ -34,7 +34,6 @@
     height: 1000px;
     margin-bottom: 180px;
 
-    //
     .productPicture {
       width: 620px;
       height: 700px;
@@ -421,13 +420,24 @@
   .productCategories {
     position: absolute;
     padding-top: 100px;
+
     ul {
       li {
         width: 300px;
         padding-bottom: 20px;
         border-bottom: 3px solid #ddd;
+        text-decoration: none;
+
         a {
+          color: #ddd;
           text-decoration: none;
+          outline: none;
+        }
+
+        a:hover,
+        a:active {
+          text-decoration: none;
+          color: black;
         }
       }
       li:hover {
@@ -541,7 +551,6 @@
             text-align: center;
             color: #000;
             border-radius: 3px;
-
             margin-left: 10px;
             padding: 0 70px;
             border-color: #555;

@@ -17,20 +17,34 @@ class DetailPage extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/product-info.json", {
+    fetch("http://10.58.1.8:8000/product/1", {
       method: "GET"
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({ productInfo: res.productInfo });
-        this.setState({ averageRating: res.averageRating });
-        this.setState({ productReview: res.REVIEWS });
+        console.log("productinfo", res);
+        this.setState({ productInfo: res.data.product_info });
+        // this.setState({ averageRating: res.average_rating });
+        // this.setState({ productReview: res.REVIEWS });
       });
-  }
 
-  // onAdd = () => {
-  //   this.setState({chosenProduct: });
-  // };
+    fetch("http://10.58.1.8:8000/review?product_id=1", {
+      method: "GET"
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log("review", res);
+
+        // this.setState({ averageRating: res.average_rating });
+        this.setState({ productReview: res.data });
+      });
+
+    fetch("http://10.58.1.8:8000/order/recent", {
+      method: "POST",
+      headers: { Auth: localStorage.getItem("token") },
+      body: JSON.stringify({ product_id: this.state.product_info.id })
+    });
+  }
 
   render() {
     const { productInfo, averageRating, productReview } = this.state;
@@ -52,7 +66,7 @@ class DetailPage extends Component {
           <div className="productCategories">
             <ul>
               <li>
-                <a href="javascript:window.scrollTo(500, 1500)">상품상세정보</a>
+                <a>상품상세정보</a>
               </li>
               <li>
                 <a href="javascript:window.scrollTo(500, 3500)">상품리뷰(22)</a>

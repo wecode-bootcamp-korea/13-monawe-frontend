@@ -7,6 +7,7 @@ class ProductInfo extends Component {
   constructor() {
     super();
     this.state = {
+      buttonColor: true,
       price: "",
       chosenProduct: []
     };
@@ -14,16 +15,17 @@ class ProductInfo extends Component {
 
   componentDidMount() {
     const { price } = this.props.productInfo;
-    this.setState({ price: price });
+    this.setState({ price });
   }
 
   handleAdd(option, idx) {
     const chosenProduct = [
       ...this.state.chosenProduct,
       {
+        product_option_id: option.id,
         idx: idx,
         option: option.name,
-        num: 1,
+        amount: 1,
         price: option.price.split(".")[0]
       }
     ];
@@ -34,19 +36,18 @@ class ProductInfo extends Component {
     const { price } = this.props.productInfo;
     pr.price = price;
     const chosenProduct = [...this.state.chosenProduct];
-    pr.num++;
-    this.setState({ chosenProduct });
-    pr.price = Number(pr.price) * pr.num;
+    pr.amount++;
+    pr.price = Number(pr.price) * pr.amount;
     this.setState({ chosenProduct });
   }
 
   handleDecreament(pr) {
     pr.price = this.props.productInfo.price;
     const chosenProduct = [...this.state.chosenProduct];
-    const num = pr.num - 1;
-    pr.num = num < 0 ? 0 : num;
+    const amount = pr.amount - 1;
+    pr.amount = amount < 0 ? 0 : amount;
     this.setState({ chosenProduct });
-    pr.price = Number(pr.price) * pr.num;
+    pr.price = Number(pr.price) * pr.amount;
     this.setState({ chosenProduct });
   }
 
@@ -57,32 +58,72 @@ class ProductInfo extends Component {
     this.setState({ chosenProduct });
   }
 
+  handleCart() {
+    fetch("http://10.58.5.5:8000/order/cart", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+      },
+      body: JSON.stringify({ product_id: this.state.chosenProduct })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "ALREADY_EXISTS") {
+          alert("이미 장바구니에 담겨있다구!");
+        } else {
+          alert("장바구니에 저 ! 장 !");
+        }
+      });
+  }
+
+  handleWishList() {
+    fetch("http://10.58.5.5:8000/order/wishlist", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+      },
+      body: JSON.stringify({
+        product_id: this.props.productInfo.id
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "REMOVED") {
+          this.setState({ buttonColor: true });
+          alert("선택하신 상품이 찜리스트에 저장되었습니다.");
+        } else {
+          this.setState({ buttonColor: false });
+          alert("선택하신 상품이 찜리스트에 이미 있습니다.");
+        }
+      });
+  }
+
   render() {
-    // console.log("chosen", this.state.chosenProduct);
     const {
       name,
-      bodyColor,
-      inkColor,
+      body_color,
+      ink_color,
       thickness,
       description,
       tag,
       price,
       options,
-      imageUrl
+      image_url
     } = this.props.productInfo;
 
-    console.log("바디컬러: ", bodyColor);
     return (
       <div className="productDetail">
         <div className="productPicture">
           <div className="bigPicture">
-            <img src={imageUrl && imageUrl[0]} />
+            <img src={image_url && image_url[0]} />
           </div>
           <div className="smallPicture">
             <div></div>
             <div className="pictureSwiper">
-              <img src={imageUrl && imageUrl[0]} />
-              <img src={imageUrl && imageUrl[1]} />
+              <img src={image_url && image_url[0]} />
+              <img src={image_url && image_url[1]} />
             </div>
           </div>
         </div>
@@ -98,7 +139,7 @@ class ProductInfo extends Component {
               <div className="bodyColor">
                 <span>바디컬러</span>
                 <ul>
-                  {bodyColor?.map(el => (
+                  {body_color?.map(el => (
                     <li>
                       <div
                         style={{
@@ -115,7 +156,7 @@ class ProductInfo extends Component {
               <div className="inkColor">
                 <span>잉크컬러</span>
                 <ul>
-                  {inkColor?.map(el => (
+                  {ink_color?.map(el => (
                     <li>
                       <div
                         style={{
@@ -211,7 +252,7 @@ class ProductInfo extends Component {
                         onClick={() => this.handleIncreament(product)}
                       ></i>
                       <div className="line"></div>
-                      <div>{product.num}</div>
+                      <div>{product.amount}</div>
                       <div className="line"></div>
                       <i
                         class="fas fa-minus"
@@ -231,7 +272,6 @@ class ProductInfo extends Component {
               <div className="totalPrice">
                 <strong>총 상품금액</strong>
                 <span>
-                  {" "}
                   {this.state.chosenProduct
                     .map(el => el.price)
                     .reduce((stack, el) => {
@@ -242,9 +282,16 @@ class ProductInfo extends Component {
               </div>
             </div>
             <div className="buttonArea">
-              <button className="addToCart">장바구니담기</button>
+              <button className="addToCart" onClick={() => this.handleCart()}>
+                장바구니담기
+              </button>
               <button className="buyNow">바로구매하기</button>
-              <button className="dibs">찜</button>
+              <button
+                className={this.state.buttonColor ? "dibs" : "dibs2"}
+                onClick={() => this.handleWishList()}
+              >
+                찜
+              </button>
             </div>
           </div>
         </div>

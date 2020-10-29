@@ -3,15 +3,15 @@ import "./ProductDetail.scss";
 
 class ProductDetail extends Component {
   render() {
-    const { imageUrl } = this.props.productInfo;
+    const { image_url } = this.props.productInfo;
 
     return (
       <div className="productDetailContainer">
         <div className="productDetailPicture">
-          <img src={imageUrl && imageUrl[0]} />
+          <img src={image_url && image_url[0]} />
         </div>
         <div className="productDetailDescription">
-          <img src="./images/상품설명img.png" />
+          <img src="../images/상품설명img.png" />
           {/* <ul>
             <span>제품명</span>
             <span>153Blossom</span>
