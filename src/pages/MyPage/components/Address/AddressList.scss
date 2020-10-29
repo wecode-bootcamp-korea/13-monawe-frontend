@@ -70,11 +70,19 @@
     }
 
     button {
+      display: block;
+      margin-bottom: 5px;
       color: #fff;
       background: #555;
       border-radius: 2px;
       border: none;
       padding: 5px 20px;
+    }
+
+    .delete-button {
+      background: #fff;
+      color: #000;
+      border: 1px solid #222;
     }
   }
 
