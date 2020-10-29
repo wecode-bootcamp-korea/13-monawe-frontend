@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import MENUS from "./Navdata";
+import MENUS from "../SearchBox/Navdata";
 import ContentType from "./MenuDropBox/ContentType";
 import MonawePet from "./MenuDropBox/MonawePet";
 import ListType from "./MenuDropBox/ListType";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -10,8 +11,7 @@ class Nav extends Component {
     super();
     this.state = {
       menus: [],
-      hoveredIdx: "",
-      activePage: ""
+      hoveredIdx: ""
     };
   }
 
@@ -37,12 +37,10 @@ class Nav extends Component {
     this.props.onSearchBox(e);
   };
 
-  handleGoToPage = idx => {
-    this.setState({ activePage: idx });
-  };
-
   render() {
     const { menus, hoveredIdx } = this.state;
+    const { userName } = this.props;
+
     return (
       <div className="Nav">
         <div className={"navMenu"}>
@@ -59,7 +57,6 @@ class Nav extends Component {
                   key={idx}
                   className="menu"
                   onMouseOver={() => this.handleMenuStyle(idx)}
-                  // onClick={() => this.goToPage(idx)}
                 >
                   <small>{menu.koreanName}</small>
                   <span>{menu.englishName}</span>
@@ -67,10 +64,13 @@ class Nav extends Component {
               ))}
             </ul>
           </div>
-          <div className="userInfo">
-            <div className="userName">
+          <div className={userName !== null ? "userInfo" : "userInfo inactive"}>
+            <div
+              className={userName !== null ? "userName" : "userName inactive"}
+            >
               <span>
-                모나위<span>님&nbsp;&nbsp;</span>
+                {userName}
+                <span>님&nbsp;&nbsp;</span>
               </span>
               <button
                 onClick={this.handleMyCurator}
@@ -79,7 +79,21 @@ class Nav extends Component {
             </div>
             <div className="icons">
               <button className="fas fa-shopping-bag" />
-              <button className="fas fa-user" />
+              <div className="popUpBoxWrap">
+                <button className="fas fa-user" />
+                <div
+                  className={
+                    userName === null ? "popUpBox " : "popUpBox inactive"
+                  }
+                >
+                  <div>horn</div>
+                  <ul>
+                    <Link to="/Login">로그인</Link>
+                    <Link to="/JoinStepOne">회원가입</Link>
+                    <li>비회원로그인</li>
+                  </ul>
+                </div>
+              </div>
               <button
                 className="fas fa-search"
                 onClick={this.handleSearchBox}

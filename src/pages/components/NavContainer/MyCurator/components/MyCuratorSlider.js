@@ -44,12 +44,12 @@ class MyCuratorSlider extends Component {
       <div className="MyCuratorSlider">
         <Slider {...settings}>
           {recentelyViewedProducts?.map(product => (
-            <div key={product?.id}>
-              <img src={product?.imageUrl} alt={product?.name} />
+            <div key={product.id}>
+              <img src={product.imageUrl} alt={product.name} />
               <div>
-                <span>{product?.name}</span>
+                <span>{product.name}</span>
                 <small>
-                  {this.getNumberTransferToPrice(Number(product?.price)) + "원"}
+                  {this.getNumberTransferToPrice(Number(product.price)) + "원"}
                 </small>
               </div>
             </div>

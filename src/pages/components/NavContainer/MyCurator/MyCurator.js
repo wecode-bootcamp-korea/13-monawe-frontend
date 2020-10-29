@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import "./MyCurator.scss";
+import { Link } from "react-router-dom";
 import MyCuratorSlider from "./components/MyCuratorSlider";
+
+import "./MyCurator.scss";
 
 class MyCurator extends Component {
   constructor() {
@@ -22,8 +24,12 @@ class MyCurator extends Component {
     this.props.onMyCurator(e);
   };
 
+  handleLogOut = e => {
+    this.props.onLogOut(e);
+  };
+
   render() {
-    const { isMyCurator } = this.props;
+    const { isMyCurator, userName } = this.props;
     const { recentelyViewedProducts } = this.state;
     return (
       <div className={isMyCurator ? "MyCurator" : "MyCurator hidden"}>
@@ -33,9 +39,11 @@ class MyCurator extends Component {
               <div className="fitNotice">
                 <i className="fas fa-medal" />
                 <div>
-                  <h3>모나위님 맞춤알림</h3>
-                  <button>마이페이지</button>
-                  <button>로그아웃</button>
+                  <h3>{userName}님 맞춤알림</h3>
+                  <Link to="/MyPage">마이페이지</Link>
+                  <Link to="/Login" onClick={this.handleLogOut}>
+                    로그아웃
+                  </Link>
                 </div>
               </div>
               <div className="shoppingNotice">

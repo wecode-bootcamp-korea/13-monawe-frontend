@@ -154,8 +154,7 @@ class ProductInfo extends Component {
                 <div> 컬러 </div>
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
-                  <div className="dropDownContents">
-                  </div>
+                  <div className="dropDownContents"></div>
                 </div>
               </div>
               <div chosenProductContainer>
