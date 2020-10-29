@@ -9,13 +9,9 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
-<<<<<<< HEAD
-import AddressList from "./pages/MyPage/components/Address/AddressList";
-=======
 import NavContainer from "./pages/components/NavContainer/NavContainer";
 import MyPageContainer from "./pages/MyPage/MyPageContainer";
 import Footer from "./pages/components/Footer/Footer";
->>>>>>> 34339647595fbdb4d6e67bab133bee2bd8d27fe1
 
 class Routes extends Component {
   render() {
@@ -31,13 +27,9 @@ class Routes extends Component {
           <Route exact path="/JoinStepTwo" component={JoinStepTwo} />
           <Route exact path="/JoinStepThree" component={JoinStepThree} />
           <Route exact path="/Login" component={Login} />
-<<<<<<< HEAD
-          <Route exact path="/AddressList" component={AddressList} />
-=======
           <Route exact path="/" component={MainPage} />
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/MyPage" component={MyPageContainer} />
->>>>>>> 34339647595fbdb4d6e67bab133bee2bd8d27fe1
         </Switch>
         <Footer />
       </Router>
