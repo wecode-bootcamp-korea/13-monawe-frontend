@@ -6,14 +6,7 @@ export default class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      product_option_id: 0,
-      product_name: "",
-      product_thumbnail: "",
-      product_bodycolor: "",
-      product_price: 0,
-      changed_amount: [],
-      product_company: "",
-      priceByEach: 0,
+      total_sum: 0,
       cartList: []
     };
   }
@@ -28,31 +21,37 @@ export default class Cart extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         this.setState({
-          cartList: res.product_detail
+          cartList: res.product_detail,
+          total_sum: res.total_sum
         });
       });
   }
 
   removeCnt = productNum => {
-    this.setState(prevState => ({
-      cartList: prevState.cartList.map(el =>
-        el.product_option_id === productNum
-          ? { ...el, product_amount: el.product_amount - 1 }
-          : el
-      )
-    }));
+    this.setState(
+      prevState => ({
+        cartList: prevState.cartList.map(el =>
+          el.product_option_id === productNum
+            ? { ...el, product_amount: el.product_amount - 1 }
+            : el
+        )
+      }),
+      () => this.calPrice()
+    );
   };
 
   addCnt = productNum => {
-    this.setState(prevState => ({
-      cartList: prevState.cartList.map(el =>
-        el.product_option_id === productNum
-          ? { ...el, product_amount: el.product_amount + 1 }
-          : el
-      )
-    }));
+    this.setState(
+      prevState => ({
+        cartList: prevState.cartList.map(el =>
+          el.product_option_id === productNum
+            ? { ...el, product_amount: el.product_amount + 1 }
+            : el
+        )
+      }),
+      () => this.calPrice()
+    );
   };
 
   changeCnt = productNum => {
@@ -63,12 +62,9 @@ export default class Cart extends Component {
           : el
       )
     }));
-    //const { cartList } = this.state;
     let changedAmount = this.state.cartList.filter(
       el => el.product_option_id === productNum
     );
-
-    console.log("test!!!!!!!!!!", changedAmount[0].product_amount);
 
     fetch(`http://10.58.5.5:8000/order/cart/${productNum}`, {
       method: "PATCH",
@@ -81,42 +77,37 @@ export default class Cart extends Component {
       })
     })
       .then(res => res.json())
-      .then(res => {
-        console.log(res);
-      });
+      .then(res => {});
   };
 
   removeCart = idx => {
     fetch(`http://10.58.5.5:8000/order/cart/${idx}`, {
-      method: "DELETE"
-      // headers: {
-      //    Auth: localStorage.getItem("token"),
-      // }
+      method: "DELETE",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+      }
     })
       .then(res => res.json())
       .then(res => {
-        console.log("인덱스!!!", idx);
-        console.log("res?????", res.message);
         this.setState({
           cartList: res.product_detail
         });
-        // console.log(res);
       });
   };
 
+  calPrice = () => {
+    const { cartList } = this.state;
+    let totalPayPrice = 0;
+    for (let i in cartList) {
+      totalPayPrice +=
+        cartList[i].product_price * 1 * cartList[i].product_amount * 1;
+    }
+    this.setState({ total_sum: totalPayPrice });
+  };
+
   render() {
-    const {
-      product_name,
-      product_thumbnail,
-      product_bodycolor,
-      product_price,
-      changed_amount,
-      product_company,
-      priceByEach,
-      product_option_id,
-      cartList
-    } = this.state;
-    console.log(changed_amount);
+    const { total_sum, cartList } = this.state;
     return (
       <div className="Cart">
         <div className="titleArea">
@@ -184,6 +175,7 @@ export default class Cart extends Component {
                       product_company={cart.product_company}
                       total_price={cart.total_price}
                       product_option_id={cart.product_option_id}
+                      totalPayPrice={this.state.totalPayPrice}
                       calPrice={this.calPrice}
                       removeCnt={() => this.removeCnt(cart.product_option_id)}
                       addCnt={() => this.addCnt(cart.product_option_id)}
@@ -221,7 +213,10 @@ export default class Cart extends Component {
               <dl className="orderPrice">
                 <dt>상품금액</dt>
                 <dd>
-                  <em className="totalPrice">132,000</em>원
+                  <em className="totalPrice">
+                    {total_sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </em>
+                  원
                 </dd>
               </dl>
               <dl className="discount">
@@ -239,7 +234,10 @@ export default class Cart extends Component {
               <dl className="total">
                 <dt>총 결제금액</dt>
                 <dd>
-                  <em className="totalPayPrice">132,000</em>원
+                  <em className="totalPayPrice">
+                    {total_sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </em>
+                  원
                 </dd>
               </dl>
             </fieldset>

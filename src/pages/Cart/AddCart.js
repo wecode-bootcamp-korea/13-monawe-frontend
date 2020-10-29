@@ -9,8 +9,6 @@ export default class AddCart extends Component {
       product_price,
       product_amount,
       product_company,
-      product_option_id,
-      priceByEach,
       calPrice,
       removeCnt,
       addCnt,
@@ -42,7 +40,12 @@ export default class AddCart extends Component {
           </div>
         </td>
         <td className="txtRight">
-          <em>{product_price}</em>원
+          <em>
+            {Math.floor(product_price)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </em>
+          원
         </td>
         <td>
           <div className="eaArea">
@@ -64,8 +67,12 @@ export default class AddCart extends Component {
           </button>
         </td>
         <td className="txtRight">
-          <em className="payPrice">{total_price}</em>원
-          <small className="discountPrice">(0원)</small>
+          <em className="payPrice">
+            {Math.floor(total_price)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </em>
+          원<small className="discountPrice">(0원)</small>
         </td>
         <td>
           <small>{product_company}</small>

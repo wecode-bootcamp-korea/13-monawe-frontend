@@ -20,5 +20,6 @@
             "product_amount": 40,
             "total_price": 20000
         }
-    ]
+    ],
+    "total_sum": 1420000
 }
