@@ -13,10 +13,10 @@ class MyCurator extends Component {
   }
 
   componentDidMount() {
-    fetch("/data/list.json")
+    fetch("http://10.58.5.5:8000/order/recent")
       .then(res => res.json())
       .then(res => {
-        this.setState({ recentelyViewedProducts: res.data });
+        this.setState({ recentelyViewedProducts: res.viewed_list });
       });
   }
 

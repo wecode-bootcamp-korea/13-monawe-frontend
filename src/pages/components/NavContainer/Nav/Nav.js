@@ -47,9 +47,12 @@ class Nav extends Component {
           <div className="menuTab">
             <div>
               <button className="fas fa-bars" />
-              <span>
+              <Link
+                to="/
+              "
+              >
                 monawe<span>mall</span>
-              </span>
+              </Link>
             </div>
             <ul className="menuLists">
               {menus.map((menu, idx) => (
