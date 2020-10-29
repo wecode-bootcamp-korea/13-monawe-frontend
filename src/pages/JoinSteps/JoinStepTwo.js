@@ -76,7 +76,8 @@ class JoinStep2 extends Component {
       });
   };
 
-  isPwInfoValid = password => {
+  isPwInfoValid = () => {
+    const { password } = this.state;
     const numberReg = /[0-9]/g;
     const characterReg = /[a-zA-z]/g;
     const specialCharacterReg = /\W|_/g;
@@ -87,16 +88,14 @@ class JoinStep2 extends Component {
       : false;
     const isPwLong = password.length >= 6 && password.length <= 16;
     if (
-      (((isNumIncluded && isSpecialCharIncluded) ||
+      ((isNumIncluded && isSpecialCharIncluded) ||
         (isNumIncluded && isCharIncluded) ||
         (isCharIncluded && isSpecialCharIncluded)) &&
-        isPwLong) ||
-      this.state.password === ""
+      isPwLong
     ) {
-      return true;
+      this.setState({ isPwInfoValid: true });
     } else {
       this.setState({ isPwInfoValid: false });
-      return false;
     }
   };
 
@@ -107,13 +106,21 @@ class JoinStep2 extends Component {
 
   isInputNull = () => {
     const { name, account, password, email, phoneNumber } = this.state;
-    name === "" && this.setState({ isNameNull: true });
-    account === "" && this.setState({ isAccountNull: true });
+    name === ""
+      ? this.setState({ isNameNull: true })
+      : this.setState({ isNameNull: false });
+    account === ""
+      ? this.setState({ isAccountNull: true })
+      : this.setState({ isAccountNull: false });
     password === ""
       ? this.setState({ isPasswordNull: true })
       : this.setState({ isPasswordNull: false });
-    email === "" && this.setState({ isEmailNull: true });
-    phoneNumber === "" && this.setState({ isPhoneNumberNull: true });
+    email === ""
+      ? this.setState({ isEmailNull: true })
+      : this.setState({ isEmailNull: false });
+    phoneNumber === ""
+      ? this.setState({ isPhoneNumberNull: true })
+      : this.setState({ isPhoneNumberNull: false });
   };
 
   gotoPreviousStep = () => {
@@ -126,12 +133,13 @@ class JoinStep2 extends Component {
       name,
       account,
       password,
-      confirmPw,
       email,
       phoneNumber,
       dateOfBirth,
       smsAgreement,
-      emailAgreement
+      emailAgreement,
+      isPwInfoValid,
+      isPasswordSame
     } = this.state;
     const isEssentialInfoValid =
       name !== "" &&
@@ -139,16 +147,11 @@ class JoinStep2 extends Component {
       password !== "" &&
       email !== "" &&
       phoneNumber !== "";
-    const isPasswordSame = password === confirmPw;
     const isIdValid = account.length >= 5 && account.length <= 16;
     this.isInputNull();
     this.isPasswordSame();
-    if (
-      isEssentialInfoValid &&
-      isPasswordSame &&
-      this.isPwInfoValid(password) &&
-      isIdValid
-    ) {
+    this.isPwInfoValid();
+    if (isEssentialInfoValid && isPasswordSame && isPwInfoValid && isIdValid) {
       const APIforRegister = "http://10.58.0.159:8000/user/signup";
       fetch(APIforRegister, {
         method: "POST",
@@ -184,7 +187,7 @@ class JoinStep2 extends Component {
       isPwInfoValid
     } = this.state;
     return (
-      <main className="JoinStepTwo">
+      <div className="JoinStepTwo">
         <h2>회원가입</h2>
         <div className="stepWrapper">
           <div className="step">
@@ -252,13 +255,7 @@ class JoinStep2 extends Component {
                   <div className={isPasswordNull ? "infoError" : "infoValid"}>
                     ⓘ 비밀번호를 입력해주세요.
                   </div>
-                  <div
-                    className={
-                      this.state.password !== "" && isPwInfoValid === false
-                        ? "infoError"
-                        : "infoValid"
-                    }
-                  >
+                  <div className={isPwInfoValid ? "infoValid" : "infoError"}>
                     ⓘ 입력한 비밀번호를 확인해 주세요.
                   </div>
                   <div className="pwGuideline">
@@ -387,7 +384,7 @@ class JoinStep2 extends Component {
             </form>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 }

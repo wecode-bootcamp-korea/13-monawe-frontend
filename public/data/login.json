@@ -1,10 +1,5 @@
-{
-  "data": {
-      "id": 11,
-      "name": "민경민",
-      "account": "tommin231121",
-      "email": "example1111121@email.com",
-      "phone_number": "01040035298",
-      "date_of_birth": "1995-11-16"
+ {
+    "account": "tommin231121",
+    "password": "123456"
   }
-}
+
