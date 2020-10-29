@@ -16,13 +16,12 @@ export class AddressList extends Component {
   componentDidMount() {
     fetch("http://10.58.1.8:8000/user/address", {
       headers: new Headers({
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       })
     })
       .then(res => res.json())
       .then(res =>
-        res.data.forEach(element => {
+        res.data?.forEach(element => {
           this.setState({ addressList: [...this.state.addressList, element] });
         })
       );
@@ -35,8 +34,7 @@ export class AddressList extends Component {
         address_id: id
       }),
       headers: new Headers({
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       })
     }).then(res => {
       if (res.status === 202) {
@@ -54,8 +52,7 @@ export class AddressList extends Component {
   addAddress = () => {
     fetch("http://10.58.1.8:8000/user/address", {
       headers: new Headers({
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       })
     })
       .then(res => res.json())
