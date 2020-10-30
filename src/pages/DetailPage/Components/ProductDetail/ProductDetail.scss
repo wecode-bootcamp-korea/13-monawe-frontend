@@ -8,17 +8,40 @@
     width: 1160px;
     height: 1000px;
   }
-  .productDetailDescription {
-    margin-top: 100px;
-    width: 1100px;
-    height: 1100px;
-    // background-color: lightgray;
 
-    ul {
-      span {
-        font-size: 15px;
+  .productDetailInfo {
+    padding-top: 100px;
+  }
+
+  tbody {
+    padding-top: 150px;
+
+    tr {
+      th {
+        width: 184px;
+        // height: 180px;
+
+        padding: 0;
+        color: #333;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        text-align: left;
+        // vertical-align: top;
+        border-bottom: 1px solid #ececec;
       }
-      font-size: 15px;
+
+      td {
+        width: 1015px;
+        padding: 20px 0;
+        text-align: left;
+        color: #555;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 300;
+        border-bottom: 1px solid #ececec;
+        border-top: none;
+      }
     }
   }
 }

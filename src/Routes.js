@@ -7,6 +7,8 @@ import JoinStepOne from "./pages/JoinSteps/JoinStepOne";
 import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
+import Cart from "./pages/Cart/Cart";
+import MainBanner from "./pages/MainPage/components/MainBanner/MainBanner";
 import ProductList from "./pages/ProductList/ProductList";
 import NavContainer from "./pages/components/NavContainer/NavContainer";
 import MyPageContainer from "./pages/MyPage/MyPageContainer";
@@ -25,6 +27,7 @@ class Routes extends Component {
           <Route exact path="/JoinStepTwo" component={JoinStepTwo} />
           <Route exact path="/JoinStepThree" component={JoinStepThree} />
           <Route exact path="/Login" component={Login} />
+          <Route exact path="/Cart" component={Cart} />
           <Route exact path="/" component={MainPage} />
           <Route exact path="/detail/:id" component={DetailPage} />
           <Route exact path="/MyPage" component={MyPageContainer} />
