@@ -17,7 +17,7 @@ class DetailPage extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API_KM}/product/4`, {
+    fetch(`${API_KM}/product/${this.props.match.params.id}`, {
       method: "GET"
     })
       .then(res => res.json())
@@ -35,7 +35,7 @@ class DetailPage extends Component {
         });
       });
 
-    fetch(`${API_KM}/review?product_id=4`, {
+    fetch(`${API_KM}/review?product_id=${this.props.match.params.id}`, {
       method: "GET"
     })
       .then(res => res.json())
