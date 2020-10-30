@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import MENUS from "./navdata";
 import "./ProductListNav.scss";
 
@@ -7,7 +6,11 @@ class ProductListNav extends Component {
   constructor() {
     super();
     this.state = {
-      menus: []
+      menus: {
+        koreanName: "문구",
+        englishName: "Stationery",
+        categories: []
+      }
     };
   }
 
@@ -16,8 +19,12 @@ class ProductListNav extends Component {
   }
 
   render() {
-    const { menus } = this.state;
-    const categories = menus.categories;
+    const {
+      menus: { categories }
+    } = this.state;
+    console.log(categories, "v");
+
+    const { subcategoryPage } = this.props;
 
     return (
       <div className="StationeryList">
@@ -27,24 +34,27 @@ class ProductListNav extends Component {
               <li className="StationeryTitle">Stationery</li>
             </ul>
             <ul className="categoryBox">
-              {menus &&
-                categories?.map(category => (
-                  <li>
-                    <Link to="/" className="depth2Title">
-                      {category.title}
-                    </Link>
-                    <ul>
-                      {categories &&
-                        category.subcategories?.map(sub => (
-                          <li>
-                            <Link className="depth3" to="/">
-                              {sub}
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                ))}
+              {categories.map(category => (
+                <li>
+                  <span
+                    onClick={e =>
+                      subcategoryPage(e, "category", category.title.id)
+                    }
+                  >
+                    {category.title.name}
+                  </span>
+                  <ul>
+                    {category.subcategories.map((sub, idx) => (
+                      <li
+                        className="depth3"
+                        onClick={e => subcategoryPage(e, "subcategory", sub.id)}
+                      >
+                        {sub.name}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

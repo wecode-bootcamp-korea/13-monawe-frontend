@@ -108,8 +108,8 @@ class ProductInfo extends Component {
       description,
       tag,
       price,
-      options,
-      image_url
+      image_url,
+      options
     } = this.props.productInfo;
 
     return (
