@@ -13,7 +13,7 @@ class ProductReviews extends Component {
             <span>상품리뷰</span>
             <div className="grade">
               <div className="gradeTxt">
-                <em>{this.props.avgrating}</em> <span>/</span>
+                <em>4.5</em> <span>/</span>
                 <em>5점중</em>
               </div>
               <div className="gradeStarBig">
