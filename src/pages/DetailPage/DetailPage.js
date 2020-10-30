@@ -64,13 +64,13 @@ class DetailPage extends Component {
               <a href="javascript:window.scrollTo(500, 00)">상품상세정보</a>
             </li>
             <li>
-              <a href="javascript:window.scrollTo(500, 4500)">상품리뷰(22)</a>
+              <a href="javascript:window.scrollTo(500, 3500)">상품리뷰(22)</a>
             </li>
             <li>
               <a href>스토리픽</a>
             </li>
             <li>
-              <a href="javascript:window.scrollTo(500, 3500)">반품교환안내</a>
+              <a href="javascript:window.scrollTo(500, 2500)">반품교환안내</a>
             </li>
           </ul>
         </div>
