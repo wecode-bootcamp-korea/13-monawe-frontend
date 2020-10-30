@@ -22,7 +22,16 @@ class DetailPage extends Component {
       .then(res => res.json())
       .then(res => {
         console.log("productinfo", res);
-        this.setState({ productInfo: res.data.product_info });
+        this.setState({ productInfo: res.data.product_info }, () => {
+          fetch("http://10.58.5.5:8000/order/recent", {
+            method: "POST",
+            headers: {
+              Authorization:
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+            },
+            body: JSON.stringify({ product_id: this.state.productInfo.id })
+          });
+        });
       });
 
     fetch("http://10.58.1.8:8000/review?product_id=1", {
@@ -30,16 +39,8 @@ class DetailPage extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log("review", res);
-
         this.setState({ productReview: res.data });
       });
-
-    fetch("http://10.58.1.8:8000/order/recent", {
-      method: "POST",
-      headers: { Auth: localStorage.getItem("token") },
-      body: JSON.stringify({ product_id: this.state.productInfo.id })
-    });
   }
 
   render() {

@@ -57,13 +57,14 @@ class ProductInfo extends Component {
   }
 
   handleCart() {
+    console.log("test1", this.state.chosenProduct);
     fetch("http://10.58.5.5:8000/order/cart", {
       method: "POST",
       headers: {
         Authorization:
           "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
       },
-      body: JSON.stringify({ product_id: this.state.chosenProduct })
+      body: JSON.stringify({ chosen_product: this.state.chosenProduct })
     })
       .then(res => res.json())
       .then(res => {
