@@ -22,7 +22,6 @@ class ProductListNav extends Component {
     const {
       menus: { categories }
     } = this.state;
-    console.log(categories, "v");
 
     const { subcategoryPage } = this.props;
 

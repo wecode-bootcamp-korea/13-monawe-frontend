@@ -5,7 +5,7 @@ import "../../../../../../node_modules/slick-carousel/slick/slick-theme.css";
 import "./MyCuratorSlider.scss";
 
 function PrevArrow(props) {
-  const { onClick } = props;
+  const { onClick } = this.props;
   return (
     <button
       className="far fa-caret-square-left slick-arrow"
@@ -15,7 +15,7 @@ function PrevArrow(props) {
 }
 
 function NextArrow(props) {
-  const { onClick } = props;
+  const { onClick } = this.props;
   return (
     <button
       className="far fa-caret-square-right slick-arrow"
