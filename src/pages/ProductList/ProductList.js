@@ -85,6 +85,7 @@ class ProductList extends Component {
 
   render() {
     const { numPages, ProductList, numProducts } = this.state;
+    console.log(this.state);
     return (
       <div className="ProductList">
         <ProductListNav subcategoryPage={this.changeUrlState} />
@@ -92,10 +93,10 @@ class ProductList extends Component {
           <div className="productContainer">
             <div className="categorySort">
               <div className="innerSort">
-                <h3>153프리미엄</h3>
+                <h3>{ProductList[0]?.subcategory_name}</h3>
                 <span>
                   등록상품:
-                  <b>{numProducts}</b>개
+                  <b>{ProductList.length}</b>개
                 </span>
                 <div className="sortArea">
                   <select
