@@ -3,6 +3,7 @@ import "./DetailPage.scss";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductReviews from "./Components/ProductReview/ProductReview";
 import ProductDetail from "./Components/ProductDetail/ProductDetail";
+import { API_KM } from "../../Config";
 
 class DetailPage extends Component {
   constructor() {
@@ -16,14 +17,14 @@ class DetailPage extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.1.8:8000/product/1", {
+    fetch(`${API_KM}/product/4`, {
       method: "GET"
     })
       .then(res => res.json())
       .then(res => {
         console.log("productinfo", res);
         this.setState({ productInfo: res.data.product_info }, () => {
-          fetch("http://10.58.5.5:8000/order/recent", {
+          fetch(`${API_KM}/order/recent`, {
             method: "POST",
             headers: {
               Authorization:
@@ -34,7 +35,7 @@ class DetailPage extends Component {
         });
       });
 
-    fetch("http://10.58.1.8:8000/review?product_id=1", {
+    fetch(`${API_KM}/review?product_id=4`, {
       method: "GET"
     })
       .then(res => res.json())
