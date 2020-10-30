@@ -1,5 +1,6 @@
 {
   "productInfo": {
+    "id": 1,
     "name": "404 블라썸",
     "imageUrl": [
       "https://d1bg8rd1h4dvdb.cloudfront.net/upload/imgServer/product/goods/MG000003497/main/MG000003497_REP_THUMB_540X540_20191206103812.blob",
@@ -30,8 +31,8 @@
     "tag": ["404프리미엄", "프리미엄 펜", "클래식"],
     "price": "20000.00",
     "options": [
-      "오트밀/블랙(0.3mm)(재고:46개)",
-      "아쿠아마린/미드나이트(0.7mm)(재고:16개)"
+      { "id": 1, "name": "오트밀(0.3mm)(재고:46개)", "price": "20000.00" },
+      { "id": 2, "name": "아쿠아마린(0.7mm)(재고:16개)", "price": "20000.00" }
     ],
     "stock": [46, 16]
   },

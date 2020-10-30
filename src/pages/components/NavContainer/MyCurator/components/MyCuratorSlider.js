@@ -5,7 +5,7 @@ import "../../../../../../node_modules/slick-carousel/slick/slick-theme.css";
 import "./MyCuratorSlider.scss";
 
 function PrevArrow(props) {
-  const { onClick } = props;
+  const { onClick } = this.props;
   return (
     <button
       className="far fa-caret-square-left slick-arrow"
@@ -15,7 +15,7 @@ function PrevArrow(props) {
 }
 
 function NextArrow(props) {
-  const { onClick } = props;
+  const { onClick } = this.props;
   return (
     <button
       className="far fa-caret-square-right slick-arrow"
@@ -39,17 +39,18 @@ class MyCuratorSlider extends Component {
     };
 
     const { recentelyViewedProducts } = this.props;
-
     return (
       <div className="MyCuratorSlider">
         <Slider {...settings}>
-          {recentelyViewedProducts?.map(product => (
-            <div key={product.id}>
-              <img src={product.imageUrl} alt={product.name} />
+          {recentelyViewedProducts?.map((product, idx) => (
+            <div key={idx}>
+              <img src={product.product_image} alt={product.product_name} />
               <div>
-                <span>{product.name}</span>
+                <span>{product.product_name}</span>
                 <small>
-                  {this.getNumberTransferToPrice(Number(product.price)) + "원"}
+                  {this.getNumberTransferToPrice(
+                    Number(product.product_price)
+                  ) + "원"}
                 </small>
               </div>
             </div>

@@ -1,7 +1,9 @@
 .mainContainer {
   width: 1200px;
-  padding-top: 100px;
+  margin-top: 300px;
   margin: 0 auto;
+  position: relative;
+  padding-top: 100px;
 
   .location {
     margin-top: -7px;
@@ -17,23 +19,14 @@
       li {
         padding-left: 13px;
       }
-
-      // div {
-      //   text-indent: -9999px;
-      //   width: 10px;
-      //   height: 30px;
-      //   // background: url("https://www.monamimall.com/w/images/w/sub/goods.png")
-      //     no-repeat 0 0;
-      // }
     }
   }
 
   .productDetail {
     display: flex;
     height: 1000px;
-    margin-bottom: 100px;
+    margin-bottom: 180px;
 
-    //
     .productPicture {
       width: 620px;
       height: 700px;
@@ -418,11 +411,27 @@
   }
 
   .productCategories {
+    position: absolute;
+    padding-top: 100px;
+
     ul {
       li {
         width: 300px;
         padding-bottom: 20px;
         border-bottom: 3px solid #ddd;
+        text-decoration: none;
+
+        a {
+          color: #ddd;
+          text-decoration: none;
+          outline: none;
+        }
+
+        a:hover,
+        a:active {
+          text-decoration: none;
+          color: black;
+        }
       }
       li:hover {
         color: black;
@@ -535,9 +544,8 @@
             text-align: center;
             color: #000;
             border-radius: 3px;
-
             margin-left: 10px;
-            padding: 0 32px;
+            padding: 0 70px;
             border-color: #555;
           }
         }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import Nav from "./Nav/Nav";
 import MyCurator from "./MyCurator/MyCurator";
 import SearchBox from "./SearchBox/SearchBox";
@@ -16,7 +17,13 @@ class NavContainer extends Component {
 
   componentDidMount() {
     const userName = localStorage.getItem("name");
-    this.setState({ userName });
+    this.setState({ userName: userName });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({ userName: localStorage.getItem("name") });
+    }
   }
 
   handleMyCurator = e => {
@@ -28,12 +35,12 @@ class NavContainer extends Component {
   };
 
   handleLogOut = e => {
-    this.setState({ userName: null, isMyCurator: false, isSearchBox: false });
+    localStorage.clear();
+    this.setState({ isMyCurator: false, isSearchBox: false });
   };
 
   render() {
     const { userName, isMyCurator } = this.state;
-
     return (
       <header className="NavContainer">
         <Nav
@@ -56,4 +63,4 @@ class NavContainer extends Component {
   }
 }
 
-export default NavContainer;
+export default withRouter(NavContainer);

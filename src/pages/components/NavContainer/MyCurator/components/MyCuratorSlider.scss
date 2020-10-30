@@ -16,8 +16,12 @@
     }
 
     .slick-list {
-      width: 880px;
+      width: 880px !important;
       height: auto;
+
+      .slick-track {
+        width: 880px !important;
+      }
 
       .slick-slide {
         width: 160px;

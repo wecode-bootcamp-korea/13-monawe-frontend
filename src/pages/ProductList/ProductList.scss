@@ -1,11 +1,22 @@
 .ProductList{
+  display: flex;
+  flex-direction: column;
+  
+  .productContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    .ProductListPage{
+        width: 1200px;
+    }
     .categorySort {
         display: flex;
         justify-content: center;
         margin:0 50px;
         .innerSort{
+            width: 1200px;
             position: relative;
-            width: 100%;
             padding: 20px 0;
             align-items: center;
             box-sizing: border-box;
@@ -47,13 +58,33 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        ul{
+        & ul{
+            width: 1200px;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            width: 100%;
             height: auto;
-
+        }
+    }
+  }
+    .Paging{
+        margin: 0 20px 80px;
+        .innerPaging{
+            line-height: 24px;
+            display: flex;
+            justify-content: center;
+            & li {
+                color: #cccccc;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+            }
+            & li:hover:not(.active){
+                color: #ffffff;
+                cursor: pointer;
+                background-color: #666666;
+            }    
         }
     }
 }

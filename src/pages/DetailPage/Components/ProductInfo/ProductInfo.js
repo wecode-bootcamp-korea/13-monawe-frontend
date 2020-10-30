@@ -1,49 +1,128 @@
 import React, { Component } from "react";
 import "./ProductInfo.scss";
-class ProductInfo extends Component {
-  state = {
-    chosenProduct: [
-      { option: "비올라(Viola) (재고36개)", num: 1, price: "20000원" }
-    ]
-  };
 
-  handleAdd = item => {
-    console.log(item);
-    this.setState({
-      chosenProduct: {
-        option: item,
-        num: 1,
-        price: 20000
+class ProductInfo extends Component {
+  constructor() {
+    super();
+    this.state = {
+      buttonColor: true,
+      price: "",
+      chosenProduct: []
+    };
+  }
+
+  componentDidMount() {
+    const { price } = this.props.productInfo;
+    this.setState({ price: price });
+  }
+
+  handleAdd(option, idx) {
+    const chosenProduct = [
+      ...this.state.chosenProduct,
+      {
+        product_option_id: option.id,
+        idx: idx,
+        option: option.name,
+        amount: 1,
+        price: option.price.split(".")[0]
       }
-    });
-  };
+    ];
+    this.setState({ chosenProduct });
+  }
+
+  handleIncreament(pr) {
+    const { price } = this.props.productInfo;
+    pr.price = price;
+    const chosenProduct = [...this.state.chosenProduct];
+    pr.amount++;
+    pr.price = Number(pr.price) * pr.amount;
+    this.setState({ chosenProduct });
+  }
+
+  handleDecreament(pr) {
+    pr.price = this.props.productInfo.price;
+    const chosenProduct = [...this.state.chosenProduct];
+    const amount = pr.amount - 1;
+    pr.amount = amount < 0 ? 0 : amount;
+    this.setState({ chosenProduct });
+    pr.price = Number(pr.price) * pr.amount;
+    this.setState({ chosenProduct });
+  }
+
+  handleDelete(pr) {
+    const chosenProduct = this.state.chosenProduct.filter(
+      item => item.idx !== pr.idx
+    );
+    this.setState({ chosenProduct });
+  }
+
+  handleCart() {
+    console.log("test1", this.state.chosenProduct);
+    fetch("http://10.58.5.5:8000/order/cart", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+      },
+      body: JSON.stringify({ chosen_product: this.state.chosenProduct })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "ALREADY_EXISTS") {
+          alert("이미 장바구니에 담겨있다구!");
+        } else {
+          alert("장바구니에 저 ! 장 !");
+        }
+      });
+  }
+
+  handleWishList() {
+    fetch("http://10.58.5.5:8000/order/wishlist", {
+      method: "POST",
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+      },
+      body: JSON.stringify({
+        product_id: this.props.productInfo.id
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === "REMOVED") {
+          this.setState({ buttonColor: true });
+          alert("선택하신 상품이 찜리스트에 저장되었습니다.");
+        } else {
+          this.setState({ buttonColor: false });
+          alert("선택하신 상품이 찜리스트에 이미 있습니다.");
+        }
+      });
+  }
 
   render() {
-    console.log("state", this.state.chosenProduct);
-    const { chosenProduct } = this.state;
     const {
       name,
-      bodyColor,
-      inkColor,
+      body_color,
+      ink_color,
       thickness,
       description,
       tag,
       price,
-      imageUrl
+      image_url,
+      options
     } = this.props.productInfo;
 
-    console.log("바디컬러: ", bodyColor);
     return (
       <div className="productDetail">
         <div className="productPicture">
           <div className="bigPicture">
-            <img src={imageUrl && imageUrl[0]} />
+            <img src={image_url && image_url[0]} />
           </div>
           <div className="smallPicture">
             <div></div>
             <div className="pictureSwiper">
-              <img src={imageUrl && imageUrl[0]} />
-              <img src={imageUrl && imageUrl[1]} />
+              <img src={image_url && image_url[0]} />
+              <img src={image_url && image_url[1]} />
             </div>
           </div>
         </div>
@@ -59,7 +138,7 @@ class ProductInfo extends Component {
               <div className="bodyColor">
                 <span>바디컬러</span>
                 <ul>
-                  {bodyColor?.map(el => (
+                  {body_color?.map(el => (
                     <li>
                       <div
                         style={{
@@ -76,7 +155,7 @@ class ProductInfo extends Component {
               <div className="inkColor">
                 <span>잉크컬러</span>
                 <ul>
-                  {inkColor?.map(el => (
+                  {ink_color?.map(el => (
                     <li>
                       <div
                         style={{
@@ -153,28 +232,66 @@ class ProductInfo extends Component {
                 <div> 컬러 </div>
                 <div className="dropDown">
                   <button className="dropDownBtn"> 선택해주세요</button>
+                  <div className="dropDownContents">
+                    {options?.map((option, idx) => (
+                      <div onClick={() => this.handleAdd(option, idx)}>
+                        {option.name}
+                      </div>
+                    ))}
+                  </div>
                   <div className="dropDownContents"></div>
                 </div>
               </div>
-              <div chosenProductContainer>
-                {chosenProduct?.map(el => (
+              <div className="chosenProductContainer">
+                {this.state.chosenProduct?.map(product => (
                   <div className="chosenProduct">
-                    <div>{el.option}</div>
-                    <div>{el.num}</div>
-                    <div>{el.price}</div>
+                    <strong>{product.option}</strong>
+                    <div className="prCount">
+                      <i
+                        class="fas fa-plus"
+                        onClick={() => this.handleIncreament(product)}
+                      ></i>
+                      <div className="line"></div>
+                      <div>{product.amount}</div>
+                      <div className="line"></div>
+                      <i
+                        class="fas fa-minus"
+                        onClick={() => this.handleDecreament(product)}
+                      ></i>
+                    </div>
+                    <div className="prPriceCount">
+                      <div>{product.price}</div>
+                      <i
+                        class="fas fa-times"
+                        onClick={() => this.handleDelete(product)}
+                      ></i>
+                    </div>
                   </div>
                 ))}
               </div>
               <div className="totalPrice">
                 <strong>총 상품금액</strong>
-                <span>0 </span>
+                <span>
+                  {this.state.chosenProduct
+                    .map(el => el.price)
+                    .reduce((stack, el) => {
+                      return Number(stack) + Number(el);
+                    }, 0)}
+                </span>
                 <span>원</span>
               </div>
             </div>
             <div className="buttonArea">
-              <button className="addToCart">장바구니담기</button>
+              <button className="addToCart" onClick={() => this.handleCart()}>
+                장바구니담기
+              </button>
               <button className="buyNow">바로구매하기</button>
-              <button className="dibs">찜</button>
+              <button
+                className={this.state.buttonColor ? "dibs" : "dibs2"}
+                onClick={() => this.handleWishList()}
+              >
+                찜
+              </button>
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ export class Footer extends Component {
                 </li>
                 <li>
                   <div>
-                    <span>모나미몰 이용약관 개정 안내</span>
+                    <span>모나위몰 이용약관 개정 안내</span>
                     <span>2020.10.05</span>
                   </div>
                 </li>
@@ -41,7 +41,7 @@ export class Footer extends Component {
               </div>
               <div className="spaceBetween">
                 <div>
-                  <p className="font24 marginBottom8 strong">1544-2884</p>
+                  <p className="font24 marginBottom8 strong">010-8831-7265</p>
                   <p className="marginBottom8">
                     평일08:30~17:30(점심시간 12:00~13:00)
                   </p>
@@ -56,15 +56,15 @@ export class Footer extends Component {
             <div className="helper">
               <strong>
                 <div className="marginBottom20">소통과 체험의 복합공간</div>
-                <div className="font20 strong">모나미 스토어</div>
+                <div className="font20 strong">모나위 스토어</div>
               </strong>
               <button>스토어 보러가기 {">"}</button>
             </div>
             <div className="sns">
-              <div className="marginBottom20">모나미 공식 SNS</div>
+              <div className="marginBottom20">모나위 공식 SNS</div>
               <ul>
-                <li className="instagram">모나미펫 인스타그램</li>
-                <li className="instagram">모나미 인스타그램</li>
+                <li className="instagram">모나위펫 인스타그램</li>
+                <li className="instagram">모나위 인스타그램</li>
                 <li className="facebook">페이스북</li>
               </ul>
             </div>
