@@ -41,7 +41,7 @@ class ProductList extends Component {
   }
 
   changeUrlState = (event, name, string) => {
-    console.log("event:", event, "name:", name, "string:", string);
+    // console.log("event:", event, "name:", name, "string:", string);
     const value = string ? string : event.target.value;
 
     let query = window.location.search.substring(1);
@@ -57,14 +57,14 @@ class ProductList extends Component {
     const OrderBytype = name === "sortBtn" ? value : queryValue[2];
     const pagingNumber = name === "pagingbtn" ? value : +queryValue[3];
     const itemPerPageNum = name === "itemPerPageBtn" ? value : +queryValue[4];
-    console.log(
-      categoryName,
-      subcategoryName,
-      OrderBytype,
-      pagingNumber,
-      itemPerPageNum,
-      "-3-"
-    );
+    // console.log(
+    //   categoryName,
+    //   subcategoryName,
+    //   OrderBytype,
+    //   pagingNumber,
+    //   itemPerPageNum,
+    //   "-3-"
+    // );
     fetch(
       `${API_KM}/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
     )
@@ -72,7 +72,7 @@ class ProductList extends Component {
         return res.json();
       })
       .then(res => {
-        console.log("됐다!", res);
+        // console.log("됐다!", res);
         this.props.history.push(
           `/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
         );
@@ -85,7 +85,7 @@ class ProductList extends Component {
 
   render() {
     const { numPages, ProductList, numProducts } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="ProductList">
         <ProductListNav subcategoryPage={this.changeUrlState} />
@@ -96,7 +96,7 @@ class ProductList extends Component {
                 <h3>{ProductList[0]?.subcategory_name}</h3>
                 <span>
                   등록상품:
-                  <b>{ProductList.length}</b>개
+                  <b>{numProducts}</b>개
                 </span>
                 <div className="sortArea">
                   <select
@@ -125,6 +125,7 @@ class ProductList extends Component {
                 {ProductList &&
                   ProductList?.map(el => (
                     <Product
+                      key={el.id}
                       id={el.id}
                       imageUrl={el.image_url}
                       subcategoryName={el.subcategory_name}

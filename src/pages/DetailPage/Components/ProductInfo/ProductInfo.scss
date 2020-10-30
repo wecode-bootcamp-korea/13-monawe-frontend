@@ -167,19 +167,26 @@
                 padding-left: 30px;
 
                 div {
-                  background: black;
-                }
-                span {
-                  padding-left: 7px;
-                  font-size: 13px;
+                  margin-left: 2px;
+                  background-color: white;
+                  padding: 0;
+                  div {
+                    background-color: black;
+                    span {
+                      padding-left: 7px;
+                      padding-right: 6px;
+                      font-size: 13px;
+
+                    }
+                  }
                 }
               }
-            }
+            }}
 
             span:first-child {
               width: 120px;
             }
-          }
+      
 
           .feature {
             span:first-child {
@@ -481,7 +488,7 @@
             height: 96px;
 
             :first-child {
-              padding-left: 150px;
+              padding-left: 150px !important;
               font-weight: 400;
             }
 

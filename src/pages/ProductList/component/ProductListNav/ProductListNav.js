@@ -33,8 +33,8 @@ class ProductListNav extends Component {
               <li className="StationeryTitle">Stationery</li>
             </ul>
             <ul className="categoryBox">
-              {categories.map(category => (
-                <li>
+              {categories.map((category, idx) => (
+                <li key={idx}>
                   <span
                     onClick={e =>
                       subcategoryPage(e, "category", category.title.id)
@@ -43,7 +43,7 @@ class ProductListNav extends Component {
                     {category.title.name}
                   </span>
                   <ul>
-                    {category.subcategories.map((sub, idx) => (
+                    {category.subcategories.map(sub => (
                       <li
                         className="depth3"
                         onClick={e => subcategoryPage(e, "subcategory", sub.id)}

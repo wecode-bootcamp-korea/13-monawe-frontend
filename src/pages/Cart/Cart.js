@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AddCart from "./AddCart";
+import { API_CY } from "../../Config";
 import "./Cart.scss";
 
 export default class Cart extends Component {
@@ -12,11 +13,10 @@ export default class Cart extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.5.5:8000/order/cart", {
+    fetch(`${API_CY}/order/cart`, {
       method: "GET",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())
@@ -66,11 +66,10 @@ export default class Cart extends Component {
       el => el.product_option_id === productNum
     );
 
-    fetch(`http://10.58.5.5:8000/order/cart/${productNum}`, {
+    fetch(`${API_CY}/order/cart/${productNum}`, {
       method: "PATCH",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
         amount: changedAmount[0].product_amount
@@ -81,11 +80,10 @@ export default class Cart extends Component {
   };
 
   removeCart = idx => {
-    fetch(`http://10.58.5.5:8000/order/cart/${idx}`, {
+    fetch(`${API_CY}/order/cart/${idx}`, {
       method: "DELETE",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())
