@@ -11,23 +11,23 @@
   . [Fontend](https://github.com/wecode-bootcamp-korea/13-monawe-frontend): 김수연(🦸‍♀️PM), 김한나, 백경민, 이지영 (+ 쩜오론트 민경민님👍) <br>
   . [Backend](https://github.com/wecode-bootcamp-korea/13-monawe-backend):  민경민, 황채영
 
-## 적용 기술
+### 적용 기술
  - Frontend: React.js(Class), React-router, React-slick, Sass
  - Backend: --추가 작성중--
  - 공통: git / github, Postman, Trello
  
-## 구현 기능
+### 구현 기능
  - 회원가입, 로그인/로그아웃
  - 메인페이지(MyCurator, 상품 검색기능, 디자인 요소)
  - 리스트페이지 (신상품/가격순 필터기능 및 페이지네이션)
  - 상세페이지 (장바구니추가, 찜목록추가, 상품댓글)
  - 마이페이지(최근본상품/장바구니/배송지관리)
 
-## 깃 주의사항
+###  주의사항
  - commit 작업 시, branch 확인!
 
-## ✨Team Rules✨
- - `어?` 하지말기
+### Team Rules✨
+ - 어?` 하지말기
  - 최종발표 날 모나미룩 입고오기!
  - PM님을 마음 속에 품고살기
 
