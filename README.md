@@ -1,42 +1,33 @@
-## 팀명
-monaWE
+## MONAWE PRJ 소개 및 선정 이유
+ - 소개 <br>
+  : 국내 문구 Commerce 사이트 [모나미](https://www.monamimall.com/w/main.do) 클론 프로젝트<br>(짧은 기간, 개발에만 집중하기 위해서 디자인/기획 부분만 클론하였습니다.)
+ - 선정 이유 <br>
+  : -- 추가 작성중 --
 
-## 팀원
-- Fontend: 김수연(🦸‍♀️PM), 김한나, 백경민, 이지영 (+ 쩜오론트 민경민님👍)
-- Backend:  민경민, 황채영
+### 개발 기간 및 인원
+ - 개발 기간: 2020/10/19 ~ 2020/10/30 (2주)
+ 
+ - 개발 인원<br>
+  . [Fontend](https://github.com/wecode-bootcamp-korea/13-monawe-frontend): 김수연(🦸‍♀️PM), 김한나, 백경민, 이지영 (+ 쩜오론트 민경민님👍) <br>
+  . [Backend](https://github.com/wecode-bootcamp-korea/13-monawe-backend):  민경민, 황채영
 
-## 기술 Stack
-1. JavaScript
-2. HTML
-3. React (Class)
-4. React-Router
-5. React-Router-DOM
-6. React-Slick
-7. CRA
-8. Node, npm
-9. CSS, SASS
-10. ESlint
-11. Prettier
+## 적용 기술
+ - Frontend: React.js(Class), React-router, React-slick, Sass
+ - Backend: --추가 작성중--
+ - 공통: git / github, Postman, Trello
+ 
+## 구현 기능
 
 ## 깃 주의사항
-- commit 작업 시, branch 확인!
-- git pull origin master 후 npm install(팀원의 툴 설치가 없으면 X)
-
-## 작업순서
-1.  git checkout master: 마스터 브랜치로 이동
-2. git pull origin master: github에 변화된 최신 코드를 받아온다
-3. git branch feature/name: 본인의 브랜치 생성
-4. git checkout feature/name: 브랜치로 이동
-5. git merge master: 마스터에서 받아온 최신 코드를 브랜치에 병합시킨다
-6. npm install: package.json dependencies 에 추가된 모듈 로컬에 다운로드
-7. 최대한 기능별로 쪼개서 작업하기
-8. 프로젝트 상위 디렉토리로 가서 git add . 명령어로 내가 수정한 코드를 git stage 에 올린다
-9. git status: add가 잘 되었는지 확인
-10. git commit -m "commit message": commit message는 팀원과 상의한 후에 slack 에 공유한다
-11. git push origin feature/name: 본인 브랜치에서 작업한 내용을 원격 리포지토리에 올린다
+ - commit 작업 시, branch 확인!
 
 ## ✨Team Rules✨
-- `어?` 하지말기
-- 최종발표 날 모나미룩 입고오기
-- PM님을 마음 속에 품고살기
+ - `어?` 하지말기
+ - 최종발표 날 모나미룩 입고오기!
+ - PM님을 마음 속에 품고살기
 
+
+## Reference
+ - 이 프로젝트는 [모나미](https://www.monamimall.com/w/main.do) 사이트를 참조하여 학습목적으로 만들었습니다.
+ - 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+ - 이 프로젝트에서 사용하고 있는 사진 대부분은 위코드에서 구매한 것이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
