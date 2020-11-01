@@ -17,6 +17,7 @@
  - 공통: git / github, Postman, Trello
  
 ## 구현 기능
+-- 추가 작성중 --
 
 ## 깃 주의사항
  - commit 작업 시, branch 확인!
