@@ -29,7 +29,7 @@
 
 ### 개인별 담당 기능
 
-### [김수연](https://velog.io/@link717/WeCode-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0)
+#### [김수연](https://velog.io/@link717/WeCode-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0)
 1. NavBar MenuTab 구현
 2. 사이트 검색 기능 구현
 3. 유저 툴 박스 구현 (최근 본 상품)
