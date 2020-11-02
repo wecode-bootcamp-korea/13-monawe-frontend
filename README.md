@@ -59,6 +59,15 @@
 3. 메인페이지 배너 슬라이드 구현
 4. 장바구니 추가/삭제/수량변경 기능구현
 
+#### [김한나](https://velog.io/@nana_kim/1차-프로젝트-후기-Moname)
+
+1. 상품리스트페이지 SubNav 기능 구현
+2. fetch를 사용하여 Back-End에 호출하하고 응답받은 데이터를 구현함.
+3. 상품 filter 기능구현.
+4. Pagenation.
+5. qurey string과 path로 동적 라우팅 구현.
+6. map을 사용해서 jsx 리턴하여 목록 구현.
+
 ### 주의사항
 
 - commit 작업 시, branch 확인!
