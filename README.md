@@ -29,7 +29,15 @@
 
 ### 개인별 담당 기능
 
-#### 민경민
+### [김수연](https://velog.io/@link717/WeCode-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0)
+1. NavBar MenuTab 구현
+2. 사이트 검색 기능 구현
+3. 유저 툴 박스 구현 (최근 본 상품)
+4. 메인페이지 모나위 스토리 Slick-slider 
+5. 마이페이지 구현
+
+
+#### [민경민](https://velog.io/@mgm-dev/%ED%9B%84%EA%B8%B0-wecode-1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0)
 
 1. 회원가입 / 로그인 엔드포인트 작성
 1. JWT 발행, 데코레이터로 검증
