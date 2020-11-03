@@ -68,6 +68,15 @@
 5. qurey string과 path로 동적 라우팅 구현.
 6. map을 사용해서 jsx 리턴하여 목록 구현.
 
+
+### 이지영(https://velog.io/@leejyart/1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-Monawe)
+
+1. 상품 디테일 페이지
+2. fetch (GET, POST)를 사용하여 백엔드와 통신 
+3. 댓글 기능 구현 (map을 사용하여 jsx return)
+4. query string 사용하여, 상품리스트에서 상세 페이지로 이동 
+5. 메인페이지의 추천 상품 component 제작 (hover를 이용한 transition 기능 구현)
+
 ### 주의사항
 
 - commit 작업 시, branch 확인!
