@@ -14,15 +14,11 @@ class ProductRecommendation extends Component {
         </div>
         <div className="topArea">
           <div className="box New1">
-            <img
-              src={
-                "https://dfrkkcv2hg1jc.cloudfront.net/data/main/file1_1597881955aae6tmba0j.jpg"
-              }
-            />
+            <img src={"/images/1번.jpg"} />
             <div className="redBox">
               <div className="contentBox">
                 <div class="cate">PREMIUM PEN</div>
-                <div class="name">153 네오 아트</div>
+                <div class="name">404 네오 아트</div>
                 <div class="plus">
                   <div></div>
                   <div></div>
@@ -31,7 +27,7 @@ class ProductRecommendation extends Component {
             </div>
           </div>
           <div className="box New2">
-            <img src="https://dfrkkcv2hg1jc.cloudfront.net/data/main/file1_1580694209z1vo1d5pj2.jpg" />
+            <img src="/images/2번.png" width="786" height="360" />
             <div className="redBox">
               <div className="contentBox">
                 <div class="cate">DESK PEN</div>
@@ -46,11 +42,11 @@ class ProductRecommendation extends Component {
         </div>
         <div className="bottomArea">
           <div className="box New3">
-            <img src="https://dfrkkcv2hg1jc.cloudfront.net/data/main/file1_15867453736k3x8jrvw9.jpg" />
+            <img src="/images/3번.jpg" />
             <div className="redBox">
               <div className="contentBox">
                 <div class="cate">PREMIUM PEN</div>
-                <div class="name">153 네오 아트</div>
+                <div class="name">404 네오 아트</div>
                 <div class="plus">
                   <div></div>
                   <div></div>
@@ -59,11 +55,11 @@ class ProductRecommendation extends Component {
             </div>
           </div>
           <div className="box New4">
-            <img src="https://dfrkkcv2hg1jc.cloudfront.net/data/main/file1_1594946590xz5hvdcijo.jpg" />
+            <img src="/images/4번.jpg" />
             <div className="redBox">
               <div className="contentBox">
                 <div class="cate">PREMIUM PEN</div>
-                <div class="name">153 네오 아트</div>
+                <div class="name">404 네오 아트</div>
                 <div class="plus">
                   <div></div>
                   <div></div>
@@ -72,11 +68,11 @@ class ProductRecommendation extends Component {
             </div>
           </div>
           <div className="box New5">
-            <img src="https://dfrkkcv2hg1jc.cloudfront.net/data/main/file1_1584424435txyhc56jmi.jpg" />
+            <img src="/images/5번.jpg" />
             <div className="redBox">
               <div className="contentBox">
                 <div class="cate">PREMIUM PEN</div>
-                <div class="name">153 네오 아트</div>
+                <div class="name">404 네오 아트</div>
                 <div class="plus">
                   <div></div>
                   <div></div>

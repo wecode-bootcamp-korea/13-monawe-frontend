@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API_KM } from "../../Config";
 import "./JoinStepTwo.scss";
 
 class JoinStep2 extends Component {
@@ -42,7 +43,7 @@ class JoinStep2 extends Component {
 
   checkId = e => {
     e.preventDefault();
-    const APIforIdCheck = "http://10.58.1.8:8000/user/checkaccount";
+    const APIforIdCheck = `${API_KM}/user/checkaccount`;
     const { account } = this.state;
     fetch(APIforIdCheck, {
       method: "POST",
@@ -58,7 +59,7 @@ class JoinStep2 extends Component {
 
   checkEmail = e => {
     e.preventDefault();
-    const APIforEmailCheck = "http://10.58.1.8:8000/user/checkemail";
+    const APIforEmailCheck = `${API_KM}/user/checkemail`;
     const { email } = this.state;
     fetch(APIforEmailCheck, {
       method: "POST",
@@ -150,7 +151,7 @@ class JoinStep2 extends Component {
     this.isPasswordSame();
     this.isPwInfoValid();
     if (isEssentialInfoValid && isPasswordSame && isPwInfoValid && isIdValid) {
-      const APIforRegister = "http://10.58.1.8:8000/user/signup";
+      const APIforRegister = `${API_KM}/user/signup`;
       fetch(APIforRegister, {
         method: "POST",
         body: JSON.stringify({

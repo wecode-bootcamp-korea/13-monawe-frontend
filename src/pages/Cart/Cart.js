@@ -50,7 +50,8 @@ export default class Cart extends Component {
             : el
         )
       }),
-      () => this.calPrice()
+      () => this.calPrice(),
+      () => this.calPriceByItem()
     );
   };
 
@@ -80,6 +81,7 @@ export default class Cart extends Component {
   };
 
   removeCart = idx => {
+    console.log("패치되니??????");
     fetch(`${API_CY}/order/cart/${idx}`, {
       method: "DELETE",
       headers: {
@@ -102,6 +104,16 @@ export default class Cart extends Component {
         cartList[i].product_price * 1 * cartList[i].product_amount * 1;
     }
     this.setState({ total_sum: totalPayPrice });
+  };
+
+  calPriceByItem = productNum => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(el =>
+        el.product_option_id === productNum
+          ? { ...el, total_price: el.product_amount * el.product_price }
+          : el
+      )
+    }));
   };
 
   render() {
@@ -179,6 +191,9 @@ export default class Cart extends Component {
                       addCnt={() => this.addCnt(cart.product_option_id)}
                       changeCnt={() => this.changeCnt(cart.product_option_id)}
                       removeCart={() => this.removeCart(cart.product_option_id)}
+                      calPriceByItem={() =>
+                        this.calPriceByItem(cart.product_option_id)
+                      }
                     />
                   ))}
                 </tbody>

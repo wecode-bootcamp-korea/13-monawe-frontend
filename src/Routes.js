@@ -8,7 +8,6 @@ import JoinStepTwo from "./pages/JoinSteps/JoinStepTwo";
 import JoinStepThree from "./pages/JoinSteps/JoinStepThree";
 import Login from "./pages/Login/Login";
 import Cart from "./pages/Cart/Cart";
-import MainBanner from "./pages/MainPage/components/MainBanner/MainBanner";
 import ProductList from "./pages/ProductList/ProductList";
 import NavContainer from "./pages/components/NavContainer/NavContainer";
 import MyPageContainer from "./pages/MyPage/MyPageContainer";
