@@ -69,7 +69,7 @@
 6. map을 사용해서 jsx 리턴하여 목록 구현.
 
 
-### 이지영(https://velog.io/@leejyart/1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-Monawe)
+### 이지영 <link href="https://velog.io/@leejyart/1%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9A%8C%EA%B3%A0%EB%A1%9D-Monawe"/>
 
 1. 상품 디테일 페이지
 2. fetch (GET, POST)를 사용하여 백엔드와 통신 
