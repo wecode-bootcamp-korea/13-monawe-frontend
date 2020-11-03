@@ -28,10 +28,11 @@
 
 #### 김수연
 1. NavBar MenuTab 및 Transition 구현
-2. 사이트 검색 기능 구현
-3. 유저 툴 박스 구현 (최근 본 상품)
-4. 메인페이지 모나위 스토리 Slick-slider 구현
-5. 마이페이지 구현
+2. Login User 정보 활용(localStorage), Navbar User Icon 생성
+3. 유저 툴 박스 구현 (최근 본 상품: fetch get 사용)
+4. 사이트 검색 기능 구현
+5. 메인페이지 모나위 스토리 Slick-slider 구현
+6. 마이페이지 구현
 
 #### 김한나
 1. 상품리스트페이지 SubNav 기능 구현
