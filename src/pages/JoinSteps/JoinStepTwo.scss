@@ -2,6 +2,7 @@
     width: 100%;
     height: 1048px;
     padding: 100px 0;
+    margin-bottom: 150px;
     h2 {
         height: 190px;
         background-color: #faf9f7;
@@ -86,7 +87,7 @@
                         }
                         .pwGuideline {
                             color: #BBBBBB;
-                            margin: 3px 0px 0px 125px;
+                            margin: 3px 0px 0px 140px;
                             font-size: 12px;
                             margin-bottom: 5px;
                         }
@@ -111,7 +112,7 @@
                                     border: 1px #ccc solid;
                                     border-radius: 1px;        
                                     font-size: 14px;
-                                    margin: 0 8px 0 -8px;
+                                    margin: 0 8px 0 -1px;
                                 }
                                 button {
                                     width: 136px;
@@ -130,7 +131,7 @@
                             }
                         }
                         .infoError {
-                            margin: 3px 0px 0px 118px;
+                            margin: 3px 0px 0px 140px;
                             color: red;
                             font-size: 8px;
                             

@@ -5,8 +5,16 @@ import "./ContentType.scss";
 
 class ContentType extends Component {
   handlePageChange = id => {
+    const SUBCATEGORIES = {
+      1: 1,
+      2: 4,
+      3: 8,
+      4: 11,
+      5: 14
+    };
+
     this.props.history.push(
-      "/products?category=1&subcategory=1&order_by=created_at&page_number=1&item_per_page=20"
+      `/products?category=${id}&subcategory=${SUBCATEGORIES[id]}&order_by=created_at&page_number=1&item_per_page=20`
     );
   };
 

@@ -146,10 +146,11 @@ $border-color: #ececec;
         margin-right: 35px;
         @include flex-center;
 
-        button {
+        a,button {
           width: 50px;
           height: 50px;
           font-size: 26px;
+          color: black;
           @include flex-center;
           @include button-style;
         }
@@ -199,6 +200,9 @@ $border-color: #ececec;
 
             a,
             li {
+              width: 100%;
+              display: block;
+              word-break: keep-all;
               color: #3f3f3f;
               font-size: 16px;
               text-align: center;

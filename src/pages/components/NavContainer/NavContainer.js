@@ -20,7 +20,7 @@ class NavContainer extends Component {
     this.setState({ userName: userName });
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({ userName: localStorage.getItem("name") });
     }

@@ -14,11 +14,10 @@ class MyCurator extends Component {
   }
 
   componentDidMount() {
-    const userToken = localStorage.getItem("token");
     fetch(`${API_CY}/order/recent`, {
       method: "GET",
       headers: {
-        Authorization: userToken
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())

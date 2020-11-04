@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AddCart from "./AddCart";
+import { API_CY } from "../../Config";
 import "./Cart.scss";
 
 export default class Cart extends Component {
@@ -12,11 +13,10 @@ export default class Cart extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.5.5:8000/order/cart", {
+    fetch(`${API_CY}/order/cart`, {
       method: "GET",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())
@@ -50,7 +50,8 @@ export default class Cart extends Component {
             : el
         )
       }),
-      () => this.calPrice()
+      () => this.calPrice(),
+      () => this.calPriceByItem()
     );
   };
 
@@ -66,11 +67,10 @@ export default class Cart extends Component {
       el => el.product_option_id === productNum
     );
 
-    fetch(`http://10.58.5.5:8000/order/cart/${productNum}`, {
+    fetch(`${API_CY}/order/cart/${productNum}`, {
       method: "PATCH",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
         amount: changedAmount[0].product_amount
@@ -81,11 +81,11 @@ export default class Cart extends Component {
   };
 
   removeCart = idx => {
-    fetch(`http://10.58.5.5:8000/order/cart/${idx}`, {
+    console.log("패치되니??????");
+    fetch(`${API_CY}/order/cart/${idx}`, {
       method: "DELETE",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())
@@ -104,6 +104,16 @@ export default class Cart extends Component {
         cartList[i].product_price * 1 * cartList[i].product_amount * 1;
     }
     this.setState({ total_sum: totalPayPrice });
+  };
+
+  calPriceByItem = productNum => {
+    this.setState(prevState => ({
+      cartList: prevState.cartList.map(el =>
+        el.product_option_id === productNum
+          ? { ...el, total_price: el.product_amount * el.product_price }
+          : el
+      )
+    }));
   };
 
   render() {
@@ -181,6 +191,9 @@ export default class Cart extends Component {
                       addCnt={() => this.addCnt(cart.product_option_id)}
                       changeCnt={() => this.changeCnt(cart.product_option_id)}
                       removeCart={() => this.removeCart(cart.product_option_id)}
+                      calPriceByItem={() =>
+                        this.calPriceByItem(cart.product_option_id)
+                      }
                     />
                   ))}
                 </tbody>

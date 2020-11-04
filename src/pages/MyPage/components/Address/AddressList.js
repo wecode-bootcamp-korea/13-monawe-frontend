@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Address from "./Address";
 import AddressModal from "./AddressModal";
+import { API_KM } from "../../../../Config";
 import "./AddressList.scss";
 
 export class AddressList extends Component {
@@ -14,7 +15,7 @@ export class AddressList extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.1.8:8000/user/address", {
+    fetch(`${API_KM}/user/address`, {
       headers: new Headers({
         Authorization: localStorage.getItem("token")
       })
@@ -28,7 +29,7 @@ export class AddressList extends Component {
   }
 
   deleteAddress = id => {
-    fetch("http://10.58.1.8:8000/user/address", {
+    fetch(`${API_KM}/user/address`, {
       method: "DELETE",
       body: JSON.stringify({
         address_id: id
@@ -50,7 +51,7 @@ export class AddressList extends Component {
   };
 
   addAddress = () => {
-    fetch("http://10.58.1.8:8000/user/address", {
+    fetch(`${API_KM}/user/address`, {
       headers: new Headers({
         Authorization: localStorage.getItem("token")
       })

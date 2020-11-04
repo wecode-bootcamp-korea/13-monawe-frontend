@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import "./DetailPage.scss";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductReviews from "./Components/ProductReview/ProductReview";
 import ProductDetail from "./Components/ProductDetail/ProductDetail";
-
+import { API_KM } from "../../Config";
+import { API_CY } from "../../Config";
+import "./DetailPage.scss";
 class DetailPage extends Component {
   constructor() {
     super();
@@ -16,25 +17,24 @@ class DetailPage extends Component {
   }
 
   componentDidMount() {
-    fetch("http://10.58.1.8:8000/product/1", {
+    fetch(`${API_KM}/product/${this.props.match.params.id}`, {
       method: "GET"
     })
       .then(res => res.json())
       .then(res => {
         console.log("productinfo", res);
         this.setState({ productInfo: res.data.product_info }, () => {
-          fetch("http://10.58.5.5:8000/order/recent", {
+          fetch(`${API_CY}/order/recent`, {
             method: "POST",
             headers: {
-              Authorization:
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+              Authorization: localStorage.getItem("token")
             },
             body: JSON.stringify({ product_id: this.state.productInfo.id })
           });
         });
       });
 
-    fetch("http://10.58.1.8:8000/review?product_id=1", {
+    fetch(`${API_KM}/review?product_id=${this.props.match.params.id}`, {
       method: "GET"
     })
       .then(res => res.json())

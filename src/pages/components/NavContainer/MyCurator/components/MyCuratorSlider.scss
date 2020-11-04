@@ -21,11 +21,13 @@
 
       .slick-track {
         width: 880px !important;
+        display: flex;
       }
 
       .slick-slide {
         width: 160px;
         height: auto;
+        margin: 0 10px;
         cursor: pointer;
 
         :focus {

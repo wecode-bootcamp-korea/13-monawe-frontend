@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./AddressModal.scss";
+import { API_KM } from "../../../../Config";
 
 export class AddressModal extends Component {
   constructor() {
@@ -53,7 +54,7 @@ export class AddressModal extends Component {
       return;
     }
     if (this.props.mode === "add") {
-      fetch("http://10.58.1.8:8000/user/address", {
+      fetch(`${API_KM}/user/address`, {
         method: "POST",
         body: JSON.stringify({
           name: name,
@@ -64,8 +65,7 @@ export class AddressModal extends Component {
           is_default: isDefault
         }),
         headers: new Headers({
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+          Authorization: localStorage.getItem("token")
         })
       }).then(res => {
         if (res.status === 200) {
@@ -78,7 +78,7 @@ export class AddressModal extends Component {
         }
       });
     } else {
-      fetch("http://10.58.1.8:8000/user/address", {
+      fetch(`${API_KM}/user/address`, {
         method: "PATCH",
         body: JSON.stringify({
           address_id: id,
@@ -90,8 +90,7 @@ export class AddressModal extends Component {
           is_default: isDefault
         }),
         headers: new Headers({
-          Authorization:
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxfQ.PEGup6P_OS0B1Wfy6EHL9Np03hdcUuLMDXmrmGNCobQ"
+          Authorization: localStorage.getItem("token")
         })
       }).then(res => {
         if (res.status === 200) {

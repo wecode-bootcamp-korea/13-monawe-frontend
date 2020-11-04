@@ -14,7 +14,8 @@ export default class AddCart extends Component {
       addCnt,
       changeCnt,
       removeCart,
-      total_price
+      total_price,
+      calPriceByItem
     } = this.props;
     return (
       <tr>

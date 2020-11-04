@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { API_CY } from "../../../../Config";
 import "./ProductInfo.scss";
 
 class ProductInfo extends Component {
@@ -58,11 +59,10 @@ class ProductInfo extends Component {
 
   handleCart() {
     console.log("test1", this.state.chosenProduct);
-    fetch("http://10.58.5.5:8000/order/cart", {
+    fetch(`${API_CY}/order/cart`, {
       method: "POST",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+        Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({ chosen_product: this.state.chosenProduct })
     })
@@ -77,11 +77,10 @@ class ProductInfo extends Component {
   }
 
   handleWishList() {
-    fetch("http://10.58.5.5:8000/order/wishlist", {
+    fetch(`${API_CY}/order/wishlist`, {
       method: "POST",
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoxMX0.c1-cHH5d36QwjLBnQA_jCAqRnm1BDYnKlTA7Wj77Zho"
+        Authorization: localStorage.getItem("token")
       },
       body: JSON.stringify({
         product_id: this.props.productInfo.id
@@ -98,6 +97,11 @@ class ProductInfo extends Component {
         }
       });
   }
+
+  getNumberTransferToPrice = price => {
+    console.log("price", price);
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
 
   render() {
     const {
@@ -172,17 +176,20 @@ class ProductInfo extends Component {
               <div className="thickness">
                 <span>심두께및스펙</span>
                 <ul>
-                  {thickness?.map(el => (
-                    <li>
-                      <div
-                        style={{
-                          width: "30px",
-                          height: el * 5 + "px"
-                        }}
-                      ></div>
-                      <span>{el}</span>
-                    </li>
-                  ))}
+                  <li>
+                    {thickness?.map(el => (
+                      <div className="thicknessContainer">
+                        <div
+                          style={{
+                            height:
+                              el === "Extra fine" ? "0.1px" : el * 5 + "px",
+                            width: "30px"
+                          }}
+                        ></div>
+                        <span>{el}</span>
+                      </div>
+                    ))}
+                  </li>
                 </ul>
               </div>
               <div className="feature">
@@ -199,7 +206,7 @@ class ProductInfo extends Component {
             <div className="productInfoPrice">
               <div className="price">
                 <span>판매가</span>
-                <span>{price?.split(".")[0]}</span>
+                <span>{this.getNumberTransferToPrice(Number(price))}</span>
                 <span>원</span>
               </div>
               <div className="memberBenefits">
@@ -260,7 +267,11 @@ class ProductInfo extends Component {
                       ></i>
                     </div>
                     <div className="prPriceCount">
-                      <div>{product.price}</div>
+                      <div>
+                        {product.price
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                      </div>
                       <i
                         class="fas fa-times"
                         onClick={() => this.handleDelete(product)}
@@ -276,7 +287,9 @@ class ProductInfo extends Component {
                     .map(el => el.price)
                     .reduce((stack, el) => {
                       return Number(stack) + Number(el);
-                    }, 0)}
+                    }, 0)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
                 <span>원</span>
               </div>

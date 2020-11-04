@@ -12,15 +12,15 @@ class MyPage extends Component {
   }
 
   componentDidMount() {
-    const userToken = localStorage.getItem("token");
     fetch(`${API_CY}/order/recent`, {
       method: "GET",
       headers: {
-        Authorization: userToken
+        Authorization: localStorage.getItem("token")
       }
     })
       .then(res => res.json())
       .then(res => {
+        console.log("최근본상품", res);
         this.setState({ recentelyViewedProducts: res.viewed_list });
       });
   }

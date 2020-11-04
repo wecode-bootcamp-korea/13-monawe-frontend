@@ -76,7 +76,7 @@ class Nav extends Component {
               />
             </div>
             <div className="icons">
-              <button className="fas fa-shopping-bag" />
+              <Link to="/Cart" className="fas fa-shopping-bag" />
               <div className="popUpBoxWrap">
                 <button className="fas fa-user" />
                 <div className={userName ? "popUpBox inactive " : "popUpBox "}>
