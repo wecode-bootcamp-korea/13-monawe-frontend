@@ -20,7 +20,6 @@ class MyPage extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log("최근본상품", res);
         this.setState({ recentelyViewedProducts: res.viewed_list });
       });
   }

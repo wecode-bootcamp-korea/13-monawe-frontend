@@ -58,7 +58,6 @@ class ProductInfo extends Component {
   }
 
   handleCart() {
-    console.log("test1", this.state.chosenProduct);
     fetch(`${API_CY}/order/cart`, {
       method: "POST",
       headers: {
@@ -99,7 +98,6 @@ class ProductInfo extends Component {
   }
 
   getNumberTransferToPrice = price => {
-    console.log("price", price);
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 

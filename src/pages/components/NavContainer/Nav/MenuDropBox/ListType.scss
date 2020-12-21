@@ -4,10 +4,10 @@
   align-items: center;
 }
 
-.ListType {
+.listType {
+  position: relative;
   width: 100%;
   height: 0px;
-  position: relative;
   overflow: hidden;
   transition: height 0.3s ease;
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { API_CY } from "../../../../../src/Config";
+import { recentlyViewListAPI } from "../../../../../src/Config";
 import MyCuratorSlider from "./components/MyCuratorSlider";
 
 import "./MyCurator.scss";
@@ -14,7 +14,7 @@ class MyCurator extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API_CY}/order/recent`, {
+    fetch(recentlyViewListAPI, {
       method: "GET",
       headers: {
         Authorization: localStorage.getItem("token")

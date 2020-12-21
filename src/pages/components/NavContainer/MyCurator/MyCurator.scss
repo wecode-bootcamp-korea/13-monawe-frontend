@@ -11,31 +11,31 @@
 }
 
 .MyCurator {
-  padding: 20px 0;
   position: fixed;
   top: 0;
-  z-index: 150;
   min-width: 100%;
+  padding: 20px 0;
   background-color: #fff;
   border-bottom: 1px solid #555555;
   transition: all 0.8s ease;
+  z-index: 150;
 
   > div {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
     width: 1200px;
     margin: 0 auto;
-    position: relative;
-    flex-direction: column;
-    @include flex-center;
 
     .notice {
-      padding: 15px 40px;
-      border: 1px solid #ebebeb;
-      background-color: #f9f9f9;
       @include flex-spaceBetween-center;
+      padding: 15px 40px;
+      background-color: #f9f9f9;
+      border: 1px solid #ebebeb;
 
       .fitNotice {
-        width: 440px;
         @include flex-center;
+        width: 440px;
 
         i {
           margin-right: 20px;
@@ -57,35 +57,29 @@
             height: 26px;
             padding: 0 8px;
             margin-right: 10px;
-            border: 1px solid #555555;
-            font-size: 13px;
-            cursor: pointer;
-            border-radius: 2px;
             background-color: #ffffff;
+            border: 1px solid #555555;
+            border-radius: 2px;
+            color: #555555;
+            font-size: 13px;
             line-height: 27px;
-      
-
-            &:first-child {
-              margin: 0;
-              color: #ffffff;
-              background-color: #555555;
-            }
+            cursor: pointer;
 
             &:last-child {
               margin: 0;
-              color: #ffffff;
               background-color: #555555;
+              color: #ffffff;
             }
           }
         }
       }
 
       .shoppingNotice {
+        @include flex-center;
+        flex-direction: column;
         width: 640px;
         padding-left: 40px;
-        flex-direction: column;
         border-left: 1px solid #dddddd;
-        @include flex-center;
 
         h4 {
           width: 100%;
@@ -104,19 +98,19 @@
     }
 
     .curatorContents {
+      position: relative;
+      @include flex-spaceBetween-center;
       width: 1200px;
       margin-top: 20px;
-      position: relative;
       align-items: flex-start;
-      @include flex-spaceBetween-center;
 
       .recommendMenu {
-        width: 220px;
-        padding-left: 13px;
-        cursor: pointer;
-        flex-direction: column;
-        line-height: 52px;
         @include flex-center;
+        flex-direction: column;
+        width: 220px;
+        padding-left: 20px;
+        line-height: 52px;
+        cursor: pointer;
 
         h4 {
           width: 100%;
@@ -132,8 +126,8 @@
       }
 
       .productLists {
-        flex-direction: column;
         @include flex-center;
+        flex-direction: column;
 
         i {
           color: #dddddd;
@@ -148,21 +142,21 @@
   }
 
   .curatorCloseBtn {
-    width: 63px;
     position: absolute;
     top: 7%;
     right: 2%;
+    width: 63px;
 
     button {
       position: absolute;
       top: 50%;
       left: 50%;
-      border: none;
-      font-size: 35px;
-      cursor: pointer;
-      font-weight: 200;
-      outline: none;
       background-color: #fff;
+      border: none;
+      outline: none;
+      font-size: 35px;
+      font-weight: 200;
+      cursor: pointer;
     }
   }
 

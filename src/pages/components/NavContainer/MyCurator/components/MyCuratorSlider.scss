@@ -4,15 +4,15 @@
     position: relative;
 
     .slick-arrow {
-      outline: none;
       background-color: transparent;
       border: none;
       font-size: 28px;
       font-weight: 100;
       color: #c8c8c8;
-      cursor: pointer;
-      -webkit-transform: translateY(-15%);
       transform: translateY(-15%);
+      -webkit-transform: translateY(-15%);
+      cursor: pointer;
+      outline: none;
     }
 
     .slick-list {
@@ -20,8 +20,8 @@
       height: auto;
 
       .slick-track {
-        width: 880px !important;
         display: flex;
+        width: 880px !important;
       }
 
       .slick-slide {

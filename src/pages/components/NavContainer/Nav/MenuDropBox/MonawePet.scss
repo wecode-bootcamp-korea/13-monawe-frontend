@@ -4,13 +4,13 @@
   align-items: center;
 }
 
-.MonawePet {
+.monawePet {
+  position: relative;
+  @include flex-center;
   width: 100%;
   height: 0px;
-  @include flex-center;
-  position: relative;
-  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
   transition: height 0.3s ease;
 
   > div {
@@ -23,9 +23,7 @@
     }
 
     &:last-child {
-      padding-top: 30px;
-      padding-bottom: 30px;
-      padding-left: 30px;
+      padding: 30px 30px 0;
     }
   }
 
@@ -38,11 +36,11 @@
     @include flex-center;
 
     ul {
-      width: 130px;
-      margin-right: 20px;
       @include flex-center;
       flex-direction: column;
       align-self: start;
+      width: 130px;
+      margin-right: 20px;
       text-align: left;
       cursor: pointer;
 
@@ -52,6 +50,7 @@
         margin-bottom: 10px;
         font-size: 14px;
         text-align: left;
+
         &:hover {
           text-decoration: underline;
         }

@@ -4,8 +4,6 @@ import Comment from "./Comment/Comment";
 
 class ProductReviews extends Component {
   render() {
-    console.log("data>>>>", this.props.prReview);
-
     return (
       <div className="reviewContainer">
         <div className="reviewSummary">

@@ -41,7 +41,6 @@ class ProductList extends Component {
   }
 
   changeUrlState = (event, name, string) => {
-    // console.log("event:", event, "name:", name, "string:", string);
     const value = string ? string : event.target.value;
 
     let query = window.location.search.substring(1);
@@ -57,14 +56,7 @@ class ProductList extends Component {
     const OrderBytype = name === "sortBtn" ? value : queryValue[2];
     const pagingNumber = name === "pagingbtn" ? value : +queryValue[3];
     const itemPerPageNum = name === "itemPerPageBtn" ? value : +queryValue[4];
-    // console.log(
-    //   categoryName,
-    //   subcategoryName,
-    //   OrderBytype,
-    //   pagingNumber,
-    //   itemPerPageNum,
-    //   "-3-"
-    // );
+
     fetch(
       `${API_KM}/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
     )
@@ -72,7 +64,6 @@ class ProductList extends Component {
         return res.json();
       })
       .then(res => {
-        // console.log("됐다!", res);
         this.props.history.push(
           `/products?category=${categoryName}&subcategory=${subcategoryName}&order_by=${OrderBytype}&page_number=${pagingNumber}&item_per_page=${itemPerPageNum}`
         );
@@ -85,7 +76,6 @@ class ProductList extends Component {
 
   render() {
     const { numPages, ProductList, numProducts } = this.state;
-    // console.log(this.state);
     return (
       <div className="ProductList">
         <ProductListNav subcategoryPage={this.changeUrlState} />
