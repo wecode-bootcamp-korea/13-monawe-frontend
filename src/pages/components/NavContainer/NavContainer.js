@@ -17,7 +17,7 @@ class NavContainer extends Component {
 
   componentDidMount() {
     const userName = localStorage.getItem("name");
-    this.setState({ userName: userName });
+    this.setState({ userName });
   }
 
   componentDidUpdate(prevProps) {
@@ -26,21 +26,21 @@ class NavContainer extends Component {
     }
   }
 
-  handleMyCurator = e => {
+  handleMyCurator = () => {
     this.setState({ isMyCurator: !this.state.isMyCurator });
   };
 
-  handleSearchBox = e => {
+  handleSearchBox = () => {
     this.setState({ isSearchBox: !this.state.isSearchBox });
   };
 
-  handleLogOut = e => {
+  handleLogOut = () => {
     localStorage.clear();
     this.setState({ isMyCurator: false, isSearchBox: false });
   };
 
   render() {
-    const { userName, isMyCurator } = this.state;
+    const { userName, isMyCurator, isSearchBox } = this.state;
     return (
       <header className="NavContainer">
         <Nav
@@ -55,7 +55,7 @@ class NavContainer extends Component {
           onLogOut={this.handleLogOut}
         />
         <SearchBox
-          isSearchBox={this.state.isSearchBox}
+          isSearchBox={isSearchBox}
           onSearchBox={this.handleSearchBox}
         />
       </header>

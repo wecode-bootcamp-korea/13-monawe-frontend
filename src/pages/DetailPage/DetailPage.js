@@ -22,7 +22,6 @@ class DetailPage extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log("productinfo", res);
         this.setState({ productInfo: res.data.product_info }, () => {
           fetch(`${API_CY}/order/recent`, {
             method: "POST",

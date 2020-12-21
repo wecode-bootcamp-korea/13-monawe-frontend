@@ -81,7 +81,6 @@ export default class Cart extends Component {
   };
 
   removeCart = idx => {
-    console.log("패치되니??????");
     fetch(`${API_CY}/order/cart/${idx}`, {
       method: "DELETE",
       headers: {

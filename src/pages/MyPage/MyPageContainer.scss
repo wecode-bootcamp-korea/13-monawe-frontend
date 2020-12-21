@@ -2,37 +2,49 @@
   border: 1px solid #dddddd;
 }
 
+@mixin virtual-style {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 15px;
+  height: 1px;
+  background: #000000;
+  content: "";
+  transition: 0.4s;
+}
+
 $theme-color: #92c54d;
 
 .MyPageContainer {
-  width: 1200px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1200px;
+  margin: 0 auto;
 
   h1 {
+    padding: 180px 0 30px;
     font-size: 48px;
-    text-align: center;
     font-weight: 300;
-    padding-top: 180px;
-    padding-bottom: 30px;
+    text-align: center;
+
     vertical-align: middle;
   }
 
   .myPageBanner {
-    height: 150px;
     display: flex;
     align-items: center;
+    height: 150px;
     background-color: #f9f9f9;
     @include border-style;
 
     i {
+      position: relative;
+      top: 18%;
       width: 150px;
       height: auto;
       padding: auto;
-      position: relative;
-      top: 18%;
       color: $theme-color;
       font-size: 100px;
       text-align: center;
@@ -40,24 +52,24 @@ $theme-color: #92c54d;
     }
 
     > div {
-      height: 91px;
       display: flex;
+      height: 91px;
 
       .userInfo {
-        width: 230px;
         display: flex;
         flex-direction: column;
+        width: 230px;
 
         > span:first-child,
         strong {
-          font-size: 24px;
           padding-bottom: 4px;
+          font-size: 24px;
         }
 
         .fontHighlight {
+          padding-bottom: 5px;
           color: $theme-color;
           font-size: 16px;
-          padding-bottom: 5px;
           font-weight: 400;
         }
 
@@ -66,28 +78,28 @@ $theme-color: #92c54d;
           margin-top: 16px;
 
           a {
+            display: inline-block;
             height: 26px;
             padding: 7px 8px;
             margin: 10px 0;
-            display: inline-block;
+            background-color: #555555;
+            border-radius: 2px;
             color: #ffffff;
             font-size: 13px;
             cursor: pointer;
-            border-radius: 2px;
-            background-color: #555555;
           }
 
           button {
             height: 26px;
             padding: 0 8px;
             margin: 10px 0 10px 5px;
-            color: #555555;
-            font-size: 13px;
-            cursor: pointer;
-            outline: none;
-            border-radius: 2px;
             background-color: transparent;
             @include border-style;
+            border-radius: 2px;
+            color: #555555;
+            outline: none;
+            font-size: 13px;
+            cursor: pointer;
           }
         }
       }
@@ -96,14 +108,14 @@ $theme-color: #92c54d;
         display: flex;
 
         li {
-          height: 89px;
-          margin: 10px;
           display: flex;
-          text-align: center;
-          min-width: 187px;
-          padding-bottom: 5px;
-          border-left: 1px solid #dddddd;
           flex-direction: column;
+          min-width: 187px;
+          height: 89px;
+          padding-bottom: 5px;
+          margin: 10px;
+          border-left: 1px solid #dddddd;
+          text-align: center;
 
           span {
             margin: 8px;
@@ -118,8 +130,7 @@ $theme-color: #92c54d;
   }
 
   .myPageContents {
-    margin-top: 40px;
-    margin-bottom: 100px;
+    margin: 40px 0 100px;
 
     aside {
       float: left;
@@ -139,43 +150,26 @@ $theme-color: #92c54d;
 
         > div {
           padding: 0 15px 3px 15px;
-          font-size: 20px;
           border-bottom: 1px solid #dddddd;
+          font-size: 20px;
 
           a {
-            display: block;
             position: relative;
+            display: block;
+            padding: 13px 0 8px;
             color: #000000;
             font-size: 20px;
-            padding-top: 13px;
-            padding-bottom: 8px;
             font-weight: 300;
             line-height: 23px;
           }
 
           a::before {
-            width: 15px;
-            height: 1px;
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            background: #000000;
-            content: "";
-            transition: 0.4s;
+            @include virtual-style;
             transform: rotate(-90deg);
           }
 
           a::after {
-            width: 15px;
-            height: 1px;
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            background: #000000;
-            content: "";
-            transition: 0.4s;
+            @include virtual-style;
             transform: rotate(-180deg);
           }
         }
@@ -203,8 +197,8 @@ $theme-color: #92c54d;
     }
 
     > div {
-      width: 960px;
       float: left;
+      width: 960px;
       margin-left: 80px;
     }
   }

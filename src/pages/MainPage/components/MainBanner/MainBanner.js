@@ -85,7 +85,6 @@ class MainBanner extends Component {
   };
 
   render() {
-    console.log("currentSlideIndex >>> ", this.state.currentSlideIndex);
     return (
       <div className="MainBanner">
         <Slider

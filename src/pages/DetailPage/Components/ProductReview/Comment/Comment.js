@@ -4,15 +4,11 @@ import "./Comment.scss";
 class Comment extends Component {
   render() {
     const { user_id, title, content, created_at, rating } = this.props.comment;
-    console.log(rating);
     const starDiv = [];
     const star = <i className="fas fa-star" />;
-
     for (let i = 0; i < rating; i++) {
       starDiv.push(star);
     }
-
-    console.log();
     return (
       <div className="itemContainer">
         <div className="item">

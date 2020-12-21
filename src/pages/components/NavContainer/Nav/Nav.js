@@ -10,15 +10,9 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      menus: [],
+      menus: MENUS,
       hoveredIdx: ""
     };
-  }
-
-  componentDidMount() {
-    this.setState({
-      menus: MENUS
-    });
   }
 
   handleMenuStyle = idx => {
@@ -43,7 +37,7 @@ class Nav extends Component {
 
     return (
       <div className="Nav">
-        <div className={"navMenu"}>
+        <div className="navMenu">
           <div className="menuTab">
             <div>
               <button className="fas fa-bars" />
@@ -98,35 +92,35 @@ class Nav extends Component {
         <ContentType
           categories={menus[0]?.categories}
           className={
-            hoveredIdx === 0 ? "ContentType stationeryShown" : "ContentType"
+            hoveredIdx === 0 ? "contentType stationeryShown" : "contentType"
           }
           onDropBox={this.handleDropBox}
         />
         <MonawePet
-          className={hoveredIdx === 1 ? "MonawePet shown" : "MonawePet"}
+          className={hoveredIdx === 1 ? "monawePet shown" : "monawePet"}
           onDropBox={this.handleDropBox}
         />
         <ListType
           subcategories={menus[2]?.subcategories}
-          className={hoveredIdx === 2 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 2 ? "listType shown" : "listType"}
           onDropBox={this.handleDropBox}
         />
         <ListType
           subcategories={menus[3]?.subcategories}
-          className={hoveredIdx === 3 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 3 ? "listType shown" : "listType"}
           onDropBox={this.handleDropBox}
         />
         <ContentType
           categories={menus[4]?.categories}
           className={
-            hoveredIdx === 4 ? "ContentType storypickShown" : "ContentType"
+            hoveredIdx === 4 ? "contentType storypickShown" : "contentType"
           }
           onDropBox={this.handleDropBox}
         />
 
         <ListType
           subcategories={menus[5]?.subcategories}
-          className={hoveredIdx === 5 ? "ListType shown" : "ListType"}
+          className={hoveredIdx === 5 ? "listType shown" : "listType"}
           onDropBox={this.handleDropBox}
         />
       </div>

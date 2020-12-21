@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { API_KM } from "../../../../../Config";
 import "./ContentType.scss";
 
 class ContentType extends Component {
